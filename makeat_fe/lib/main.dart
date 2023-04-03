@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/social_login_screen.dart';
+import 'package:provider/provider.dart';
 
 import 'package:makeat_fe/views/splash_screen.dart';
-
+import 'package:makeat_fe/view_models/social_login_view_model.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -15,7 +17,11 @@ class MAKEAT extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      // home: ChangeNotifierProvider(
+      //   create: (context) => SocialLoginViewModel(),
+      //   child: SocialLoginScreen(),
+      // ),
       home: SplashScreen(),
     );
   }
