@@ -29,6 +29,7 @@ class SocialLoginButton extends StatelessWidget {
           children: [
             Image.asset(
               imageURL,
+              height: 44.0,
             ),
             Text(
               buttonText1,

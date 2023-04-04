@@ -33,6 +33,8 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '', 
                   // onTap: onTap, 
+                  // https://developers.kakao.com/tool/resource/kakaosync
+                  // kakao_login_large_narrow.png
                   imageURL: 'assets/images/social_login/kakao_login.png', 
                   buttonColor: Color(0xfffee500),
                 ),
@@ -41,19 +43,24 @@ class SocialLoginScreen extends StatelessWidget {
                 /* Naver 소셜 로그인 */
                 SocialLoginButton(
                   buttonText1: '', 
-                  buttonText2: '네이버로 시작하기       ', 
+                  buttonText2: '  네이버로 시작하기       ', 
                   // onTap: onTap, 
+                  // 2021_Login_with_naver_guidelines_Kr
+                  // btnG_아이콘사각.png
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: Color(0xff03c75a),
                 ),
                 SizedBox(height: 10.0),
 
                 /* Apple 소셜 로그인 */
+                
                 if (Platform.isIOS) ...[
                   SocialLoginButton(
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
                     // onTap: onTap, 
+                    // Sign in with Apple - Logo Only
+                    // PNG/3x/Logo-SIWA-Logo-only-White@3x.png
                     imageURL: 'assets/images/social_login/apple_login.png', 
                     buttonColor: Color(0xff000000),
                   ),
