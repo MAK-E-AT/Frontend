@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/social_login_screen.dart';
 
 
 
@@ -15,12 +16,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     /* 1초 후에 (간편)로그인 화면으로 이동 */
-    // Future.delayed(const Duration(seconds: 1), () {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => const LoginPage()),
-    //   );
-    // });
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SocialLoginScreen()),
+      );
+    });
   }
 
   @override
