@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ImageSlider extends StatefulWidget {
+class CustomImageSlider extends StatefulWidget {
   final List<String> imagePathList;
   final int initialIndex;
 
-  const ImageSlider({
+  const CustomImageSlider({
     super.key, 
     required this.imagePathList,
     this.initialIndex = 0
@@ -13,10 +13,10 @@ class ImageSlider extends StatefulWidget {
 
   @override
   // ignore: library_private_types_in_public_api
-  _ImageSliderState createState() => _ImageSliderState();
+  _CustomImageSliderState createState() => _CustomImageSliderState();
 }
 
-class _ImageSliderState extends State<ImageSlider> {
+class _CustomImageSliderState extends State<CustomImageSlider> {
   late PageController _pageController;
   late int activeIndex;
 
@@ -52,6 +52,7 @@ class _ImageSliderState extends State<ImageSlider> {
           height: 15,
           child: indicator(),
         ),
+        const SizedBox(height: 20.0,),
       ],
     );
   }

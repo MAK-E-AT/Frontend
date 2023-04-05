@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 // import 'package:makeat_fe/views/social_login_screen.dart';
 
-class SocialLoginButton extends StatelessWidget {
+class CustomLoginButton extends StatelessWidget {
   final String buttonText1;
   final String buttonText2;
   // final VoidCallback onTap;
   final String imageURL;
   final Color buttonColor;
 
-  const SocialLoginButton({super.key, 
+  const CustomLoginButton({super.key, 
     required this.buttonText1,
     required this.buttonText2,
     // required this.onTap,

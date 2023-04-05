@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_check_box.dart';
+import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 import 'package:makeat_fe/widgets/custom_text_field.dart';
 
-import '../widgets/image_slider.dart';
+import '../widgets/custom_image_slider.dart';
 
 class AdditionalUserInfoScreen extends StatefulWidget {
   const AdditionalUserInfoScreen({super.key});
@@ -41,10 +43,9 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                 ),
                 const SizedBox(height: 30.0,),
 
-                ImageSlider(
+                CustomImageSlider(
                   imagePathList: imagePaths,
                 ),
-                const SizedBox(height: 30.0,),
 
                 CustomTextField(
                   textEditingController: _heightController, 
@@ -64,58 +65,23 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   hintText: '소수점은 한 자리까지만 가능해요.', 
                   textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                   leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
-                  rightWhiteSpaceWidth: 20.0,
+                  rightWhiteSpaceWidth: 12.0,
                   regExp: r'^(?!0)(\d{0,2}(\.\d{0,1})?|200(\.0)?)$', 
                 ),
 
-                // SizedBox(
-                //   child: Row(
-                //     children: [
-                //       const SizedBox(width: 30.0,),
-                //       const Text(
-                //         '키 (cm)',
-                //         style: TextStyle(
-                //           fontSize: 15,
-                //           fontWeight: FontWeight.bold,
-                //         ),
-                //       ),
-                //       const SizedBox(width: 20.0,),
-                //       ConstrainedBox(
-                //         constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.5),
-                //         child: TextField(
-                //           controller: _heightController,
-                //           keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                //           inputFormatters: [
-                //             FilteringTextInputFormatter.allow(RegExp(r'^(?!0)([1-2]?\d{0,2}(\.\d{0,1})?|300(\.0)?)$')),
-                //           ],
-                //           decoration: const InputDecoration(
-                //             hintText: '소수점은 한 자리까지',
-                //           ),
-                //         ),
-                //       ),
-                //       const SizedBox(height: 10),
-                //     ],
-                //   ),
-                // ),
-
-                // ConstrainedBox(
-                //   constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.5),
-                //   child: TextField(
-                //     controller: _weightController,
-                //     keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                //     inputFormatters: [
-                //       FilteringTextInputFormatter.allow(RegExp(r'^(?!0)(\d{0,2}(\.\d{0,1})?|200(\.0)?)$')),
-                //     ],
-                //     decoration: const InputDecoration(
-                //       label: Text('체중 (kg)'),
-                //       hintText: '소수점은 한 자리까지',
-                //     ),
-                //   ),
-                // ),
+                const CustomCheckBox(
+                  checkBoxText1: '이용약관',
+                  checkBoxText2: ' 및 ',
+                  checkBoxText3: '개인정보처리방침',
+                  checkBoxText4: '에 동의합니다.',
+                  checkBoxColor: Colors.black,
+                  checkBoxIcon: Icons.check_rounded,
+                ),
               ],
             ),
           ),
-        )
+        ),
+        bottomNavigationBar: const CustomElevatedButton(buttonText: '시  작  하  기',)
       )
     );
   }

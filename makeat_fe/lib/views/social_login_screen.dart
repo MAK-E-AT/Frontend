@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../widgets/social_login_button.dart';
+import '../widgets/custom_login_button.dart';
 // import 'package:provider/provider.dart';
 
 
@@ -34,7 +34,7 @@ class SocialLoginScreen extends StatelessWidget {
                 const SizedBox(height: 120.0,),
 
                 /* KAKAO 소셜 로그인 */
-                const SocialLoginButton(
+                const CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '', 
                   // onTap: onTap, 
@@ -46,7 +46,7 @@ class SocialLoginScreen extends StatelessWidget {
                 const SizedBox(height: 10.0),
 
                 /* Naver 소셜 로그인 */
-                const SocialLoginButton(
+                const CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
                   // onTap: onTap, 
@@ -60,7 +60,7 @@ class SocialLoginScreen extends StatelessWidget {
                 /* Apple 소셜 로그인 */
                 
                 if (Platform.isIOS) ...[
-                  const SocialLoginButton(
+                  const CustomLoginButton(
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
                     // onTap: onTap, 
