@@ -1,25 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:makeat_fe/view_models/social_login_view_model.dart';
 
-class NaverLoginViewModel extends ChangeNotifier {
+class NaverLoginViewModel extends SocialLoginViewModel {
+  @override
+  String get clientId => 'YOUR_NAVER_CLIENT_ID';
 
-  final String naverClientId = 'YOUR_NAVER_CLIENT_ID';
-  final String naverClientSecret = 'YOUR_NAVER_CLIENT_SECRET';
-  final String naverRedirectUri = 'YOUR_NAVER_REDIRECT_URI';
+  @override
+  String get redirectUri => 'YOUR_NAVER_REDIRECT_URI';
 
-  Future<String?> signInWithNaver() async {
-    final url = Uri.https('nid.naver.com', '/oauth2.0/authorize', {
-      'client_id': naverClientId,
-      'response_type': 'code',
-      'redirect_uri': naverRedirectUri,
-      'state': 'RANDOM_STATE_VALUE', // CSRF 공격 방지를 위한 임의의 값
-    });
+  @override
+  Map<String, String> get authParameters => {
+        'client_id': clientId,
+        'response_type': 'code',
+        'redirect_uri': redirectUri,
+      };
 
-    final result = await FlutterWebAuth2.authenticate(
-      url: url.toString(), 
-      callbackUrlScheme: 'https'
-    );
+  @override
+  String getAuthEndpoint() => 'nid.naver.com';
 
-    return Uri.parse(result).queryParameters['code'];
-  }
+  @override
+  String getAuthPath() => '/oauth2.0/authorize';
 }

@@ -1,25 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:makeat_fe/view_models/social_login_view_model.dart';
 
-class AppleLoginViewModel extends ChangeNotifier {
-  
-  final String appleClientId = 'com.example.your-app';
-  final String appleRedirectUri = 'https://example.com/callback';
 
-  Future<String?> signInWithApple() async {
-    final url = Uri.https('appleid.apple.com', '/auth/authorize', {
-      'client_id': appleClientId,
-      'redirect_uri': appleRedirectUri,
-      'response_type': 'code',
-      'scope': 'email name',
-      'response_mode': 'form_post',
-    });
+class AppleLoginViewModel extends SocialLoginViewModel {
+  @override
+  String get clientId => 'com.example.your-app';
 
-    final result = await FlutterWebAuth2.authenticate(
-      url: url.toString(), 
-      callbackUrlScheme: 'https'
-    );
+  @override
+  String get redirectUri => 'https://example.com/callback';
 
-    return Uri.parse(result).queryParameters['code'];
-  }
+  @override
+  Map<String, String> get authParameters => {
+        'client_id': clientId,
+        'redirect_uri': redirectUri,
+        'response_type': 'code',
+        'scope': 'email name',
+        'response_mode': 'form_post',
+      };
+
+  @override
+  String getAuthEndpoint() => 'appleid.apple.com';
+
+  @override
+  String getAuthPath() => '/auth/authorize';
 }

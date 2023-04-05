@@ -1,23 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:makeat_fe/view_models/social_login_view_model.dart';
 
-class KakaoLoginViewModel extends ChangeNotifier {
+class KakaoLoginViewModel extends SocialLoginViewModel {
+  @override
+  String get clientId => 'YOUR_KAKAO_CLIENT_ID';
 
-  final String kakaoClientId = 'YOUR_KAKAO_CLIENT_ID';
-  final String kakaoRedirectUri = 'YOUR_KAKAO_REDIRECT_URI';
+  @override
+  String get redirectUri => 'YOUR_KAKAO_REDIRECT_URI';
 
-  Future<String?> signInWithKakao() async {
-    final url = Uri.https('kauth.kakao.com', '/oauth/authorize', {
-      'client_id': kakaoClientId,
-      'response_type': 'code',
-      'redirect_uri': kakaoRedirectUri,
-    });
+  @override
+  Map<String, String> get authParameters => {
+        'client_id': clientId,
+        'response_type': 'code',
+        'redirect_uri': redirectUri,
+      };
 
-    final result = await FlutterWebAuth2.authenticate(
-      url: url.toString(), 
-      callbackUrlScheme: 'https'
-    );
+  @override
+  String getAuthEndpoint() => 'kauth.kakao.com';
 
-    return Uri.parse(result).queryParameters['code'];
-  }
+  @override
+  String getAuthPath() => '/oauth/authorize';
 }
