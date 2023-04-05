@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/views/social_login_screen.dart';
+// import 'package:makeat_fe/views/social_login_screen.dart';
 
-class SocialLoginButton extends StatelessWidget {
+class CustomLoginButton extends StatelessWidget {
   final String buttonText1;
   final String buttonText2;
   // final VoidCallback onTap;
   final String imageURL;
   final Color buttonColor;
 
-  const SocialLoginButton({
+  const CustomLoginButton({super.key, 
     required this.buttonText1,
     required this.buttonText2,
     // required this.onTap,
@@ -33,7 +33,7 @@ class SocialLoginButton extends StatelessWidget {
             ),
             Text(
               buttonText1,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 15
@@ -41,7 +41,7 @@ class SocialLoginButton extends StatelessWidget {
             ),
             Text(
               buttonText2,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15
               ),

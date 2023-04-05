@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/views/social_login_screen.dart';
-import 'package:provider/provider.dart';
+// import 'package:makeat_fe/views/social_login_screen.dart';
+// import 'package:provider/provider.dart';
 
 import 'package:makeat_fe/views/splash_screen.dart';
-import 'package:makeat_fe/view_models/social_login_view_model.dart';
+import 'package:makeat_fe/views/additional_user_info_screen.dart';
+// import 'package:makeat_fe/view_models/social_login_view_model.dart';
+
+
 
 void main() {
   runApp(const MaterialApp(
     title: 'MAK-E-AT',
-    home: SplashScreen(),
+    home: AdditionalUserInfoScreen(),
   ));
 }
 
@@ -17,7 +20,7 @@ class MAKEAT extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       // home: ChangeNotifierProvider(
       //   create: (context) => SocialLoginViewModel(),
       //   child: SocialLoginScreen(),

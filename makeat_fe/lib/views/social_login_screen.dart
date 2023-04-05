@@ -1,12 +1,17 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/widgets/social_login_button.dart';
-import 'package:provider/provider.dart';
-import 'package:makeat_fe/view_models/social_login_view_model.dart';
+
+import '../widgets/custom_login_button.dart';
+// import 'package:provider/provider.dart';
+
+
+// import 'package:makeat_fe/view_models/social_login_view_model.dart';
 
 
 class SocialLoginScreen extends StatelessWidget {
+  const SocialLoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // final viewModel = Provider.of<SocialLoginViewModel>(context);
@@ -29,7 +34,7 @@ class SocialLoginScreen extends StatelessWidget {
                 const SizedBox(height: 120.0,),
 
                 /* KAKAO 소셜 로그인 */
-                SocialLoginButton(
+                const CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '', 
                   // onTap: onTap, 
@@ -38,10 +43,10 @@ class SocialLoginScreen extends StatelessWidget {
                   imageURL: 'assets/images/social_login/kakao_login.png', 
                   buttonColor: Color(0xfffee500),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
 
                 /* Naver 소셜 로그인 */
-                SocialLoginButton(
+                const CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
                   // onTap: onTap, 
@@ -50,12 +55,12 @@ class SocialLoginScreen extends StatelessWidget {
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: Color(0xff03c75a),
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
 
                 /* Apple 소셜 로그인 */
                 
                 if (Platform.isIOS) ...[
-                  SocialLoginButton(
+                  const CustomLoginButton(
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
                     // onTap: onTap, 
@@ -64,7 +69,7 @@ class SocialLoginScreen extends StatelessWidget {
                     imageURL: 'assets/images/social_login/apple_login.png', 
                     buttonColor: Color(0xff000000),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                 ],
                 
               ],
