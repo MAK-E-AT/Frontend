@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:makeat_fe/views/social_login_screen.dart';
 
 
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SocialLoginScreen()),
+        MaterialPageRoute(builder: (context) => const SocialLoginScreen()),
       );
     });
   }
