@@ -1,11 +1,26 @@
+import 'dart:io';
+
 import 'package:makeat_fe/view_models/social_login_view_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+
+String getRedirectUri() {
+  if (Platform.isAndroid) {
+    return dotenv.env['ANDROID_REDIRECT_URI'] ?? '';
+  } else if (Platform.isIOS) {
+    return dotenv.env['IOS_REDIRECT_URI'] ?? '';
+  } else {
+    return '';
+  }
+}
 
 class KakaoLoginViewModel extends SocialLoginViewModel {
   @override
-  String get clientId => 'YOUR_KAKAO_CLIENT_ID';
+  final String clientId = dotenv.env['KAKAO_CLIENT_ID']!;
 
   @override
-  String get redirectUri => 'YOUR_KAKAO_REDIRECT_URI';
+  final String redirectUri = getRedirectUri();
+  
 
   @override
   Map<String, String> get authParameters => {
