@@ -1,11 +1,25 @@
+import 'dart:io';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:makeat_fe/view_models/social_login_view_model.dart';
+
+
+String getRedirectUri() {
+  if (Platform.isAndroid) {
+    return dotenv.env['NAVER_ANDROID_REDIRECT_URI'] ?? '';
+  } else if (Platform.isIOS) {
+    return dotenv.env['NAVER_IOS_REDIRECT_URI'] ?? '';
+  } else {
+    return '';
+  }
+}
 
 class NaverLoginViewModel extends SocialLoginViewModel {
   @override
-  String get clientId => 'YOUR_NAVER_CLIENT_ID';
+  final String clientId = dotenv.env['NAVER_CLIENT_ID']!;
 
   @override
-  String get redirectUri => 'YOUR_NAVER_REDIRECT_URI';
+  final String redirectUri = dotenv.env['NAVER_CLIENT_ID']!;
 
   @override
   Map<String, String> get authParameters => {

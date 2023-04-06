@@ -35,8 +35,9 @@ abstract class SocialLoginViewModel {
     if (!validateState(returnedState!)) {
       throw Exception('State value does not match!');
     }
-
-    return Uri.parse(result).queryParameters['code'];
+    print("소셜 로그인 인증코드");
+    print(Uri.parse(result).queryParameters['code']);
+    return null;
   }
 
   String getAuthEndpoint();
