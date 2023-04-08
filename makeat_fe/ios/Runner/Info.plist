@@ -30,20 +30,33 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>kakao24de19256f4276af440fc35cebd3e42f.oauth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao24de19256f4276af440fc35cebd3e42f</string>
 			</array>
 		</dict>
 	</array>
-	<key>LSApplicationQueriesSchemes</key>
+	<!-- <key>CFBundleURLTypes</key>
 	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao24de19256f4276af440fc35cebd3e42f</string>
+			</array>
+		</dict>
+	</array> -->
+	<!-- <key>LSApplicationQueriesSchemes</key> -->
+	<!-- <array>
 		<string>naversearchapp</string>
 		<string>naversearchthirdlogin</string>
 		<string>naversearchthirdloginthird</string>
 		<string>naversearchthirdloginv2</string>
 		<string>naversearchthirdloginv2third</string>
-	</array>
+	</array> -->
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CustomLoginButton extends StatelessWidget {
   final String buttonText1;
   final String buttonText2;
-  final Future<String?> onTap;
+  final Future<void> Function() onTap;
   final String imageURL;
   final Color buttonColor;
 
@@ -19,7 +19,7 @@ class CustomLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => { onTap },
+      onTap: onTap,
       child: Container(
         width: 300.0,
         height: 44.0,

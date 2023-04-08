@@ -1,14 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../view_models/apple_login_view_model.dart';
-import '../view_models/naver_login_view_model.dart';
 import '../widgets/custom_login_button.dart';
-// import 'package:provider/provider.dart';
 
-
-import 'package:makeat_fe/view_models/kakao_login_view_model.dart';
+import '../view_models/kakao_login_view_model.dart';
 
 
 class SocialLoginScreen extends StatelessWidget {
@@ -17,9 +14,7 @@ class SocialLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final viewModel = Provider.of<SocialLoginViewModel>(context);
-    final KakaoLoginViewModel kakaoViewModel = KakaoLoginViewModel();
-    final NaverLoginViewModel naverViewModel = NaverLoginViewModel();
-    final AppleLoginViewModel appleViewModel = AppleLoginViewModel();
+    final kakaoLoginViewModel = Provider.of<KakaoLoginViewModel>(context, listen: false);
 
     return MaterialApp(
       home: Scaffold(
@@ -42,8 +37,7 @@ class SocialLoginScreen extends StatelessWidget {
                 CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '', 
-                  // onTap: kakaoViewModel.signIn(), 
-                  onTap: appleViewModel.signIn(), 
+                  onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                   imageURL: 'assets/images/social_login/kakao_login.png', 
                   buttonColor: const Color(0xfffee500),
                 ),
@@ -52,7 +46,7 @@ class SocialLoginScreen extends StatelessWidget {
                 CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
-                  onTap: appleViewModel.signIn(), 
+                  onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: const Color(0xff03c75a),
                 ),
@@ -62,7 +56,7 @@ class SocialLoginScreen extends StatelessWidget {
                   CustomLoginButton(
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
-                    onTap: appleViewModel.signIn(), 
+                    onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                     imageURL: 'assets/images/social_login/apple_login.png', 
                     buttonColor: const Color(0xff000000),
                   ),

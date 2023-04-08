@@ -36,7 +36,7 @@
                 <data android:scheme="kakao24de19256f4276af440fc35cebd3e42f" android:host="oauth" />
             </intent-filter>
         </activity>
-        <activity
+        <!-- <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden"
@@ -47,7 +47,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="your_scheme" android:host="your_host" />
             </intent-filter>
-        </activity>
+        </activity> -->
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
