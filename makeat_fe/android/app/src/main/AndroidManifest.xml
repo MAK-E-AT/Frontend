@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
+        <!-- <activity
             android:name="com.example.makeat_fe"
             android:launchMode="singleTask">
             <intent-filter>
@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="kakao24de19256f4276af440fc35cebd3e42f" android:host="oauth" />
             </intent-filter>
-        </activity>
+        </activity> -->
         <!-- <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"

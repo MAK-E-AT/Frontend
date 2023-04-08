@@ -7,11 +7,6 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 class KakaoLoginModel {
   final String _backendEndpoint = 'https://{backend.com}/api/login/kakao';
 
-  Future<String> getAuthorizationCode() async {
-    final authCode = await AuthCodeClient.instance.authorizeWithTalk();
-    return authCode;
-  }
-
   Future<void> sendAuthCodeToBackend(String authCode) async {
     final response = await http.post(
       Uri.parse(_backendEndpoint),
@@ -20,9 +15,9 @@ class KakaoLoginModel {
     );
 
     if (response.statusCode == 200) {
-      // Handle successful response from the backend server
+      // 성공적으로 응답이 반환된 경우
     } else {
-      // Handle error response from the backend server
+      // 예외(에러) 처리
     }
   }
 }

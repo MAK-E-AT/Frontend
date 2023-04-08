@@ -27,19 +27,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>kakao24de19256f4276af440fc35cebd3e42f.oauth</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>kakao24de19256f4276af440fc35cebd3e42f</string>
-			</array>
-		</dict>
-	</array>
+	
 	<!-- <key>CFBundleURLTypes</key>
 	<array>
 		<dict>

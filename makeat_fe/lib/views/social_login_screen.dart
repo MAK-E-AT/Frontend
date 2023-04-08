@@ -24,7 +24,7 @@ class SocialLoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
-                /* MAK-E-AT 로고 */
+                /* MAK-E-AT 로고(대) */
                 const SizedBox(height: 80.0),
                 Image.asset(
                   width: 200.0,
@@ -33,7 +33,7 @@ class SocialLoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 120.0,),
 
-                // /* KAKAO 소셜 로그인 */
+                /* KAKAO 소셜 로그인 버튼 */
                 CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '', 
@@ -43,6 +43,7 @@ class SocialLoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10.0),
 
+                /* Naver 소셜 로그인 버튼 */
                 CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
@@ -52,6 +53,7 @@ class SocialLoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10.0),
 
+                /* Apple 소셜 로그인 버튼 */
                 if (Platform.isIOS) ...[
                   CustomLoginButton(
                     buttonText1: '  Apple', 
