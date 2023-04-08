@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/custom_login_button.dart';
-
 import '../view_models/kakao_login_view_model.dart';
+import '../view_models/naver_login_view_model.dart';
 
 
 class SocialLoginScreen extends StatelessWidget {
@@ -15,6 +15,7 @@ class SocialLoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // final viewModel = Provider.of<SocialLoginViewModel>(context);
     final kakaoLoginViewModel = Provider.of<KakaoLoginViewModel>(context, listen: false);
+    final naverLoginViewModel = Provider.of<NaverLoginViewModel>(context, listen: false);
 
     return MaterialApp(
       home: Scaffold(
@@ -47,7 +48,7 @@ class SocialLoginScreen extends StatelessWidget {
                 CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
-                  onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
+                  onTap: () async { naverLoginViewModel.loginWithNaver(); }, 
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: const Color(0xff03c75a),
                 ),

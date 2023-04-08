@@ -27,24 +27,15 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	
-	<!-- <key>CFBundleURLTypes</key>
+	<key>CFBundleURLTypes</key>
 	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>kakao24de19256f4276af440fc35cebd3e42f</string>
-			</array>
-		</dict>
-	</array> -->
-	<!-- <key>LSApplicationQueriesSchemes</key> -->
-	<!-- <array>
-		<string>naversearchapp</string>
-		<string>naversearchthirdlogin</string>
-		<string>naversearchthirdloginthird</string>
-		<string>naversearchthirdloginv2</string>
-		<string>naversearchthirdloginv2third</string>
-	</array> -->
+	<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+		<string>dev.apple.makeat://naverlogin</string>
+		</array>
+	</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>

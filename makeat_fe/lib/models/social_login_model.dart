@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 
 class KakaoLoginModel {
