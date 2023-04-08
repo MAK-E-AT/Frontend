@@ -43,9 +43,9 @@ class KakaoLoginViewModel extends ChangeNotifier {
     // 반환된 authCode 확인
     if (authCode != '') {
       // 추후 백엔드 요청이 담길 예정입니다.
-      print('인증 타입은 $kakaoType 입니다. \n 인증코드는 $authCode 입니다.');
+      print('인증 타입은 $kakaoType 입니다. \n KAKAO 인증코드는 $authCode 입니다.');
     } else {
-      print('인증코드가 반환되지 않았습니다.');
+      print('KAKAO/인증코드가 반환되지 않았습니다.');
     }
   }
 }

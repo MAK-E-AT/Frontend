@@ -6,9 +6,8 @@ import 'package:provider/provider.dart';
 
 
 import 'view_models/kakao_login_view_model.dart';
-import 'views/splash_screen.dart';
+import 'view_models/naver_login_view_model.dart';
 import 'views/social_login_screen.dart';
-import 'views/additional_user_info_screen.dart';
 
 
 
@@ -30,6 +29,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
+        ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
       ],
       child: const MAKEAT(),
     )
