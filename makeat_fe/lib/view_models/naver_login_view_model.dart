@@ -44,7 +44,7 @@ class NaverLoginViewModel extends ChangeNotifier {
       if (url.startsWith('$redirectUri?code=')) {
         flutterWebviewPlugin.close();
         
-        final authCode = url.split('code=')[1];
+        final authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
         print('NAVER 인증 코드는 $authCode 입니다.');
         
       // 네이버 소셜 로그인 인증 실패
