@@ -1,12 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/custom_login_button.dart';
-// import 'package:provider/provider.dart';
 
-
-// import 'package:makeat_fe/view_models/social_login_view_model.dart';
+import '../view_models/kakao_login_view_model.dart';
 
 
 class SocialLoginScreen extends StatelessWidget {
@@ -15,6 +14,7 @@ class SocialLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final viewModel = Provider.of<SocialLoginViewModel>(context);
+    final kakaoLoginViewModel = Provider.of<KakaoLoginViewModel>(context, listen: false);
 
     return MaterialApp(
       home: Scaffold(
@@ -24,7 +24,7 @@ class SocialLoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
-                /* MAK-E-AT 로고 */
+                /* MAK-E-AT 로고(대) */
                 const SizedBox(height: 80.0),
                 Image.asset(
                   width: 200.0,
@@ -33,45 +33,37 @@ class SocialLoginScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 120.0,),
 
-                /* KAKAO 소셜 로그인 */
-                const CustomLoginButton(
+                /* KAKAO 소셜 로그인 버튼 */
+                CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '', 
-                  // onTap: onTap, 
-                  // https://developers.kakao.com/tool/resource/kakaosync
-                  // kakao_login_large_narrow.png
+                  onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                   imageURL: 'assets/images/social_login/kakao_login.png', 
-                  buttonColor: Color(0xfffee500),
+                  buttonColor: const Color(0xfffee500),
                 ),
                 const SizedBox(height: 10.0),
 
-                /* Naver 소셜 로그인 */
-                const CustomLoginButton(
+                /* Naver 소셜 로그인 버튼 */
+                CustomLoginButton(
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
-                  // onTap: onTap, 
-                  // 2021_Login_with_naver_guidelines_Kr
-                  // btnG_아이콘사각.png
+                  onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                   imageURL: 'assets/images/social_login/naver_login.png', 
-                  buttonColor: Color(0xff03c75a),
+                  buttonColor: const Color(0xff03c75a),
                 ),
                 const SizedBox(height: 10.0),
 
-                /* Apple 소셜 로그인 */
-                
+                /* Apple 소셜 로그인 버튼 */
                 if (Platform.isIOS) ...[
-                  const CustomLoginButton(
+                  CustomLoginButton(
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
-                    // onTap: onTap, 
-                    // Sign in with Apple - Logo Only
-                    // PNG/3x/Logo-SIWA-Logo-only-White@3x.png
+                    onTap: () async { kakaoLoginViewModel.loginWithKakao(); }, 
                     imageURL: 'assets/images/social_login/apple_login.png', 
-                    buttonColor: Color(0xff000000),
+                    buttonColor: const Color(0xff000000),
                   ),
                   const SizedBox(height: 10.0),
                 ],
-                
               ],
             ),
           ),
