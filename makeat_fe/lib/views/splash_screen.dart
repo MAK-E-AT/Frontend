@@ -34,6 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                /* MAK-E-AT 로고(대) */
                 Image.asset(
                   width: 200.0,
                   height: 200.0,

@@ -1,37 +1,51 @@
-import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
-import 'package:makeat_fe/view_models/social_login_view_model.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+class KakaoLoginViewModel extends ChangeNotifier {
 
+  Future<void> loginWithKakao() async {
+    String kakaoType = '';
+    String authCode = '';
 
-String getRedirectUri() {
-  if (Platform.isAndroid) {
-    return dotenv.env['KAKAO_ANDROID_REDIRECT_URI'] ?? '';
-  } else if (Platform.isIOS) {
-    return dotenv.env['KAKAO_IOS_REDIRECT_URI'] ?? '';
-  } else {
-    return '';
+    // 카카오톡이 설치되어 있는 경우
+    if (await isKakaoTalkInstalled()) {
+      try {
+          authCode = await AuthCodeClient.instance.authorizeWithTalk();
+          kakaoType = 'APP';
+      } catch (error) {
+        print('ERR/APP/$error');
+
+        // 사용자가 로그인을 취소한 경우
+        if (error is PlatformException && error.code == 'CANCELED') {
+          print('ERR/CANCELED');
+          return;
+        }
+        // 카카오톡에 연결된 카카오계정이 없는 경우
+        try {
+            authCode = await AuthCodeClient.instance.authorize();
+            kakaoType = 'ACCOUNT';
+            
+        } catch (error) {
+            print('ERR/ACCOUNT/$error');
+        }
+      }
+    // 카카오톡이 설치되어 있지 않은 경우
+    } else {
+      try {
+        authCode = await AuthCodeClient.instance.authorize();
+        kakaoType = 'ACCOUNT';
+      } catch (error) {
+        print('ACCOUNT/$error');
+      }
+    }
+
+    // 반환된 authCode 확인
+    if (authCode != '') {
+      // 추후 백엔드 요청이 담길 예정입니다.
+      print('인증 타입은 $kakaoType 입니다. \n 인증코드는 $authCode 입니다.');
+    } else {
+      print('인증코드가 반환되지 않았습니다.');
+    }
   }
-}
-
-class KakaoLoginViewModel extends SocialLoginViewModel {
-  @override
-  final String clientId = dotenv.env['KAKAO_CLIENT_ID']!;
-
-  @override
-  final String redirectUri = getRedirectUri();
-  
-
-  @override
-  Map<String, String> get authParameters => {
-        'client_id': clientId,
-        'response_type': 'code',
-        'redirect_uri': redirectUri,
-      };
-
-  @override
-  String getAuthEndpoint() => 'kauth.kakao.com';
-
-  @override
-  String getAuthPath() => '/oauth/authorize';
 }
