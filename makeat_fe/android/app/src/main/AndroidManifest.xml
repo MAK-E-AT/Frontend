@@ -26,28 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- <activity
-            android:name="com.example.makeat_fe"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="kakao24de19256f4276af440fc35cebd3e42f" android:host="oauth" />
-            </intent-filter>
-        </activity> -->
-        <!-- <activity
-            android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait">
+            android:launchMode="singleTask"
+            android:taskAffinity="com.example.makeat_fe"
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="your_scheme" android:host="your_host" />
+                <data android:scheme="makeat_fe" android:host="naverlogin" />
             </intent-filter>
-        </activity> -->
+        </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
