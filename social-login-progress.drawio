@@ -1,0 +1,146 @@
+<mxfile host="app.diagrams.net" modified="2023-04-02T04:42:17.388Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Safari/605.1.15" etag="gvq4zYgmKJxpRKrB3APr" version="21.1.2" type="github">
+  <diagram name="Page-1" id="c7558073-3199-34d8-9f00-42111426c3f3">
+    <mxGraphModel dx="1763" dy="1627" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5" value="Social login Progress(OAuth2.0)" style="shape=process;whiteSpace=wrap;align=center;verticalAlign=middle;size=0.0475;fontStyle=1;strokeWidth=3;fillColor=#FFCCCC" parent="1" vertex="1">
+          <mxGeometry x="384.9999999999999" y="110" width="400" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="5. 인증 코드 백엔드로 전달" style="text;spacingTop=-5;align=center" parent="1" vertex="1">
+          <mxGeometry x="410" y="579" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-102" value="프론트엔드(플러터)" style="whiteSpace=wrap;align=center;verticalAlign=middle;fontStyle=1;strokeWidth=3;fillColor=#FFFFCC" vertex="1" parent="1">
+          <mxGeometry x="170" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-104" value="백엔드(Spring)" style="whiteSpace=wrap;align=center;verticalAlign=middle;fontStyle=1;strokeWidth=3;fillColor=#FFFFCC" vertex="1" parent="1">
+          <mxGeometry x="560" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-105" value="Maria DB" style="whiteSpace=wrap;align=center;verticalAlign=middle;fontStyle=1;strokeWidth=3;fillColor=#FFFFCC" vertex="1" parent="1">
+          <mxGeometry x="840" y="580" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-113" value="Resource&lt;br&gt;서버" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFCC;fontStyle=1;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="790" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-115" value="Auth 서버" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFCC;fontStyle=1;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="370" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-121" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="560" as="sourcePoint" />
+            <mxPoint x="350" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-122" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="360" as="sourcePoint" />
+            <mxPoint x="250" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-127" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="350" y="460" width="30" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-125" value="2. 로그인 페이지 제공" style="text;spacingTop=-5;align=center" vertex="1" parent="ToXP-ZIfV80G0RlOMZjr-127">
+          <mxGeometry x="10" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-126" value="4. 인증 코드 발급" style="text;spacingTop=-5;align=center" vertex="1" parent="ToXP-ZIfV80G0RlOMZjr-127">
+          <mxGeometry y="18" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-128" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="250" y="400" width="25" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-123" value="1. 로그인 요청" style="text;spacingTop=-5;align=center" vertex="1" parent="ToXP-ZIfV80G0RlOMZjr-128">
+          <mxGeometry x="5" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-124" value="3. 인증 요청" style="text;spacingTop=-5;align=center" vertex="1" parent="ToXP-ZIfV80G0RlOMZjr-128">
+          <mxGeometry y="18" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-129" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="560" as="sourcePoint" />
+            <mxPoint x="450" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-130" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="360" as="sourcePoint" />
+            <mxPoint x="590" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-131" value="6. 토큰 요청" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="470" y="474" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-133" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="525" y="616.3299999999999" as="sourcePoint" />
+            <mxPoint x="325" y="616.3299999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-134" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="325" y="603.3299999999999" as="sourcePoint" />
+            <mxPoint x="525" y="603.3299999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-135" value="7. 인증 성공 시, Access &#xa;&amp; Refresh 토큰 발급" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="570" y="400" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-136" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="560" as="sourcePoint" />
+            <mxPoint x="770" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-137" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="790" y="360" as="sourcePoint" />
+            <mxPoint x="670" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-138" value="(8. 유저 정보 요청)" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="624" y="474" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-139" value="(9. 유저 정보 전달)" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="770" y="460" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-143" value="10. 토큰 및 유저 &#xa;정보 저장" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="748" y="568" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-144" value="11. ID 획득" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="750" y="623" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-145" value="12. Access &amp; Refresh 토큰 전달" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="410" y="624" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-146" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="660" as="sourcePoint" />
+            <mxPoint x="210" y="660" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="680" />
+              <mxPoint x="290" y="720" />
+              <mxPoint x="230" y="720" />
+              <mxPoint x="170" y="720" />
+              <mxPoint x="170" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-147" value="13. 토큰 저장 및&#xa;상태 관리" style="text;spacingTop=-5;align=center" vertex="1" parent="1">
+          <mxGeometry x="215" y="679" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-148" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="817" y="616.0799999999999" as="sourcePoint" />
+            <mxPoint x="707" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ToXP-ZIfV80G0RlOMZjr-149" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="707" y="603" as="sourcePoint" />
+            <mxPoint x="817" y="603.0799999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
