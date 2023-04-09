@@ -47,13 +47,14 @@ class NaverLoginViewModel extends ChangeNotifier {
       if (url.startsWith('$redirectUri?code=')) {
         flutterWebviewPlugin.close();
         
+        // ignore: no_leading_underscores_for_local_identifiers
         final _authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
-        print('NAVER 인증 코드는 $_authCode 입니다.');
+        // print('NAVER 인증 코드는 $_authCode 입니다.');
         naverLoginModel.sendAuthCodeToBackend('naver', _authCode);
         
       // 네이버 소셜 로그인 인증 실패
       } else {
-        print('NAVER/인증 코드가 반환되지 않았습니다.');
+        // print('NAVER/인증 코드가 반환되지 않았습니다.');
       }
     });
   }
