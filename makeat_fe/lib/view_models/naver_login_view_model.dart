@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
+import '../models/social_login_model.dart';
+
 
 class NaverLoginViewModel extends ChangeNotifier {
+  final naverLoginModel = SocialLoginModel();
 
   // 플랫폼에 따른 Redirect URI 설정
   String getRedirectUri() {
@@ -44,8 +47,9 @@ class NaverLoginViewModel extends ChangeNotifier {
       if (url.startsWith('$redirectUri?code=')) {
         flutterWebviewPlugin.close();
         
-        final authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
-        print('NAVER 인증 코드는 $authCode 입니다.');
+        final _authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
+        print('NAVER 인증 코드는 $_authCode 입니다.');
+        naverLoginModel.sendAuthCodeToBackend('naver', _authCode);
         
       // 네이버 소셜 로그인 인증 실패
       } else {
