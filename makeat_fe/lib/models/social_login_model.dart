@@ -3,20 +3,30 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 
-class KakaoLoginModel {
-  final String _backendEndpoint = 'https://{backend.com}/api/login/kakao';
+class SocialLoginModel {
+  
+  
 
-  Future<void> sendAuthCodeToBackend(String authCode) async {
+  Future<bool> sendAuthCodeToBackend(String socialType, String authCode) async {
+
+    final String _backendEnd = 'https://localhost:8080/user?loginSite=$socialType';
     final response = await http.post(
-      Uri.parse(_backendEndpoint),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'auth_code': authCode}),
+      Uri.parse(_backendEnd),
+      headers: {
+        'Content-Type': 'application/json', 
+        'Authorization': authCode
+      },
+      body: jsonEncode({}),
     );
 
     if (response.statusCode == 200) {
       // 성공적으로 응답이 반환된 경우
+      
+
+      return true;
     } else {
       // 예외(에러) 처리
+      return false;
     }
   }
 }
