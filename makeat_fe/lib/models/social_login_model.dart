@@ -10,7 +10,7 @@ class SocialLoginModel {
   Future<bool> sendAuthCodeToBackend(String socialType, String authCode) async {
 
     // ignore: no_leading_underscores_for_local_identifiers
-    final String _backendEnd = 'https://localhost:8080/user?loginSite=$socialType';
+    final String _backendEnd = 'http://localhost:8080/user/$socialType';
     final response = await http.post(
       Uri.parse(_backendEnd),
       headers: {
