@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter/webview_flutter.dart';
 
 import '../models/social_login_model.dart';
 
@@ -45,26 +45,26 @@ class NaverLoginViewModel extends ChangeNotifier {
     // onUrlChanged 이벤트
     flutterWebviewPlugin.onUrlChanged.listen((String url) {
 
-      print(url);
+      debugPrint(url);
 
       // 네이버 소셜 로그인 인증 성공
       if (Platform.isIOS && url.startsWith('$redirectUri?code=')) {
         flutterWebviewPlugin.close();
         
         // ignore: no_leading_underscores_for_local_identifiers
-        final _authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
-        print('NAVER 인증 코드는 $_authCode 입니다.');
+        final authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
+        debugPrint('NAVER 인증 코드는 $authCode 입니다.');
         // naverLoginModel.sendAuthCodeToBackend('naver', _authCode);
         
       // 네이버 소셜 로그인 인증 실패
       } else if  (Platform.isAndroid && url.startsWith('https://nid.naver.com/oauth2.0/$redirectUri?code=')) {
         flutterWebviewPlugin.close();
 
-        final _authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
-        print('NAVER 인증 코드는 $_authCode 입니다.');
+        final authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
+        debugPrint('NAVER 인증 코드는 $authCode 입니다.');
         // naverLoginModel.sendAuthCodeToBackend('naver', _authCode);
       } else {
-        print('NAVER/인증 코드가 반환되지 않았습니다.');
+        debugPrint('NAVER/인증 코드가 반환되지 않았습니다.');
         // flutterWebviewPlugin.close();
       }
     });
