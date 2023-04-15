@@ -55,9 +55,9 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   ),
                   
                   /* 나이
-                    1. 
-                    2.
-                    3.
+                    1. 숫자 타입
+                    2. 200 미만
+                    3. 정수만 허용
                   */
                   CustomTextField(
                     textEditingController: _ageController, 
