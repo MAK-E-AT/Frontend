@@ -46,7 +46,7 @@ dependencies:
   flutter_webview_plugin:
     git:
       url: https://github.com/hardy716/flutter_webview_plugin.git 
-
+      
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -86,6 +86,8 @@ flutter:
     - assets/images/sample_manual/sample_manual_3.png
     - assets/images/sample_manual/sample_manual_4.png
     - assets/images/sample_manual/sample_manual_5.png
+
+    - assets/images/sample_data/sample_food.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -6,10 +6,9 @@ import 'package:provider/provider.dart';
 
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-import 'views/additional_user_info_screen.dart';
-// import 'views/splash_screen.dart';
 
 
+import 'views/analyzed_image_screen.dart';
 
 // Future<void> main() async {
 //   await dotenv.load();
@@ -25,15 +24,13 @@ Future<void> main() async {
   await dotenv.load();
   KakaoSdk.init(nativeAppKey: dotenv.env['KAKAO_CLIENT_ID']!);
 
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
-        ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
-      ],
-      child: const MAKEAT(),
-    )
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
+      ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
+    ],
+    child: const MAKEAT(),
+  ));
 }
 
 class MAKEAT extends StatelessWidget {
@@ -42,8 +39,9 @@ class MAKEAT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AdditionalUserInfoScreen(),
-      // home: SplashScreen(),
+      home: AnalyzedImageScreen(),
+
+
     );
   }
 }

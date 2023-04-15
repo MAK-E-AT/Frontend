@@ -5,11 +5,8 @@ class CustomImageSlider extends StatefulWidget {
   final List<String> imagePathList;
   final int initialIndex;
 
-  const CustomImageSlider({
-    super.key, 
-    required this.imagePathList,
-    this.initialIndex = 0
-  });
+  const CustomImageSlider(
+      {super.key, required this.imagePathList, this.initialIndex = 0});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -52,38 +49,35 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
           height: 15,
           child: indicator(),
         ),
-        const SizedBox(height: 20.0,),
+        const SizedBox(
+          height: 20.0,
+        ),
       ],
     );
   }
 
   Widget imageSlider(String path, int index) => Container(
-    width: double.infinity,
-    decoration: const BoxDecoration(
-      color: Colors.white,
-      border: Border(
-        bottom: BorderSide(color: Colors.black54, width: 2),
-        top: BorderSide(color: Colors.black54, width: 2),
-      )
-    ),
-    child: Image.asset(
-      path, 
-      fit: BoxFit.contain),
-  );
+        width: double.infinity,
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              bottom: BorderSide(color: Colors.black54, width: 2),
+              top: BorderSide(color: Colors.black54, width: 2),
+            )),
+        child: Image.asset(path, fit: BoxFit.contain),
+      );
 
   Widget indicator() => Container(
-    margin: const EdgeInsets.only(bottom: 0.0),
-    alignment: Alignment.bottomCenter,
-    child: AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: widget.imagePathList.length,
-      effect: JumpingDotEffect(
-          dotHeight: 7,
-          dotWidth: 7,
-          activeDotColor: Colors.black54,
-          dotColor: Colors.grey.withOpacity(0.8)),
-    ),
-  );
+        margin: const EdgeInsets.only(bottom: 0.0),
+        alignment: Alignment.bottomCenter,
+        child: AnimatedSmoothIndicator(
+          activeIndex: activeIndex,
+          count: widget.imagePathList.length,
+          effect: JumpingDotEffect(
+              dotHeight: 7,
+              dotWidth: 7,
+              activeDotColor: Colors.black54,
+              dotColor: Colors.grey.withOpacity(0.8)),
+        ),
+      );
 }
-
-
