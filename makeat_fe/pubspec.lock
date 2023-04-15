@@ -219,10 +219,11 @@ packages:
   flutter_webview_plugin:
     dependency: "direct main"
     description:
-      name: flutter_webview_plugin
-      sha256: ec410b10822b06432e11f9680b319609d6f34bcdabb31fcc4990ac8a2aaf9ff0
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "66463969b301ce87f3efba336523044980ec15ef"
+      url: "https://github.com/hardy716/flutter_webview_plugin"
+    source: git
     version: "0.4.0"
   http:
     dependency: "direct main"
