@@ -222,7 +222,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "66463969b301ce87f3efba336523044980ec15ef"
-      url: "https://github.com/hardy716/flutter_webview_plugin"
+      url: "https://github.com/hardy716/flutter_webview_plugin.git"
     source: git
     version: "0.4.0"
   http:

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
 
+
 import 'views/analyzed_image_screen.dart';
 
 // Future<void> main() async {
@@ -39,6 +40,8 @@ class MAKEAT extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: AnalyzedImageScreen(),
+
+
     );
   }
 }
