@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
-import '../models/food_info.dart';
+import '../widgets/custom_text_box.dart';
+
 
 class AnalyzedImageScreen extends StatefulWidget {
   const AnalyzedImageScreen({super.key});
@@ -39,8 +40,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                           border: Border.all(color: Colors.black54, width: 2),
                         ),
                         width: MediaQuery.of(context).size.width * 0.76,
-                        height: MediaQuery.of(context).size.height *
-                            0.38, // size 수정 필요
+                        height: MediaQuery.of(context).size.height * 0.38, // size 수정 필요
                         child: Image.asset(
                             'assets/images/sample_data/sample_food.png',
                             fit: BoxFit.cover),
@@ -56,39 +56,27 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                         child: const Text(
                           "검색된 음식 목록",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                       const SizedBox(
-                        height: 30.0,
+                        height: 24.0,
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.55,
-                        child: const Column(
+                        height: MediaQuery.of(context).size.height * 0.16,
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            FoodInfo(
-                                foodName: '계란샐러드', quantity: '1', unit: '인분'),
-                            FoodInfo(
-                                foodName: '소고기 안심', quantity: '200', unit: 'g'),
-                            FoodInfo(
-                                foodName: '방울토마토', quantity: '3', unit: '개'),
-                            FoodInfo(
-                                foodName: '한현호', quantity: '0.5', unit: '공기'),
-                            FoodInfo(
-                                foodName: '한현호', quantity: '0.5', unit: '공기'),
-                            FoodInfo(
-                                foodName: '한현호', quantity: '0.5', unit: '공기'),
-                            FoodInfo(
-                                foodName: '한현호', quantity: '0.5', unit: '공기'),
+                          children: const [
+                            CustomTextBox( name: '계란샐러드', quantity: '1', unit: '인분' ),
+                            CustomTextBox( name: '소고기 안심', quantity: '200', unit: 'g' ),
+                            CustomTextBox( name: '방울토마토', quantity: '3', unit: '개' ),
                           ],
                         ),
                       ),
                       const TextButton(
                         onPressed: null, // null값을 주면 비활성화 된다.
-
                         child: Text('검색 목록에 없는 음식이 있어요...'),
                       )
                     ],

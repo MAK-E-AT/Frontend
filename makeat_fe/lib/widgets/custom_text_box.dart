@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FoodInfo extends StatelessWidget {
-  final String foodName;
+class CustomTextBox extends StatelessWidget {
+  final String name;
   final String quantity;
   final String unit;
 
-  const FoodInfo({
+  const CustomTextBox({
     Key? key,
-    required this.foodName,
+    required this.name,
     required this.quantity,
     required this.unit,
   }) : super(key: key);
@@ -27,7 +27,7 @@ class FoodInfo extends StatelessWidget {
           SizedBox(
             width: 80,
             child: Text(
-              foodName,
+              name,
               textAlign: TextAlign.center,
             ),
           ),

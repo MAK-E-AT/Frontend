@@ -40,8 +40,6 @@ class MAKEAT extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: AnalyzedImageScreen(),
-
-
     );
   }
 }
