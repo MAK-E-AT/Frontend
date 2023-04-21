@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import '../widgets/custom_navigation_bar.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -6,14 +7,12 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My App'),
+    return const Scaffold(
+      appBar: CustomAppBar(),
+      body: Center(
+        child: Text('커스텀 앱바 & 바텀내비게이션 바 적용'),
       ),
-      body: const Center(
-        child: Text('Hello, World!'),
-      ),
-      bottomNavigationBar: const CustomNavigationBar(),
+      bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }

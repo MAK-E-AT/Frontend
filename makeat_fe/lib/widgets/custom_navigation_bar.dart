@@ -39,11 +39,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-        child: Text('바텀 네비게이션 바 테스트'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
+    return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.black87,
         selectedLabelStyle: const TextStyle(fontSize: 13.0),
@@ -67,7 +63,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-      ),
-    );
+      );
   }
 }
