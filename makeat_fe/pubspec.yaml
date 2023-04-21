@@ -77,6 +77,15 @@ flutter:
     - assets/images/makeat_logo/logo_big_size.png
     - assets/images/makeat_logo/logo_small_size.png
 
+    - assets/images/bottom_navigation_bar/date_off.png
+    - assets/images/bottom_navigation_bar/date_on.png
+    - assets/images/bottom_navigation_bar/diet_off.png
+    - assets/images/bottom_navigation_bar/diet_on.png
+    - assets/images/bottom_navigation_bar/home_off.png
+    - assets/images/bottom_navigation_bar/home_on.png
+    - assets/images/bottom_navigation_bar/user_off.png
+    - assets/images/bottom_navigation_bar/user_on.png
+
     - assets/images/social_login/apple_login.png
     - assets/images/social_login/kakao_login.png
     - assets/images/social_login/naver_login.png
