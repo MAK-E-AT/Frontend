@@ -6,9 +6,8 @@ import 'package:provider/provider.dart';
 
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
+import 'package:makeat_fe/views/example.dart';
 
-
-import 'views/analyzed_image_screen.dart';
 
 // Future<void> main() async {
 //   await dotenv.load();
@@ -39,7 +38,8 @@ class MAKEAT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AnalyzedImageScreen(),
+      // home: AnalyzedImageScreen(),
+      home: MyHomePage(),
     );
   }
 }
