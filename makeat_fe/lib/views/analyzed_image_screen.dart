@@ -42,7 +42,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                         width: MediaQuery.of(context).size.width * 0.76,
                         height: MediaQuery.of(context).size.height * 0.38, // size 수정 필요
                         child: Image.asset(
-                            'assets/images/sample_data/sample_food.png',
+                            'assets/images/sample_food/sample_food.png',
                             fit: BoxFit.cover),
                       ),
                       const SizedBox(
