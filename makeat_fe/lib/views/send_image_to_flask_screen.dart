@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,6 +18,8 @@ class _SendImageToFlaskState extends State<SendImageToFlask> {
   late Future<Widget> photo;
   File? mPhoto;
 
+  final url = Uri.parse('http://127.0.0.1:9900/test');
+
   Future<Widget> onPhoto(ImageSource source) async {
     XFile? f = await ImagePicker().pickImage(source: source);
     mPhoto = File(f!.path);
@@ -25,6 +28,7 @@ class _SendImageToFlaskState extends State<SendImageToFlask> {
 
     sendPhoto.then((val) {
       print('{this.source} 일단 감');
+      print(val);
       //이게 플라스크한테 넘어가는거
       //_postRequest(kakaoId: widget.userID, dataByte: val);
       //   print('지금 백엔드에 넣어봄');
@@ -100,6 +104,9 @@ class _SendImageToFlaskState extends State<SendImageToFlask> {
                                     const Color.fromARGB(255, 13, 48, 78)),
                             onPressed: () => {
                                   photo = onPhoto(ImageSource.gallery),
+                                  print(photo),
+                                  print('사진 전송'),
+                                  getflask(url),
 
                                   // photo.then((val) {
                                   //   // 데이터가 나오면 해당 값을 출력
@@ -172,5 +179,16 @@ class _SendImageToFlaskState extends State<SendImageToFlask> {
         bottomNavigationBar: const CustomElevatedButton(
           buttonText: '영양 성분 확인하기',
         ));
+  }
+}
+
+void getflask(url) async {
+  try {
+    http.get(url);
+    print('겟 요청 보냄');
+  } on SocketException catch (error) {
+    print(error);
+  } catch (error) {
+    print('실패');
   }
 }
