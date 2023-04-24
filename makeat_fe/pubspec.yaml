@@ -103,6 +103,12 @@ flutter:
     - assets/images/sample_food/f4.png
     - assets/images/sample_food/f5.png
 
+    - assets/images/profile_menu/favorite.png
+    - assets/images/profile_menu/feedback.png
+    - assets/images/profile_menu/manual.png
+    - assets/images/profile_menu/myInfo.png
+    - assets/images/profile_menu/notice.png
+    - assets/images/profile_menu/settings.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
