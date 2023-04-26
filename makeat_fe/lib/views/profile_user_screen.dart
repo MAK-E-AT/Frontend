@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:makeat_fe/views/profile_user_info_screen.dart';
 import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import 'package:makeat_fe/widgets/custom_grid_view.dart';
+import 'package:makeat_fe/widgets/custom_grid_menu.dart';
 import 'package:makeat_fe/widgets/custom_list_view.dart';
 import 'package:makeat_fe/widgets/custom_navigation_bar.dart';
 
@@ -19,7 +19,7 @@ class ProfileUserScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
-                  child: CustomGridView(
+                  child: CustomGridMenu(
                     menuTitles: const [
                       '나의 정보',
                       '찜한 식단',

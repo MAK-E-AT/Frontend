@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomGridView extends StatelessWidget {
+class CustomGridMenu extends StatelessWidget {
   final List<String> menuTitles;
   final List<String> menuImages;
   final List<Future<void> Function()> onTap;
@@ -11,7 +11,7 @@ class CustomGridView extends StatelessWidget {
   final double crossAxisSpacing;
   final EdgeInsetsGeometry padding;
 
-  const CustomGridView({
+  const CustomGridMenu({
     Key? key,
     required this.menuTitles,
     required this.menuImages,
