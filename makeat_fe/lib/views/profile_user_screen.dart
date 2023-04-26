@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/profile_user_info_screen.dart';
 import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import 'package:makeat_fe/widgets/custom_grid_view.dart';
 import 'package:makeat_fe/widgets/custom_list_view.dart';
@@ -16,10 +17,10 @@ class ProfileUserScreen extends StatelessWidget {
           padding: const EdgeInsets.all(18.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: const [
+              children: [
                 Expanded(
                   child: CustomGridView(
-                    menuTitles: [
+                    menuTitles: const [
                       '나의 정보',
                       '찜한 식단',
                       '매뉴얼',
@@ -27,7 +28,7 @@ class ProfileUserScreen extends StatelessWidget {
                       '문의 / 피드백',
                       '앱 설정',
                     ],
-                    menuImages: [
+                    menuImages: const [
                       'assets/images/profile_menu/myInfo.png',
                       'assets/images/profile_menu/favorite.png',
                       'assets/images/profile_menu/manual.png',
@@ -35,9 +36,17 @@ class ProfileUserScreen extends StatelessWidget {
                       'assets/images/profile_menu/feedback.png',
                       'assets/images/profile_menu/settings.png',
                     ],
+                    onTap: [
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                    ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: CustomListView(
                     itemList: [
                       ['개인정보 취급방침'],
@@ -50,7 +59,7 @@ class ProfileUserScreen extends StatelessWidget {
                   )
                 ),
                     // 로그아웃 버튼
-                Padding(
+                const Padding(
                   padding: EdgeInsets.symmetric(vertical: 6.0),
                   child: Text(
                     '로그아웃',
