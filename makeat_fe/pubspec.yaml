@@ -79,6 +79,15 @@ flutter:
     - assets/images/makeat_logo/logo_big_size.png
     - assets/images/makeat_logo/logo_small_size.png
 
+    - assets/images/bottom_navigation_bar/date_off.png
+    - assets/images/bottom_navigation_bar/date_on.png
+    - assets/images/bottom_navigation_bar/diet_off.png
+    - assets/images/bottom_navigation_bar/diet_on.png
+    - assets/images/bottom_navigation_bar/home_off.png
+    - assets/images/bottom_navigation_bar/home_on.png
+    - assets/images/bottom_navigation_bar/user_off.png
+    - assets/images/bottom_navigation_bar/user_on.png
+
     - assets/images/social_login/apple_login.png
     - assets/images/social_login/kakao_login.png
     - assets/images/social_login/naver_login.png
@@ -89,8 +98,23 @@ flutter:
     - assets/images/sample_manual/sample_manual_4.png
     - assets/images/sample_manual/sample_manual_5.png
 
-    - assets/images/sample_data/sample_food.png
+    - assets/images/sample_food/sample_food.png
+    - assets/images/sample_food/f1.png
+    - assets/images/sample_food/f2.png
+    - assets/images/sample_food/f3.png
+    - assets/images/sample_food/f4.png
+    - assets/images/sample_food/f5.png
 
+    - assets/images/profile_menu/favorite.png
+    - assets/images/profile_menu/feedback.png
+    - assets/images/profile_menu/manual.png
+    - assets/images/profile_menu/myInfo.png
+    - assets/images/profile_menu/notice.png
+    - assets/images/profile_menu/settings.png
+
+    - assets/images/exercise_select/shoulder_press.png
+    - assets/images/exercise_select/jogging.png
+    - assets/images/exercise_select/yoga.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import 'package:makeat_fe/widgets/custom_check_box.dart';
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 import 'package:makeat_fe/widgets/custom_text_field.dart';
@@ -32,20 +33,12 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: const CustomAppBar(),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: [
-                  const SizedBox(height: 20.0,),
-
-                  /* MAK-E-AT 로고(소) */
-                  Image.asset(
-                    width: 140.0,
-                    'assets/images/makeat_logo/logo_small_size.png',
-                  ),
-                  const SizedBox(height: 30.0,),
-
                   /* 이미지 슬라이더 
                     - imagePaths, 초기 인덱스 0
                     - JumpingDotEffect 애니메이션
