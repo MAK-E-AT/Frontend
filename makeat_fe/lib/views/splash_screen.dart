@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:makeat_fe/views/social_login_screen.dart';
+import '../common/no_animation_page_route.dart';
+
+import '../views/social_login_screen.dart';
 
 
 
@@ -20,7 +22,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const SocialLoginScreen()),
+        NoAnimationPageRoute(
+          builder: (context) => const SocialLoginScreen(), 
+          settings: const RouteSettings(name: 'social_login_screen')
+        ),
       );
     });
   }

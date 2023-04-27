@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import 'package:makeat_fe/widgets/custom_check_box.dart';
-import 'package:makeat_fe/widgets/custom_elevated_button.dart';
-import 'package:makeat_fe/widgets/custom_text_field.dart';
 
+import '../common/no_animation_page_route.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/custom_check_box.dart';
+import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_text_field.dart';
 import '../widgets/custom_image_slider.dart';
 
 class AdditionalUserInfoScreen extends StatefulWidget {
@@ -60,7 +62,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
                     rightWhiteSpaceWidth: 20.0,
-                    regExp: r'^^(?!0)[1-9][0-9]?$|^1\d{2}$', 
+                    regExp: r'^(?!0)[1-9][0-9]?$|^1\d{2}$', 
                   ),
 
                   /* 키 
@@ -109,7 +111,18 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
             ),
           )
         ),
-        bottomNavigationBar: const CustomElevatedButton(buttonText: '시  작  하  기',)
+        bottomNavigationBar: CustomElevatedButton(
+          buttonText: '시  작  하  기',
+          onPressed: () {
+            return Navigator.push(
+              context, 
+              NoAnimationPageRoute(
+                builder: (context) => const AdditionalUserInfoScreen(), 
+                settings: const RouteSettings(name: 'additional_user_info_screen')
+              )
+            );
+          },
+        )
       )
     );
   }

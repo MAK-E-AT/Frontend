@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String buttonText;
+  final Future<void> Function() onPressed;
 
   const CustomElevatedButton({
     super.key,
-    required this.buttonText
+    required this.buttonText,
+    required this.onPressed,
   });
 
   @override

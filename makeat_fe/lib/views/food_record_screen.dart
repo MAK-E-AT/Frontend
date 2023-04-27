@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import 'package:makeat_fe/widgets/custom_navigation_bar.dart';
+
+import '../common/no_animation_page_route.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/custom_bottom_navigation_bar.dart';
+
 
 class FoodRecordScreen extends StatelessWidget {
   final List<String> dateList = [
@@ -99,7 +103,10 @@ class FoodRecordScreen extends StatelessWidget {
                               onTap: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => FoodRecordScreen()),
+                                  NoAnimationPageRoute(
+                                    builder: (context) => FoodRecordScreen(), 
+                                    settings: const RouteSettings(name: 'food_record_screen')
+                                  ),
                                 );
                               },
                               child: Image.asset(
@@ -120,7 +127,7 @@ class FoodRecordScreen extends StatelessWidget {
             },
           ),
         ),
-        bottomNavigationBar: const CustomNavigationBar(),
+        bottomNavigationBar: const CustomBottomNavigationBar(),
       ),
     );
   }

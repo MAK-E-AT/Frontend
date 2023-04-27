@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import 'package:makeat_fe/widgets/custom_elevated_button.dart';
-import 'package:makeat_fe/widgets/custom_grid_select.dart';
 
+import '../common/no_animation_page_route.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_grid_select.dart';
 import '../widgets/custom_text_field.dart';
+
+import 'package:makeat_fe/views/profile_user_screen.dart';
 
 class ProfileUserInfoScreen extends StatefulWidget {
   const ProfileUserInfoScreen({super.key});
@@ -77,7 +81,7 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
                   textFieldWidth: MediaQuery.of(context).size.width * 0.55,
                   leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.05,
                   rightWhiteSpaceWidth: 20.0,
-                  regExp: r'^^(?!0)[1-9][0-9]?$|^1\d{2}$', 
+                  regExp: r'^(?!0)[1-9][0-9]?$|^1\d{2}$', 
                 ),
 
                 /* 키 
@@ -139,21 +143,28 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
                   '  선호하는 운동 3개 선택하기  ',
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
-
                 const SizedBox(height: 5.0,),
-
                 Expanded(
                   child: CustomGridSelection(
                     exerciseImgList: _imgList,
-                    exerciseList: _exerciseList
+                    exerciseList: _exerciseList,
                   )
                 ),
               ],
             ),
           ),
         ),
-      bottomNavigationBar: const CustomElevatedButton(
+      bottomNavigationBar: CustomElevatedButton(
         buttonText: '내   정 보   수 정 하 기',
+        onPressed: () {
+          return Navigator.push(
+            context, 
+            NoAnimationPageRoute(
+              builder: (context) => const ProfileUserScreen(), 
+              settings: const RouteSettings(name: 'profile_user_screen')
+            )
+          );
+        },
       ),
     );
   }
