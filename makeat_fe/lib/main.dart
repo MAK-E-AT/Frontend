@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:makeat_fe/views/profile_user_screen.dart';
 
 import 'package:provider/provider.dart';
 
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-
+import 'views/example.dart';
 
 // Future<void> main() async {
 //   await dotenv.load();
@@ -38,7 +37,7 @@ class MAKEAT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ProfileUserScreen(),
+      home: MyHomePage(),
     );
   }
 }
