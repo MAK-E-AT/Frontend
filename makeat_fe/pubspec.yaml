@@ -42,14 +42,12 @@ dependencies:
   flutter_dotenv: ^5.0.2
   flutter_secure_storage: ^8.0.0
   image_picker: ^0.8.1
-
   http: ^0.13.5
   intl: ^0.18.1
   kakao_flutter_sdk: ^1.4.2
   flutter_webview_plugin:
     git:
       url: https://github.com/hardy716/flutter_webview_plugin.git 
-  image_picker: ^0.8.1
       
 dev_dependencies:
   flutter_test:
