@@ -42,6 +42,7 @@ class SendImageToFlask {
 
       return true;
     } else {
+
       // ignore: avoid_print
       print('error');
       // 예외(에러) 처리
@@ -49,3 +50,4 @@ class SendImageToFlask {
     }
   }
 }
+

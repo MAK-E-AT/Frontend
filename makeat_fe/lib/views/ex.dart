@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
@@ -26,12 +27,14 @@ class _SendImageToFlaskState extends State<SendImageToFlask> {
   final url = Uri.parse('http://127.0.0.1:9900/test');
 
   Future<Widget> onPhoto(ImageSource source) async {
+  
    XFile? f = await ImagePicker().pickImage(source: source);
    mPhoto = File(f!.path);
 
     Future<Uint8List> sendPhoto = mPhoto!.readAsBytes();
 
    sendPhoto.then((val) {
+
       print('{this.source} 일단 감');
       print(val);
       //이게 플라스크한테 넘어가는거
@@ -203,3 +206,4 @@ void getflask(url) async {
     print('실패');
   }
 }
+

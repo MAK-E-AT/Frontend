@@ -8,7 +8,7 @@ import 'models/bottom_navigation_index.dart';
 
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-
+import 'views/example.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
