@@ -1,11 +1,15 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import '../widgets/custom_navigation_bar.dart';
+
+import '../widgets/custom_bottom_navigation_bar.dart';
 import 'package:http/http.dart' as http;
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -177,10 +181,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomNavigationBar(),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
-}
+} 
+
 
 void getflask(url) async {
   try {
@@ -192,3 +197,4 @@ void getflask(url) async {
     print('실패');
   }
 }
+

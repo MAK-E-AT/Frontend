@@ -4,7 +4,9 @@ import 'dart:typed_data';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
+
 class SendImageToFlask {
+  // ignore: unused_field
   final _flutterSecureStorage = const FlutterSecureStorage();
 
   Future<bool> sendToImageToFlask(Uint8List image) async {
@@ -27,6 +29,7 @@ class SendImageToFlask {
       final Map<String, dynamic> data = jsonDecode(response.body);
       // Access Token과 Refresh Token 값을 추출
 
+      // ignore: avoid_print
       print(data);
       //final String accessToken = data['영양성분'];
       //final String refreshToken = data['이미지'];
@@ -39,9 +42,12 @@ class SendImageToFlask {
 
       return true;
     } else {
+
+      // ignore: avoid_print
       print('error');
       // 예외(에러) 처리
       return false;
     }
   }
 }
+

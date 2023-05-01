@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/profile_user_info_screen.dart';
 
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
+
+import '../common/no_animation_page_route.dart';
 
 import '../widgets/custom_text_box.dart';
 
@@ -84,8 +87,19 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                 ),
               ),
             ),
-            bottomNavigationBar: const CustomElevatedButton(
+            bottomNavigationBar: CustomElevatedButton(
               buttonText: '영양 성분 확인하기',
-            )));
+              onPressed: () {
+                return Navigator.push(
+                  context, 
+                  NoAnimationPageRoute(
+                    builder: (context) => const ProfileUserInfoScreen(), 
+                    settings: const RouteSettings(name: 'profile_user_info_screen')
+                  )
+                );
+              },
+            )
+      )
+    );
   }
 }

@@ -7,6 +7,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class SocialLoginModel {
   final _flutterSecureStorage = const FlutterSecureStorage();
 
+  /* 인증 코드를 백엔드로 전달 */
   Future<bool> sendAuthCodeToBackend(String socialType, String authCode) async {
 
     // ignore: no_leading_underscores_for_local_identifiers
@@ -38,5 +39,21 @@ class SocialLoginModel {
       // 예외(에러) 처리
       return false;
     }
+  }
+
+  /* (신규) 회원 정보를 백엔드로 전달 */
+  Future<bool> sendNewUserInfoToBackend() async {
+    // ignore: no_leading_underscores_for_local_identifiers
+    const String _backendEnd = 'http://localhost:8080/';
+    final response = await http.post( Uri.parse(_backendEnd) );
+    if (response.statusCode == 200) { return true; } else { return false; }
+  }
+
+  /* 수정된 회원 정보를 백엔드로 전달 */
+  Future<bool> sendModifyUserInfoToBackend() async {
+    // ignore: no_leading_underscores_for_local_identifiers
+    const String _backendEnd = 'http://localhost:8080/';
+    final response = await http.post( Uri.parse(_backendEnd) );
+    if (response.statusCode == 200) { return true; } else { return false; }
   }
 }

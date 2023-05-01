@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/views/profile_user_info_screen.dart';
-import 'package:makeat_fe/widgets/custom_app_bar.dart';
-import 'package:makeat_fe/widgets/custom_grid_menu.dart';
-import 'package:makeat_fe/widgets/custom_list_view.dart';
-import 'package:makeat_fe/widgets/custom_navigation_bar.dart';
+
+import '../common/no_animation_page_route.dart';
+
+import '../widgets/custom_app_bar.dart';
+import '../widgets/custom_grid_menu.dart';
+import '../widgets/custom_list_view.dart';
+import '../widgets/custom_bottom_navigation_bar.dart';
+
+import 'profile_user_info_screen.dart';
+
 
 class ProfileUserScreen extends StatelessWidget {
   const ProfileUserScreen({super.key});
@@ -37,12 +42,12 @@ class ProfileUserScreen extends StatelessWidget {
                       'assets/images/profile_menu/settings.png',
                     ],
                     onTap: [
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
-                      () async { Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileUserInfoScreen())); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
+                      () async { Navigator.push(context, NoAnimationPageRoute(builder: (context) => const ProfileUserInfoScreen(), settings: const RouteSettings(name: 'profile_user_info_screen'))); },
                     ],
                   ),
                 ),
@@ -74,7 +79,7 @@ class ProfileUserScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CustomNavigationBar(),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }
