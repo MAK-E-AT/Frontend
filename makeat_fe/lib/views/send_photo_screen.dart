@@ -7,46 +7,30 @@ import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import '../widgets/custom_navigation_bar.dart';
 import 'package:http/http.dart' as http;
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class SendPhotoScreen extends StatefulWidget {
+  const SendPhotoScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SendPhotoScreen> createState() => _SendPhotoScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  late Future<Widget> photo;
+class _SendPhotoScreenState extends State<SendPhotoScreen> {
+  late Future<Uint8List> photo;
   File? mPhoto;
 
   final url = Uri.parse('http://127.0.0.1:9900/test');
 
-  Future<Widget> onPhoto(ImageSource source) async {
+  Future<Uint8List> onPhoto(ImageSource source) async {
     XFile? f = await ImagePicker().pickImage(source: source);
-    mPhoto = File(f!.path);
+    mPhoto = File(f!.path); // cache 에 저장되는 이미지 경로
 
-    Future<Uint8List> sendPhoto = mPhoto!.readAsBytes();
+    Future<Uint8List> photo = mPhoto!.readAsBytes(); // 이미지를 int 값으로 변환
 
-    sendPhoto.then((val) {
-      print('{this.source} 일단 감');
-      print(val);
-      //이게 플라스크한테 넘어가는거
-      //_postRequest(kakaoId: widget.userID, dataByte: val);
-      //   print('지금 백엔드에 넣어봄');
+    photo.then((val) {
+      print(' 데이터 크기 = ${val.length}');
+    }).catchError((error) {});
 
-      //   Future<int> data = _uploadToSignedURL(
-      //       file: val, //val,
-      //       url:
-      //           'https://makeat.s3.amazonaws.com/3.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA37IAGAIXQ52EVAUK%2F20230224%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20230224T044146Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4c2038c1c2e64589295642eccd3a9acef9ee1889d3aa751cd7af570657b603a8');
-      //   print('전송 성공');
-
-      //   data.then((value) => print('이유는 $value'));
-      // }).catchError((error) {
-      //   print('Faliure to 사진전송');
-    });
-
-    Widget photo = (mPhoto != null) ? Image.file(mPhoto!) : const Text('EMPTY');
     return photo;
-    //setState(() => mPhoto = File(f!.path));
   }
 
   @override
@@ -102,8 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                 const Color.fromARGB(255, 13, 48, 78)),
                         onPressed: () => {
                           photo = onPhoto(ImageSource.gallery),
-                          print(photo),
-                          print('사진 전송'),
+
+                          photo.then((val) {
+                            print('get image');
+                            print(val);
+                          }).catchError((error) {
+                            print('not get image');
+                          }),
+
                           //getflask(url),
 
                           // photo.then((val) {
@@ -138,6 +128,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         onPressed: () {
                           photo = onPhoto(ImageSource.camera);
+
+                          photo.then((val) {
+                            print('get image');
+                            print(val);
+                          }).catchError((error) {
+                            print('not get image');
+                          });
 
                           // photo.then((val) {
                           //   // 데이터가 나오면 해당 값을 출력
