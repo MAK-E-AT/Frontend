@@ -105,6 +105,8 @@ flutter:
     - assets/images/sample_food/f4.png
     - assets/images/sample_food/f5.png
 
+    - assets/images/sample_diagram/d1.png
+
     - assets/images/profile_menu/favorite.png
     - assets/images/profile_menu/feedback.png
     - assets/images/profile_menu/manual.png

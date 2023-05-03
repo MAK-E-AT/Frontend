@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/image_picker_screen.dart';
 
 import '../common/no_animation_page_route.dart';
 
@@ -17,7 +18,7 @@ class FoodRecordScreen extends StatelessWidget {
     '4월 24일',
   ];
 
-  final List<List<String>> menuList = [
+  final List<List<String>> mealList = [
     [
       'assets/images/sample_food/f1.png',
       'assets/images/sample_food/f3.png',
@@ -89,7 +90,7 @@ class FoodRecordScreen extends StatelessWidget {
                       height: 100.0,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: menuList[index].length,
+                        itemCount: mealList[index].length,
                         itemBuilder: (BuildContext context, int index2) {
                           return Container(
                             // decoration: BoxDecoration(
@@ -104,13 +105,16 @@ class FoodRecordScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   NoAnimationPageRoute(
-                                    builder: (context) => FoodRecordScreen(), 
-                                    settings: const RouteSettings(name: 'food_record_screen')
+                                    builder: (context) => ImagePickerScreen(
+                                      selectedDate: dateList[index],
+                                      selectedMeal: mealList[index],
+                                    ), 
+                                    settings: const RouteSettings(name: 'image_picker_screen')
                                   ),
                                 );
                               },
                               child: Image.asset(
-                                menuList[index][index2],
+                                mealList[index][index2],
                                 width: 100.0,
                                 height: 100.0,
                                 fit: BoxFit.cover,
