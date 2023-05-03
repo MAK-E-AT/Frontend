@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomGridSelection extends StatefulWidget {
-  final List<String> exerciseImgList;
-  final List<String> exerciseList;
+  final List<String> imgList;
+  final List<String> txtList;
 
   const CustomGridSelection({
     Key? key, 
-    required this.exerciseImgList,
-    required this.exerciseList,
+    required this.imgList,
+    required this.txtList,
   }) : super(key: key);
 
   @override
@@ -21,14 +21,14 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
   @override
   void initState() {
     super.initState();
-    _isSelected = List.generate(widget.exerciseList.length, (_) => false);
+    _isSelected = List.generate(widget.txtList.length, (_) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       padding: const EdgeInsets.all(16.0),
-      itemCount: widget.exerciseList.length,
+      itemCount: widget.txtList.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 10.0,
@@ -62,11 +62,11 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  widget.exerciseImgList[index],
+                  widget.imgList[index],
                   width: 50.0,
                   height: 50.0,
                 ),
-                Text(widget.exerciseList[index]),
+                Text(widget.txtList[index]),
               ],
             ),
           ),

@@ -15,12 +15,10 @@ import '../common/no_animation_page_route.dart';
 
 class ImagePickerScreen extends StatefulWidget {
   final String selectedDate;
-  final List<String> selectedMeal;
   
   const ImagePickerScreen({
     Key? key, 
     required this.selectedDate,
-    required this.selectedMeal,
   }) : super(key: key);
 
   @override

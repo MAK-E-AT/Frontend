@@ -146,8 +146,8 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
                 const SizedBox(height: 5.0,),
                 Expanded(
                   child: CustomGridSelection(
-                    exerciseImgList: _imgList,
-                    exerciseList: _exerciseList,
+                    imgList: _imgList,
+                    txtList: _exerciseList,
                   )
                 ),
               ],

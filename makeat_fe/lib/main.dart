@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 import 'models/bottom_navigation_index.dart';
-
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
 
@@ -39,7 +38,7 @@ class MAKEAT extends StatelessWidget {
       theme: ThemeData(
         pageTransitionsTheme: NoAnimationTransition(),
       ),
-      home: FoodRecordScreen(),
+      home: FoodRecordScreen()
     );
   }
 }

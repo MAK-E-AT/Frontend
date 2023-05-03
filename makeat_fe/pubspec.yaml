@@ -117,6 +117,11 @@ flutter:
     - assets/images/exercise_select/shoulder_press.png
     - assets/images/exercise_select/jogging.png
     - assets/images/exercise_select/yoga.png
+
+    - assets/images/meal_select/text.png
+    - assets/images/meal_select/camera.png
+    - assets/images/meal_select/gallery.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
