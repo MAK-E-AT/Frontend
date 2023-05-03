@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:makeat_fe/views/profile_user_info_screen.dart';
 
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
@@ -93,8 +92,8 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                 return Navigator.push(
                   context, 
                   NoAnimationPageRoute(
-                    builder: (context) => const ProfileUserInfoScreen(), 
-                    settings: const RouteSettings(name: 'profile_user_info_screen')
+                    builder: (context) => const AnalyzedImageScreen(), 
+                    settings: const RouteSettings(name: 'analyzed_image_screen')
                   )
                 );
               },

@@ -1,57 +1,44 @@
 import 'package:flutter/material.dart';
 
 import '../common/no_animation_page_route.dart';
-
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
+import 'food_record_detail_screen.dart';
 
 
 class FoodRecordScreen extends StatelessWidget {
   final List<String> dateList = [
-    '4월 18일',
-    '4월 19일',
-    '4월 20일',
-    '4월 21일',
-    '4월 22일',
-    '4월 23일',
-    '4월 24일',
+    '4월 29일',
+    '4월 30일',
+    '5월 01일',
+    '5월 02일',
+    '5월 03일',
+    '5월 04일',
   ];
 
-  final List<List<String>> menuList = [
+  final List<List<String>> mealList = [
+    [
+      // 예외 처리 필요 - 식단을 기록 안한 경우
+    ],
     [
       'assets/images/sample_food/f1.png',
       'assets/images/sample_food/f3.png',
       'assets/images/sample_food/f5.png',
     ],
     [
-      'assets/images/sample_food/f2.png',
-      'assets/images/sample_food/f3.png',
-      'assets/images/sample_food/f4.png',
-      'assets/images/sample_food/f5.png',
-      'assets/images/sample_food/f1.png',
+      // 예외 처리 필요 - 식단을 기록 안한 경우
     ],
     [
-      'assets/images/sample_food/f4.png',
-      'assets/images/sample_food/f1.png',
-    ],
-    [
-      'assets/images/sample_food/f2.png',
-      'assets/images/sample_food/f3.png',
-      'assets/images/sample_food/f5.png',
-    ],
-    [
-      'assets/images/sample_food/f1.png',
-      'assets/images/sample_food/f5.png',
-      'assets/images/sample_food/f1.png',
-    ],
-    [
-      'assets/images/sample_food/f2.png',
       'assets/images/sample_food/f4.png',
       'assets/images/sample_food/f1.png',
     ],
     [
       'assets/images/sample_food/f2.png',
       'assets/images/sample_food/f3.png',
+      'assets/images/sample_food/f5.png',
+    ],
+    [
+      'assets/images/sample_food/f1.png',
       'assets/images/sample_food/f5.png',
     ],
   ];
@@ -89,7 +76,7 @@ class FoodRecordScreen extends StatelessWidget {
                       height: 100.0,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: menuList[index].length,
+                        itemCount: mealList[index].length,
                         itemBuilder: (BuildContext context, int index2) {
                           return Container(
                             // decoration: BoxDecoration(
@@ -104,13 +91,15 @@ class FoodRecordScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   NoAnimationPageRoute(
-                                    builder: (context) => FoodRecordScreen(), 
-                                    settings: const RouteSettings(name: 'food_record_screen')
+                                    builder: (context) => FoodRecordDetailScreen(
+                                      selectedDate: dateList[index],
+                                    ), 
+                                    settings: const RouteSettings(name: 'image_picker_screen')
                                   ),
                                 );
                               },
                               child: Image.asset(
-                                menuList[index][index2],
+                                mealList[index][index2],
                                 width: 100.0,
                                 height: 100.0,
                                 fit: BoxFit.cover,

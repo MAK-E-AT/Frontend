@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:makeat_fe/views/send_image_to_flask_screen.dart';
+import 'package:makeat_fe/views/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../common/no_animation_page_route.dart';
@@ -93,7 +93,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         });
         Navigator.push(
           context,
-          NoAnimationPageRoute(builder: (context) => const SendPhotoScreen(), settings: const RouteSettings(name: 'example')),
+          NoAnimationPageRoute(builder: (context) => const HomeScreen(), settings: const RouteSettings(name: 'home_screen')),
         );
         break;
       /* 식단 기록 페이지로 이동 */
