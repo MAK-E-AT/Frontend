@@ -57,7 +57,6 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _ageController, 
                     labelText: '-  나이 (세)', 
-                    labelTextSize: 15.0, 
                     hintText: '만 나이를 입력해주세요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
@@ -73,7 +72,6 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _heightController, 
                     labelText: '-  키 (cm)', 
-                    labelTextSize: 15.0, 
                     hintText: '소수점은 한 자리까지만 가능해요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
@@ -89,7 +87,6 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _weightController, 
                     labelText: '-  체중 (kg)', 
-                    labelTextSize: 15.0, 
                     hintText: '소수점은 한 자리까지만 가능해요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,

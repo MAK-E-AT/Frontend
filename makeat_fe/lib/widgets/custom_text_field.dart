@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final double labelTextSize;
   final String hintText;
+  final double hintTextSize;
   final double textFieldWidth;
   final double leftWhiteSpaceWidth;
   final double rightWhiteSpaceWidth;
@@ -17,12 +18,13 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key, 
     required this.textEditingController,
-    required this.labelText,
-    required this.labelTextSize,
-    required this.hintText,
+    this.labelText = '',
+    this.labelTextSize = 15.0,
+    this.hintText = '',
+    this.hintTextSize = 12.0,
     required this.textFieldWidth,
-    required this.leftWhiteSpaceWidth,
-    required this.rightWhiteSpaceWidth,
+    this.leftWhiteSpaceWidth = 0,
+    this.rightWhiteSpaceWidth = 0,
     required this.regExp,
   });
 
@@ -50,8 +52,8 @@ class CustomTextField extends StatelessWidget {
               ],
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: const TextStyle(
-                  fontSize: 12.0,
+                hintStyle: TextStyle(
+                  fontSize: hintTextSize,
                 )
               ),
             ),

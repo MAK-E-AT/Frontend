@@ -58,7 +58,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                 child: ListView.builder(
                   itemCount: mealRecordList.length + 1,
                   itemBuilder: (BuildContext context, int index) {
-                    if (index == mealRecordList.length) {
+                    if (index == mealRecordList.length) {       // 리스트 뷰 맨 마지막 순번인 경우
                       return Column(
                         children: [
                           const SizedBox(height: 20.0,),
@@ -147,7 +147,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                           Icons.restaurant, size: 16.0,
                                           color: Colors.red,
                                         ),
-                                        alignment: PlaceholderAlignment.middle, // 아이콘 정렬 설정
+                                        alignment: PlaceholderAlignment.middle,
                                       ),
                                       TextSpan(
                                         text: ' ${index + 1}끼  -  ',
@@ -180,8 +180,8 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                   return Container(
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Colors.black54, // 윤곽선 색상
-                                        width: 0.5, // 윤곽선 너비
+                                        color: Colors.black54,
+                                        width: 0.5,
                                       ),
                                     ),
                                     margin: const EdgeInsets.all(0.2),

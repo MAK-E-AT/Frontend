@@ -1,4 +1,7 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/additional_meal_form.dart';
 
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
@@ -15,6 +18,14 @@ class AnalyzedImageScreen extends StatefulWidget {
 }
 
 class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
+
+  List<Map<String, String>> foodList = [];
+
+  String selectedFood = '음식';
+  int quantity = 1;
+  String unit = '인분';
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +38,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                       const SizedBox(
                         height: 20.0,
                       ),
-
+                
                       /* MAK-E-AT 로고(소) */
                       Image.asset(
                         width: 140.0,
@@ -41,8 +52,8 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                           color: Colors.white,
                           border: Border.all(color: Colors.black54, width: 2),
                         ),
-                        width: MediaQuery.of(context).size.width * 0.76,
-                        height: MediaQuery.of(context).size.height * 0.38, // size 수정 필요
+                        width: 280.0,
+                        height: 320.0, // size 수정 필요
                         child: Image.asset(
                             'assets/images/sample_food/sample_food.png',
                             fit: BoxFit.cover),
@@ -66,21 +77,71 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                       const SizedBox(
                         height: 24.0,
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.16,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            CustomTextBox( name: '계란샐러드', quantity: '1', unit: '인분' ),
-                            CustomTextBox( name: '소고기 안심', quantity: '200', unit: 'g' ),
-                            CustomTextBox( name: '방울토마토', quantity: '3', unit: '개' ),
-                          ],
+                      Container(
+                        height: 160.0,
+                        width: MediaQuery.of(context).size.width * 0.76,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: foodList.length,
+                          itemBuilder: (context, index) {
+                            return CustomTextBox(
+                              name: foodList[index]['name']!,
+                              quantity: foodList[index]['quantity']!,
+                              unit: foodList[index]['unit']!,
+                              onPressedEdit: () { 
+                                return showDialog(
+                                  context: context,
+                                  useRootNavigator: true,
+                                  builder: (context) => AddFoodForm(
+                                    foodName: foodList[index]['name']!,
+                                    foodQuantity: foodList[index]['quantity']!,
+                                    foodUnit: foodList[index]['unit']!,
+                                    onAddFood: (selectedFood, quantity, unit) {
+                                      setState(() {
+                                        foodList[index]['name'] = selectedFood;
+                                        foodList[index]['quantity'] = quantity.toString();
+                                        foodList[index]['unit'] = unit;
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                );
+                              },
+                              onPressedDelete: () async { 
+                                return setState(() {
+                                  foodList.removeAt(index);
+                                });
+                              },
+                            );
+                          },
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
                         ),
                       ),
-                      const TextButton(
-                        onPressed: null, // null값을 주면 비활성화 된다.
-                        child: Text('검색 목록에 없는 음식이 있어요...'),
-                      )
+
+                      TextButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            useRootNavigator: true,
+                            builder: (context) => AddFoodForm(
+                              // 음식 목록 추가
+                              onAddFood: (selectedFood, quantity, unit) {
+                                setState(() {
+                                  foodList.add({
+                                    'name': selectedFood,
+                                    'quantity': quantity.toString(),
+                                    'unit': unit,
+                                  });
+                                });
+                                Navigator.pop(context);
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('검색 목록에 없는 음식이 있어요...'),
+                      ),
                     ],
                   ),
                 ),
