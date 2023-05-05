@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:makeat_fe/views/social_login_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
@@ -39,6 +40,7 @@ class MAKEAT extends StatelessWidget {
         pageTransitionsTheme: NoAnimationTransition(),
       ),
       home: const AnalyzedImageScreen()
+      // home: const SocialLoginScreen()
     );
   }
 }

@@ -4,12 +4,16 @@ class CustomTextBox extends StatelessWidget {
   final String name;
   final String quantity;
   final String unit;
+  final Future<void> Function() onPressedEdit;
+  final Future<void> Function() onPressedDelete;
 
   const CustomTextBox({
     Key? key,
     required this.name,
     required this.quantity,
     required this.unit,
+    required this.onPressedDelete,
+    required this.onPressedEdit,
   }) : super(key: key);
 
   @override
@@ -19,7 +23,7 @@ class CustomTextBox extends StatelessWidget {
         color: Colors.white,
         border: Border.all(color: Colors.black87, width: 1),
       ),
-      width: MediaQuery.of(context).size.width * 0.7,
+      width: 280.0,
       height: MediaQuery.of(context).size.height * 0.05,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,20 +36,30 @@ class CustomTextBox extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 70,
+            width: 60,
             child: Text(
               quantity,
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: const TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.end,
             ),
           ),
           SizedBox(
-            width: 70,
+            width: 40,
             child: Text(
               unit,
               textAlign: TextAlign.center,
             ),
           ),
+          IconButton(
+              onPressed: onPressedEdit,
+
+              icon: const Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: onPressedDelete,
+              // onPressed: null,
+              icon: const Icon(Icons.delete),
+            ),
         ],
       ),
     );
