@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:makeat_fe/views/food_record_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 import 'models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
+import 'views/analyzed_image_screen.dart';
 
 
 
@@ -38,7 +38,7 @@ class MAKEAT extends StatelessWidget {
       theme: ThemeData(
         pageTransitionsTheme: NoAnimationTransition(),
       ),
-      home: FoodRecordScreen()
+      home: const AnalyzedImageScreen()
     );
   }
 }

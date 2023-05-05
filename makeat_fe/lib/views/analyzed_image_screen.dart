@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/additional_meal_form.dart';
 
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
@@ -15,6 +16,7 @@ class AnalyzedImageScreen extends StatefulWidget {
 }
 
 class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +29,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                       const SizedBox(
                         height: 20.0,
                       ),
-
+                
                       /* MAK-E-AT 로고(소) */
                       Image.asset(
                         width: 140.0,
@@ -71,16 +73,28 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
+                            // 클릭해서 수정 및 삭제 기능 구현 예정
                             CustomTextBox( name: '계란샐러드', quantity: '1', unit: '인분' ),
                             CustomTextBox( name: '소고기 안심', quantity: '200', unit: 'g' ),
                             CustomTextBox( name: '방울토마토', quantity: '3', unit: '개' ),
                           ],
                         ),
                       ),
-                      const TextButton(
-                        onPressed: null, // null값을 주면 비활성화 된다.
-                        child: Text('검색 목록에 없는 음식이 있어요...'),
-                      )
+                      TextButton(
+                        onPressed: () {
+                          // showModalBottomSheet(
+                          //   context: context,
+                          //   builder: (BuildContext context) {
+                          //     return const AddFoodForm();
+                          //   },
+                          // );
+                          showDialog(
+                            context: context,
+                            builder: (context) => const AddFoodForm(),
+                          );
+                        },
+                        child: const Text('검색 목록에 없는 음식이 있어요...'),
+                      ),
                     ],
                   ),
                 ),
