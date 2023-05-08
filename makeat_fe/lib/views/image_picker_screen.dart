@@ -5,19 +5,18 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:makeat_fe/views/anlyzing_screen.dart';
 import 'package:makeat_fe/views/food_record_detail_screen.dart';
 import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
 import '../common/no_animation_page_route.dart';
 
-
-
 class ImagePickerScreen extends StatefulWidget {
   final String selectedDate;
-  
+
   const ImagePickerScreen({
-    Key? key, 
+    Key? key,
     required this.selectedDate,
   }) : super(key: key);
 
@@ -31,7 +30,6 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
 
   final url = Uri.parse('http://127.0.0.1:9900/test');
 
-
   Future<Uint8List> onPhoto(ImageSource source) async {
     XFile? f = await ImagePicker().pickImage(source: source);
     mPhoto = File(f!.path); // cache 에 저장되는 이미지 경로
@@ -39,8 +37,8 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
     Future<Uint8List> photo = mPhoto!.readAsBytes(); // 이미지를 int 값으로 변환
 
     photo.then((val) {
-       print(' 데이터 크기 = ${val.length}');
-     }).catchError((error) {});
+      print(' 데이터 크기 = ${val.length}');
+    }).catchError((error) {});
 
     return photo;
   }
@@ -65,15 +63,18 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                   child: photo != null
                       ? FutureBuilder<Uint8List>(
                           future: photo,
-                          builder: (BuildContext context, AsyncSnapshot<Uint8List> snapshot) {
-                            if (snapshot.connectionState == ConnectionState.done) {
+                          builder: (BuildContext context,
+                              AsyncSnapshot<Uint8List> snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
                               if (snapshot.hasData) {
                                 return Image.memory(
                                   snapshot.data!,
                                   fit: BoxFit.cover,
                                 );
                               } else {
-                                return const Center(child: Text('이미지를 가져오지 못했습니다.'));
+                                return const Center(
+                                    child: Text('이미지를 가져오지 못했습니다.'));
                               }
                             } else {
                               return Image.asset(
@@ -97,10 +98,11 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(255, 13, 48, 78)
-                        ),
+                            backgroundColor:
+                                const Color.fromARGB(255, 13, 48, 78)),
                         onPressed: () async {
-                          final pickedPhoto = await onPhoto(ImageSource.gallery);
+                          final pickedPhoto =
+                              await onPhoto(ImageSource.gallery);
                           setState(() {
                             photo = Future.value(pickedPhoto);
                           });
@@ -113,7 +115,9 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20.0,),
+                      const SizedBox(
+                        width: 20.0,
+                      ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
@@ -132,7 +136,9 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 20.0,),
+                      const SizedBox(
+                        width: 20.0,
+                      ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
@@ -161,15 +167,12 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
         buttonText: '이 사진으로 식단 분석하러 가기',
         onPressed: () {
           return Navigator.push(
-            context, 
-            NoAnimationPageRoute(
-              builder: (context) => FoodRecordDetailScreen(selectedDate: widget.selectedDate,), 
-              settings: const RouteSettings(name: 'food_record_detail_screen')
-            )
-          );
+              context,
+              NoAnimationPageRoute(
+                  builder: (context) => const AnalyzingScreen(),
+                  settings: const RouteSettings(name: 'analyzing_screen')));
         },
       ),
     );
   }
-} 
-
+}

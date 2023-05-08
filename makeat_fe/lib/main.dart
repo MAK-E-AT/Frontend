@@ -6,8 +6,8 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-import 'views/analyzed_image_screen.dart';
-
+import 'views/food_record_detail_screen.dart';
+import 'views/food_record_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,30 +16,32 @@ Future<void> main() async {
   KakaoSdk.init(nativeAppKey: dotenv.env['KAKAO_CLIENT_ID']!);
 
   runApp(MultiProvider(
-
     /* 앱 전체에 대한 Provider 선언 */
     providers: [
       ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
       ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
-      ChangeNotifierProvider(create: (context) => CustomBottomNavigationBarModel()),
+      ChangeNotifierProvider(
+          create: (context) => CustomBottomNavigationBarModel()),
     ],
     child: MAKEAT(),
   ));
 }
+
 // ignore: use_key_in_widget_constructors
 class MAKEAT extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      /* 페이지 이동 시 애니메이션 제거 적용 */
-      theme: ThemeData(
-        pageTransitionsTheme: NoAnimationTransition(),
-      ),
-      home: const AnalyzedImageScreen()
-      // home: const SocialLoginScreen()
-    );
+        /* 페이지 이동 시 애니메이션 제거 적용 */
+        theme: ThemeData(
+          pageTransitionsTheme: NoAnimationTransition(),
+        ),
+        home: const FoodRecordDetailScreen(
+          selectedDate: '2323',
+        )
+        // home: const SocialLoginScreen()
+        );
   }
 }
 

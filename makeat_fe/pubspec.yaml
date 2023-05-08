@@ -122,6 +122,8 @@ flutter:
     - assets/images/meal_select/camera.png
     - assets/images/meal_select/gallery.png
 
+    - assets/images/sample_icons/analyze_icon.gif
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
