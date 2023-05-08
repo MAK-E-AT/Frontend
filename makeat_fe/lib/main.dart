@@ -9,6 +9,7 @@ import 'view_models/naver_login_view_model.dart';
 import 'views/food_record_detail_screen.dart';
 import 'views/food_record_screen.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
