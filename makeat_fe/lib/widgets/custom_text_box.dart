@@ -4,16 +4,16 @@ class CustomTextBox extends StatelessWidget {
   final String name;
   final String quantity;
   final String unit;
-  final Future<void> Function() onPressedEdit;
-  final Future<void> Function() onPressedDelete;
+  final Future<void> Function()? onPressedEdit;
+  final Future<void> Function()? onPressedDelete;
 
   const CustomTextBox({
     Key? key,
     required this.name,
     required this.quantity,
     required this.unit,
-    required this.onPressedDelete,
-    required this.onPressedEdit,
+    this.onPressedDelete,
+    this.onPressedEdit,
   }) : super(key: key);
 
   @override
@@ -50,16 +50,17 @@ class CustomTextBox extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          IconButton(
+          // onPressedEdit != null && onPressedDelete인 경우
+          if (onPressedEdit != null && onPressedDelete != null) ...[
+            IconButton(
               onPressed: onPressedEdit,
-
               icon: const Icon(Icons.edit),
             ),
             IconButton(
               onPressed: onPressedDelete,
-              // onPressed: null,
               icon: const Icon(Icons.delete),
             ),
+          ],
         ],
       ),
     );

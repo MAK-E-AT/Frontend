@@ -6,7 +6,7 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-import 'views/analyzed_image_screen.dart';
+import 'views/analyzed_nutrition_screen.dart';
 
 
 Future<void> main() async {
@@ -37,7 +37,7 @@ class MAKEAT extends StatelessWidget {
       theme: ThemeData(
         pageTransitionsTheme: NoAnimationTransition(),
       ),
-      home: const AnalyzedImageScreen()
+      home: const AnalyzedNutritionScreen()
       // home: const SocialLoginScreen()
     );
   }
