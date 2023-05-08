@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-// import 'package:makeat_fe/models/social_login_model.dart';
+import 'package:makeat_fe/models/social_login_model.dart';
 
 class KakaoLoginViewModel extends ChangeNotifier {
   String authCode = '';
   String kakaoType = '';
 
   Future<void> loginWithKakao() async {
-    // final kakaoLoginModel = SocialLoginModel();
+    final kakaoLoginModel = SocialLoginModel();
 
     // 카카오톡이 설치되어 있는 경우
     if (await isKakaoTalkInstalled()) {
@@ -46,8 +46,8 @@ class KakaoLoginViewModel extends ChangeNotifier {
     // 반환된 authCode 확인
     if (authCode != '') {
       debugPrint('인증 타입은 $kakaoType 입니다. \n KAKAO 인증코드는 $authCode 입니다.');
-      // 백엔드에 인증코드 전달
-      // kakaoLoginModel.sendAuthCodeToBackend('kakao', _authCode);
+      // // 백엔드에 인증코드 전달
+      kakaoLoginModel.sendAuthCodeToBackend('kakao', authCode);
     } else {
       debugPrint('KAKAO/인증코드가 반환되지 않았습니다.');
     }
