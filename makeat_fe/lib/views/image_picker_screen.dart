@@ -6,7 +6,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:makeat_fe/views/anlyzing_screen.dart';
-import 'package:makeat_fe/views/food_record_detail_screen.dart';
 import 'package:makeat_fe/widgets/custom_app_bar.dart';
 import 'package:makeat_fe/widgets/custom_elevated_button.dart';
 
