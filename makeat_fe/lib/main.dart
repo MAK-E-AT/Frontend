@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:makeat_fe/views/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 import 'models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
-import 'views/food_record_detail_screen.dart';
-import 'views/food_record_screen.dart';
 
 
 Future<void> main() async {
@@ -38,10 +37,7 @@ class MAKEAT extends StatelessWidget {
         theme: ThemeData(
           pageTransitionsTheme: NoAnimationTransition(),
         ),
-        home: const FoodRecordDetailScreen(
-          selectedDate: '2323',
-        )
-        // home: const SocialLoginScreen()
+        home: const HomeScreen()
         );
   }
 }

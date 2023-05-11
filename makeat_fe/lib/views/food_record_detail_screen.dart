@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -13,9 +15,13 @@ import 'image_picker_screen.dart';
 class FoodRecordDetailScreen extends StatefulWidget {
   final String selectedDate;
   // final String savedTime;
+  final List<String> selectedImage;
 
-  const FoodRecordDetailScreen({Key? key, required this.selectedDate})
-      : super(key: key);
+  const FoodRecordDetailScreen({
+    Key? key, 
+    required this.selectedDate,
+    required this.selectedImage,
+  }) : super(key: key);
 
   @override
   State<FoodRecordDetailScreen> createState() => _FoodRecordDetailScreenState();
@@ -32,6 +38,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
       'assets/images/sample_diagram/d1.png',
     ],
   ];
+
   Future<Uint8List>? photo;
   File? mPhoto;
 
@@ -78,9 +85,10 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: mealRecordList.length + 1,
+                // mealRecordList -> widget.selectedImage
+                itemCount: widget.selectedImage.length + 1,
                 itemBuilder: (BuildContext context, int index) {
-                  if (index == mealRecordList.length) {
+                  if (index == widget.selectedImage.length) {
                     // 리스트 뷰 맨 마지막 순번인 경우
                     return Column(
                       children: [
@@ -215,7 +223,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                             height: 150.0,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
-                              itemCount: mealRecordList[index].length,
+                              itemCount: 2,
                               itemBuilder: (BuildContext context, int index2) {
                                 return Container(
                                   decoration: BoxDecoration(
@@ -240,7 +248,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                       );
                                     },
                                     child: Image.asset(
-                                      mealRecordList[index][index2],
+                                      widget.selectedImage[index],
                                       width: MediaQuery.of(context).size.width *
                                           0.4,
                                       height:

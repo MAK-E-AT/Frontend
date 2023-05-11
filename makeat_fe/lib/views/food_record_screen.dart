@@ -93,6 +93,7 @@ class FoodRecordScreen extends StatelessWidget {
                                   NoAnimationPageRoute(
                                     builder: (context) => FoodRecordDetailScreen(
                                       selectedDate: dateList[index],
+                                      selectedImage: mealList[index],
                                     ), 
                                     settings: const RouteSettings(name: 'image_picker_screen')
                                   ),
