@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:makeat_fe/views/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
+import 'views/food_record_screen.dart';
 import 'models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
@@ -20,8 +20,7 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
       ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
-      ChangeNotifierProvider(
-          create: (context) => CustomBottomNavigationBarModel()),
+      ChangeNotifierProvider(create: (context) => CustomBottomNavigationBarModel()),
     ],
     child: MAKEAT(),
   ));
@@ -33,12 +32,13 @@ class MAKEAT extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-        /* 페이지 이동 시 애니메이션 제거 적용 */
-        theme: ThemeData(
-          pageTransitionsTheme: NoAnimationTransition(),
-        ),
-        home: const HomeScreen()
-        );
+      /* 페이지 이동 시 애니메이션 제거 적용 */
+      theme: ThemeData(
+        pageTransitionsTheme: NoAnimationTransition(),
+      ),
+      // home: FoodRecordScreen()
+      home: FoodRecordScreen()
+      );
   }
 }
 

@@ -104,11 +104,15 @@ flutter:
     - assets/images/sample_manual/sample_manual_5.png
 
     - assets/images/sample_food/sample_food.png
+    - assets/images/sample_food/empty_image.png
     - assets/images/sample_food/f1.png
     - assets/images/sample_food/f2.png
     - assets/images/sample_food/f3.png
     - assets/images/sample_food/f4.png
     - assets/images/sample_food/f5.png
+    - assets/images/sample_food/f6.png
+    - assets/images/sample_food/f7.png
+    - assets/images/sample_food/f8.png
 
     - assets/images/sample_diagram/d1.png
 

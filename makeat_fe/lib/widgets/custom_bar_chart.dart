@@ -8,7 +8,7 @@ class CustomBarChart extends StatelessWidget {
   CustomBarChart({super.key});
 
   final carbohydrateColor = Colors.red.shade300;
-  final fatColor = Colors.yellow.shade300;
+  final fatColor = Colors.yellow.shade400;
   final proteinColor = Colors.orange.shade300;
   final betweenSpace = 0.2;
 

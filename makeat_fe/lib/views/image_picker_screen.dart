@@ -60,33 +60,33 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: MediaQuery.of(context).size.width * 0.8,
                   child: photo != null
-                      ? FutureBuilder<Uint8List>(
-                          future: photo,
-                          builder: (BuildContext context,
-                              AsyncSnapshot<Uint8List> snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              if (snapshot.hasData) {
-                                return Image.memory(
-                                  snapshot.data!,
-                                  fit: BoxFit.cover,
-                                );
-                              } else {
-                                return const Center(
-                                    child: Text('이미지를 가져오지 못했습니다.'));
-                              }
-                            } else {
-                              return Image.asset(
-                                'assets/images/sample_food/sample_food.png',
+                    ? FutureBuilder<Uint8List>(
+                        future: photo,
+                        builder: (BuildContext context,
+                            AsyncSnapshot<Uint8List> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            if (snapshot.hasData) {
+                              return Image.memory(
+                                snapshot.data!,
                                 fit: BoxFit.cover,
                               );
+                            } else {
+                              return const Center(
+                                  child: Text('이미지를 가져오지 못했습니다.'));
                             }
-                          },
-                        )
-                      : Image.asset(
-                          'assets/images/sample_food/sample_food.png',
-                          fit: BoxFit.cover,
-                        ),
+                          } else {
+                            return Image.asset(
+                              'assets/images/sample_food/sample_food.png',
+                              fit: BoxFit.cover,
+                            );
+                          }
+                        },
+                      )
+                    : Image.asset(
+                        'assets/images/sample_food/sample_food.png',
+                        fit: BoxFit.cover,
+                      ),
                 ),
 
                 // buttton part //////////
@@ -168,7 +168,10 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
           return Navigator.push(
               context,
               NoAnimationPageRoute(
-                  builder: (context) => const AnalyzingScreen(),
+                  builder: (context) => AnalyzingScreen(
+                    selectedDate: widget.selectedDate,
+                    photo: photo,
+                  ),
                   settings: const RouteSettings(name: 'analyzing_screen')));
         },
       ),

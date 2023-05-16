@@ -45,7 +45,9 @@ class CustomTextField extends StatelessWidget {
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: textFieldWidth),
             child: TextField(
+              textAlign: TextAlign.center,
               controller: textEditingController,
+              cursorColor: Colors.black54,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(regExp)),
@@ -54,7 +56,19 @@ class CustomTextField extends StatelessWidget {
                 hintText: hintText,
                 hintStyle: TextStyle(
                   fontSize: hintTextSize,
-                )
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black54),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.shade300),
+                ),
+                focusedErrorBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black54),
+                ),
+                errorBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black54),
+                ),
               ),
             ),
           ),
