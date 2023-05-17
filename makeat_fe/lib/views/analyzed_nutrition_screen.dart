@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_grid_menu.dart';
 import 'package:makeat_fe/widgets/custom_title_text.dart';
 
 import '../widgets/custom_elevated_button.dart';
@@ -92,36 +93,44 @@ class _AnalyzedNutritionScreenState extends State<AnalyzedNutritionScreen> {
                         ),
                       ),
                     ),
-                    
-                    const SizedBox(height: 60.0,),
-                    Column(
-                      children: [
-                        Text(
-                          "총 섭취한 열량 :  ${     
-                            widget.dataMap["탄수화물"]!*4
-                            + widget.dataMap["단백질"]!*4
-                            + widget.dataMap["지방"]!*9
-                          } kcal",
-                          style: const TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w500
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 4.0),
-                          width: 240.0,
-                          height: 1.0,
-                          color: Colors.black,
-                        ),
-                      ],
+
+                    const CustomTitleText(
+                      title: '운동별 칼로리 소모 시간', 
+                      paddingLTRB: [0.0, 52.0, 0.0, 0.0],
+                      underlineWidth: 160.0,
                     ),
+                    Text(
+                      "총 섭취한 열량 :  ${     
+                        widget.dataMap["탄수화물"]!*4
+                        + widget.dataMap["단백질"]!*4
+                        + widget.dataMap["지방"]!*9
+                      } kcal",
+                      style: const TextStyle(
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w400
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
+                      child: const CustomGridMenu(
+                        // 소모 시간은 추후에 1분당 운동별 칼로리 소모량을 이용해 계산(소수점 버림)
+                        menuTitles: ['하이킹 ( 26분 )', '조깅 ( 30분 )', '요가 ( 38분 )'],
+                        menuImages: [
+                          'assets/images/exercise_select/hiking.png', 
+                          'assets/images/exercise_select/jogging.png', 
+                          'assets/images/exercise_select/yoga.png'
+                        ], 
+                        onTap: null
+                      ),
+                    ),
+                    const SizedBox(height: 20.0,)
                   ],
                 ),
               ),
             ),
           ),
           bottomNavigationBar: CustomElevatedButton(
-            buttonText: '영양 성분 확인하기',
+            buttonText: '식단 평가하기',
             onPressed: () {
               return Navigator.push(
                 context, 

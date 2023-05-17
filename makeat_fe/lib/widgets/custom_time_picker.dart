@@ -31,10 +31,10 @@ class _CustomTimePickerState extends State<CustomTimePicker> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '식사 시간',
             textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 12, color: Colors.grey),
+            style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
           ),
           Row(
             children: [

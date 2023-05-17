@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_grid_menu.dart';
 
 import 'food_record_screen.dart';
 import '../widgets/custom_info_box.dart';
@@ -24,23 +25,23 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    // 주간 칼로리 섭취량 <- 일별 총 섭취 칼로리 텍스트 넣기
+                    //주간 칼로리 섭취량 <- 일별 총 섭취 칼로리 텍스트 넣기
                     const CustomTitleText(
                       title: '주간 칼로리 섭취량 [kcal]',
                       paddingLTRB: [24.0, 24.0, 0.0, 0.0],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(18.0, 4.0, 18.0, 10.0),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
                       child: CustomBarChart(),
                     ), 
 
                     // 내 신체 정보
-                    // const CustomTitleText(
-                    //   title: '내 신체 정보',
-                    //   paddingLTRB: [24.0, 16.0, 0.0, 4.0],
-                    // ),
+                    const CustomTitleText(
+                      title: '내 신체 정보',
+                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
+                    ),
                     Container(
-                      margin: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 8.0),
+                      margin: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 8.0),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.grey.shade800,
@@ -59,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                     // 오늘 섭취한 영양 성분 현황
                     const CustomTitleText(
                       title: '오늘 섭취한 영양 성분',
-                      paddingLTRB: [24.0, 28.0, 0.0, 12.0],
+                      paddingLTRB: [24.0, 32.0, 0.0, 0.0],
                     ),
                     GestureDetector(
                       onTap: () {
@@ -107,7 +108,59 @@ class HomeScreen extends StatelessWidget {
                           ]),
                         ),
                       ),
-                    ),              
+                    ), 
+
+                    // 음식 추천
+                    const CustomTitleText(
+                      title: '실시간 음식 추천',
+                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      child: CustomGridMenu(
+                        menuTitles: [
+                          '감자', '바나나', '귀리'
+                        ], 
+                        menuImages: [
+                          'assets/images/sample_food/f9.jpeg',
+                          'assets/images/sample_food/f10.jpg',
+                          'assets/images/sample_food/f11.jpeg',
+                        ], 
+                        imgWidth: 92.0,
+                        imgHeight: 92.0,
+                        padding: EdgeInsets.symmetric(vertical: 8.0),
+                        onTap: null
+                      )
+                      // Row(
+                      //   children: [
+
+                      //     ClipOval(
+                      //       child: Image.asset(
+                      //         'assets/images/sample_food/f9.jpeg',
+                      //         width: 120,
+                      //         height: 120,
+                      //         fit: BoxFit.cover,
+                      //       ),
+                      //     ),
+                      //     ClipOval(
+                      //       child: Image.asset(
+                      //         'assets/images/sample_food/f10.jpg',
+                      //         width: 120,
+                      //         height: 120,
+                      //         fit: BoxFit.cover,
+                      //       ),
+                      //     ),
+                      //     ClipOval(
+                      //       child: Image.asset(
+                      //         'assets/images/sample_food/f11.jpeg',
+                      //         width: 120,
+                      //         height: 120,
+                      //         fit: BoxFit.cover,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                    ),
                   ],
                 ),
               ),

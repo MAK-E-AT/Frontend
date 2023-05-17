@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final double labelTextSize;
   final String hintText;
   final double hintTextSize;
+  final Color hintColor;
   final double textFieldWidth;
   final double leftWhiteSpaceWidth;
   final double rightWhiteSpaceWidth;
@@ -22,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.labelTextSize = 15.0,
     this.hintText = '',
     this.hintTextSize = 12.0,
+    this.hintColor = Colors.grey,
     required this.textFieldWidth,
     this.leftWhiteSpaceWidth = 0,
     this.rightWhiteSpaceWidth = 0,
@@ -55,6 +57,7 @@ class CustomTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(
+                  color: hintColor,
                   fontSize: hintTextSize,
                 ),
                 focusedBorder: const UnderlineInputBorder(

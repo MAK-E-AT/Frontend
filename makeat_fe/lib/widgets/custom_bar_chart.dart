@@ -4,9 +4,15 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_legend.dart';
 
 
-class CustomBarChart extends StatelessWidget {
-  CustomBarChart({super.key});
+class CustomBarChart extends StatefulWidget {
+  const CustomBarChart({super.key});
 
+  @override
+  State<CustomBarChart> createState() => _CustomBarChartState();
+}
+
+class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProviderStateMixin {
+  
   final carbohydrateColor = Colors.red.shade300;
   final fatColor = Colors.yellow.shade400;
   final proteinColor = Colors.orange.shade300;
@@ -81,7 +87,7 @@ class CustomBarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 24.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

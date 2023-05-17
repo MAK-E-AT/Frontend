@@ -45,7 +45,7 @@ class _CustomTitleTextState extends State<CustomTitleText> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 20.0),
+            margin: const EdgeInsets.fromLTRB(0.0, 4.0, 0.0, 12.0),
             width: widget.underlineWidth,
             height: 1.0,
             color: widget.underlineColor,

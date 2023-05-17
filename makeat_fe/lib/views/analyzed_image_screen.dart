@@ -97,6 +97,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                                 textEditingController: mealController, 
                                 hintText: '음식명을 입력해주세요.', 
                                 hintTextSize: 16.0,
+                                hintColor: Colors.grey.shade800,
                                 textFieldWidth: 200,
                                 regExp: r'^.{1,10}$',
                               ),
@@ -110,10 +111,10 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                       const SizedBox(height: 20.0,),
                       const CustomTimePicker(),
                       const SizedBox(height: 8.0,),
-                      const Text(
+                      Text(
                         '음식 목록',
                         textAlign: TextAlign.left,
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
                       ),
                       const SizedBox(height: 10.0,),
                       Container(
@@ -127,7 +128,7 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey.shade500,
+                                    color: Colors.grey.shade600,
                                   ),
                                 ),
                                 const SizedBox(height: 14.0,),
@@ -208,10 +209,10 @@ class _AnalyzedImageScreenState extends State<AnalyzedImageScreen> {
                             title: foodList.isEmpty ? '음식 직접 추가하기' : '목록에 없는 음식이 있어요..!', 
                             paddingLTRB: const [0, 8.0, 0, 0],
                             underlineWidth: foodList.isEmpty ? 100.0 : 150.0,
-                            underlineColor: Colors.grey.shade700,
+                            underlineColor: Colors.grey.shade800,
                             textSize: 13.0,
                             textWeight: FontWeight.w500,
-                            textColor: Colors.grey.shade700,
+                            textColor: Colors.grey.shade800,
                           )
                         ),
                       ),

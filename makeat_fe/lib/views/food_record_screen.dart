@@ -196,7 +196,7 @@ class FoodRecordScreen extends StatelessWidget {
                       dateList[index],
                       style: const TextStyle(
                         fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),

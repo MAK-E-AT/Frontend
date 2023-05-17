@@ -25,19 +25,19 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
   final TextEditingController _kcalController = TextEditingController();
   
   final List<String> _imgList = [
-    'assets/images/exercise_select/shoulder_press.png',
+    'assets/images/exercise_select/hiking.png',
     'assets/images/exercise_select/jogging.png',
     'assets/images/exercise_select/yoga.png',
-    'assets/images/exercise_select/shoulder_press.png',
+    'assets/images/exercise_select/hiking.png',
     'assets/images/exercise_select/jogging.png',
     'assets/images/exercise_select/yoga.png',
-    'assets/images/exercise_select/shoulder_press.png',
+    'assets/images/exercise_select/hiking.png',
     'assets/images/exercise_select/jogging.png',
     'assets/images/exercise_select/yoga.png',
-    'assets/images/exercise_select/shoulder_press.png',
+    'assets/images/exercise_select/hiking.png',
     'assets/images/exercise_select/jogging.png',
     'assets/images/exercise_select/yoga.png',
-    'assets/images/exercise_select/shoulder_press.png',
+    'assets/images/exercise_select/hiking.png',
     'assets/images/exercise_select/jogging.png',
   ];
   final List<String> _exerciseList = [

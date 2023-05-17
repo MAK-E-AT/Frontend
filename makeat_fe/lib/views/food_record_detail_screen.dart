@@ -90,7 +90,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                       children: <Widget>[
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 24.0, vertical: 10.0),
+                              horizontal: 32.0, vertical: 10.0),
                           child: Text.rich(
                             TextSpan(
                               children: [
@@ -108,7 +108,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                       text: ' ${index + 1}끼  ',
                                       style: const TextStyle(
                                         fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ],

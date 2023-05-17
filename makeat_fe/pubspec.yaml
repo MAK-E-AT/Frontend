@@ -113,6 +113,9 @@ flutter:
     - assets/images/sample_food/f6.png
     - assets/images/sample_food/f7.png
     - assets/images/sample_food/f8.png
+    - assets/images/sample_food/f9.jpeg
+    - assets/images/sample_food/f10.jpg
+    - assets/images/sample_food/f11.jpeg
 
     - assets/images/sample_diagram/d1.png
 
@@ -123,7 +126,7 @@ flutter:
     - assets/images/profile_menu/notice.png
     - assets/images/profile_menu/settings.png
 
-    - assets/images/exercise_select/shoulder_press.png
+    - assets/images/exercise_select/hiking.png
     - assets/images/exercise_select/jogging.png
     - assets/images/exercise_select/yoga.png
 

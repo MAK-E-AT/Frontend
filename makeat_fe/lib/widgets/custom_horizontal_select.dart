@@ -28,10 +28,10 @@ class _CustomHorizontalSelectState extends State<CustomHorizontalSelect> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           '식사 분류',
           textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 12, color: Colors.grey),
+          style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
         ),
         const SizedBox(height: 10.0,),
         SizedBox(
@@ -46,7 +46,7 @@ class _CustomHorizontalSelectState extends State<CustomHorizontalSelect> {
                 style: ButtonStyle(
                   alignment: Alignment.center,
                   backgroundColor: MaterialStateProperty.all(Colors.grey.shade50),
-                  minimumSize: MaterialStateProperty.all<Size>(const Size(60, 40)),
+                  minimumSize: MaterialStateProperty.all<Size>(Size(MediaQuery.of(context).size.width * 0.80/5, 40)),
                   side: MaterialStateProperty.all<BorderSide>(
                     BorderSide(
                       color: _selectedIndex == index ? Colors.black : Colors.grey.shade400,

@@ -58,8 +58,8 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
           width: MediaQuery.of(context).size.width * 0.81,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.grey.shade800, 
-              width: 2.5,
+              color: Colors.grey.shade700, 
+              width: 1.2,
             ),
           ),
           padding: const EdgeInsets.all(8.0),
@@ -67,18 +67,22 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
             children: [
               Container(
                 decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey.shade700,
+                    width: 1.2
+                  ),
                   borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.grey.shade800,
+                  color: Colors.white,
                 ),
                 width: 160,
-                height: 36,
+                height: 32,
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 12),
                 padding: const EdgeInsets.all(8),
-                child: const Center(
+                child: Center(
                   child: Text(
                     '식단을 추가해주세요',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.grey.shade800,
                       fontSize: 14,
                       // fontWeight: FontWeight.bold,
                     ),
@@ -92,6 +96,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                     CustomIconButton(
                       imagePath: 'assets/images/meal_select/text.png',
                       buttonText: '텍스트로 추가',
+                      textColor: Colors.grey.shade800,
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -106,6 +111,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                     CustomIconButton(
                       imagePath: 'assets/images/meal_select/camera.png',
                       buttonText: '카메라로 추가',
+                      textColor: Colors.grey.shade800,
                       onPressed: () async {
                         final pickedPhoto = await onPhoto(ImageSource.camera);
                         setState(() {
@@ -125,6 +131,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                     CustomIconButton(
                       imagePath: 'assets/images/meal_select/gallery.png',
                       buttonText: '앨범에서 추가',
+                      textColor: Colors.grey.shade800,
                       onPressed: () async {
                         final pickedPhoto = await onPhoto(ImageSource.gallery);
                         setState(() {
@@ -162,12 +169,14 @@ class CustomIconButton extends StatelessWidget {
   final String imagePath;
   final String buttonText;
   final VoidCallback onPressed;
+  final Color textColor;
 
   const CustomIconButton({
     super.key, 
     required this.imagePath,
     required this.buttonText,
     required this.onPressed,
+    this.textColor = Colors.black,
   });
 
   @override
@@ -185,7 +194,10 @@ class CustomIconButton extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           buttonText,
-          style: const TextStyle(fontSize: 12),
+          style: TextStyle(
+            color: textColor,
+            fontSize: 12
+          ),
         ),
       ],
     );
