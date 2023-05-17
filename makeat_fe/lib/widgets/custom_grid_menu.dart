@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomGridMenu extends StatelessWidget {
   final List<String> menuTitles;
   final List<String> menuImages;
-  final List<Future<void> Function()> onTap;
+  final List<Future<void> Function()>? onTap;
   final double imgWidth;
   final double imgHeight;
   final int crossAxisCount;
@@ -25,7 +25,7 @@ class CustomGridMenu extends StatelessWidget {
   }) : super(key: key);
 
   void _onTapHandler(int index) async {
-    await onTap[index]();
+    if (onTap !=null) await onTap![index]();  // null 예외 처리
   }
 
   @override

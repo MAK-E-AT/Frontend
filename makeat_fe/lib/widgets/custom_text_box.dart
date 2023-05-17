@@ -21,15 +21,15 @@ class CustomTextBox extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.black87, width: 1),
+        border: Border.all(color: Colors.grey.shade700, width: 0.1),
       ),
-      width: 280.0,
-      height: MediaQuery.of(context).size.height * 0.05,
+      width: MediaQuery.of(context).size.width * 0.80,
+      height: 42.0,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
-            width: 80,
+            width: 90,
             child: Text(
               name,
               textAlign: TextAlign.center,
@@ -44,7 +44,7 @@ class CustomTextBox extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 40,
+            width: 50,
             child: Text(
               unit,
               textAlign: TextAlign.center,
@@ -54,11 +54,21 @@ class CustomTextBox extends StatelessWidget {
           if (onPressedEdit != null && onPressedDelete != null) ...[
             IconButton(
               onPressed: onPressedEdit,
-              icon: const Icon(Icons.edit),
+              tooltip: '음식 수정하기',
+              icon: Icon(
+                Icons.edit,
+                color: Colors.grey.shade500,
+                size: 18.0,
+              ),
             ),
             IconButton(
               onPressed: onPressedDelete,
-              icon: const Icon(Icons.delete),
+              tooltip: '음식 삭제하기',
+              icon: Icon(
+                Icons.delete,
+                color: Colors.grey.shade500,
+                size: 18.0,
+              ),
             ),
           ],
         ],
