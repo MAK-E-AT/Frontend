@@ -223,25 +223,37 @@ class _AddFoodFormState extends State<AddFoodForm> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: deleteMeal,
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade800),
+                      SizedBox(
+                        width: 110.0,
+                        child: ElevatedButton(
+                          onPressed: deleteMeal,
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade900),
+                          ),
+                          child: const Text(
+                            '삭제하기',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-                        child: const Text('삭제하기'),
                       ),
                       const SizedBox(
-                        width: 10.0,
+                        width: 8.0,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          // 직접 음식 추가 기능 - analyzed_image_screen.dart의 customTextBox랑 연동
-                          if (quantityController.text != '' && selectedFood != '음식') widget.onAddFood(selectedFood, quantityController.text, unit);
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade800),
+                      SizedBox(
+                        width: 110.0,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // 직접 음식 추가 기능 - analyzed_image_screen.dart의 customTextBox랑 연동
+                            if (quantityController.text != '' && selectedFood != '음식') widget.onAddFood(selectedFood, quantityController.text, unit);
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.grey.shade900),
+                          ),
+                          child: const Text(
+                            '추가하기',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-                        child: const Text('추가하기'),
                       ),
                     ],
                 ),

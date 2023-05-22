@@ -99,24 +99,37 @@ class _AnalyzedNutritionScreenState extends State<AnalyzedNutritionScreen> {
                       paddingLTRB: [0.0, 52.0, 0.0, 0.0],
                       underlineWidth: 160.0,
                     ),
-                    Text(
-                      "총 섭취한 열량 :  ${     
-                        widget.dataMap["탄수화물"]!*4
-                        + widget.dataMap["단백질"]!*4
-                        + widget.dataMap["지방"]!*9
-                      } kcal",
-                      style: const TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w400
+                    Text.rich(
+                      TextSpan(
+                        text: "총 섭취한 열량:  ",
+                        style: const TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "${widget.dataMap["탄수화물"]! * 4 
+                            + widget.dataMap["단백질"]! * 4 
+                            + widget.dataMap["지방"]! * 9}",
+                            style: TextStyle(
+                              color: Colors.red.shade600,
+                              fontWeight: FontWeight.w600
+                            ),
+                          ),
+                          const TextSpan(
+                            text: " kcal",
+                          ),
+                        ],
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.05),
                       child: const CustomGridMenu(
                         // 소모 시간은 추후에 1분당 운동별 칼로리 소모량을 이용해 계산(소수점 버림)
-                        menuTitles: ['하이킹 ( 26분 )', '조깅 ( 30분 )', '요가 ( 38분 )'],
+                        menuTitles: ['하이킹', '조깅', '요가'],
+                        subTexts: ['26', '30', '38'],
                         menuImages: [
-                          'assets/images/exercise_select/hiking.png', 
+                          'assets/images/exercise_select/hiking.png',   
                           'assets/images/exercise_select/jogging.png', 
                           'assets/images/exercise_select/yoga.png'
                         ], 
@@ -135,11 +148,12 @@ class _AnalyzedNutritionScreenState extends State<AnalyzedNutritionScreen> {
               return Navigator.push(
                 context, 
                 NoAnimationPageRoute(
+                  // 추후 식단 평가 페이지로 이동
                   builder: (context) => AnalyzedNutritionScreen(
                     selectedDate: widget.selectedDate,
                     dataMap: widget.dataMap
                   ), 
-                  settings: const RouteSettings(name: 'analyzed_image_screen')
+                  settings: const RouteSettings(name: 'analyzed_nutrition_screen')
                 )
               );
             },

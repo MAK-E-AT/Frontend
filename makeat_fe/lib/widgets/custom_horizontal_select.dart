@@ -3,12 +3,16 @@
 import 'package:flutter/material.dart';
 
 class CustomHorizontalSelect extends StatefulWidget {
+  final bool isLabel;
+  final String label;
   final List<String> items;
   final Function(String) onChanged;
   final TextStyle style;
 
   const CustomHorizontalSelect({
     super.key, 
+    this.isLabel = true,
+    required this.label,
     required this.items,
     required this.onChanged,
     this.style = const TextStyle(fontSize: 12.0),
@@ -28,14 +32,16 @@ class _CustomHorizontalSelectState extends State<CustomHorizontalSelect> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '식사 분류',
-          textAlign: TextAlign.left,
-          style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
-        ),
+        if (widget.isLabel) ... [
+          Text(
+            widget.label,
+            textAlign: TextAlign.left,
+            style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
+          ),
+        ],
         const SizedBox(height: 10.0,),
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
+          width: MediaQuery.of(context).size.width,
           height: 40.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,

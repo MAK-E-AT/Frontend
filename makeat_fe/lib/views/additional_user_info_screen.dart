@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/views/home_screen.dart';
 
 import '../common/no_animation_page_route.dart';
 
@@ -57,6 +58,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _ageController, 
                     labelText: '-  나이 (세)', 
+                    labelTextSize: 14.0,
                     hintText: '만 나이를 입력해주세요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
@@ -72,6 +74,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _heightController, 
                     labelText: '-  키 (cm)', 
+                    labelTextSize: 14.0,
                     hintText: '소수점은 한 자리까지만 가능해요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
@@ -87,6 +90,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomTextField(
                     textEditingController: _weightController, 
                     labelText: '-  체중 (kg)', 
+                    labelTextSize: 14.0,
                     hintText: '소수점은 한 자리까지만 가능해요.', 
                     textFieldWidth: MediaQuery.of(context).size.width * 0.5,
                     leftWhiteSpaceWidth: MediaQuery.of(context).size.width * 0.1,
@@ -101,7 +105,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                     checkBoxText3: '개인정보처리방침',
                     checkBoxText4: '에 동의합니다.',
                     checkBoxColor: Colors.black,
-                    checkBoxIcon: Icons.check_rounded,
+                    checkBoxIcon: Icons.check_circle,
                   ),
                 ],
               ),
@@ -111,11 +115,24 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
         bottomNavigationBar: CustomElevatedButton(
           buttonText: '시  작  하  기',
           onPressed: () {
+            if (
+              _ageController == null 
+              || _heightController == null 
+              || _weightController == null
+            ) {
+              return Navigator.push(
+                context, 
+                NoAnimationPageRoute(
+                  builder: (context) => const AdditionalUserInfoScreen(), 
+                  settings: const RouteSettings(name: 'home_screen')
+                )
+              );
+            }
             return Navigator.push(
               context, 
               NoAnimationPageRoute(
-                builder: (context) => const AdditionalUserInfoScreen(), 
-                settings: const RouteSettings(name: 'additional_user_info_screen')
+                builder: (context) => const HomeScreen(), 
+                settings: const RouteSettings(name: 'home_screen')
               )
             );
           },
