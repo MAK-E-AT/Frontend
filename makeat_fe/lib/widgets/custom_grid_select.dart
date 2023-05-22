@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomGridSelection extends StatefulWidget {
   final List<String> imgList;
-  final List<String> txtList;
+  final List<String> workoutList;
+  final List<String> workoutInfoList;
 
   const CustomGridSelection({
     Key? key, 
     required this.imgList,
-    required this.txtList,
+    required this.workoutList,
+    required this.workoutInfoList,
   }) : super(key: key);
 
   @override
@@ -21,18 +23,20 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
   @override
   void initState() {
     super.initState();
-    _isSelected = List.generate(widget.txtList.length, (_) => false);
+    _isSelected = List.generate(widget.workoutList.length, (_) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(16.0),
-      itemCount: widget.txtList.length,
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 8.0),
+      itemCount: widget.workoutList.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        crossAxisSpacing: 10.0,
-        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
         childAspectRatio: 1.0,
       ),
       itemBuilder: (BuildContext context, int index) {
@@ -55,18 +59,30 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: _isSelected[index] ? Colors.greenAccent : Colors.grey[300],
+              color: _isSelected[index] ? Colors.green.shade50 : Colors.white,
+              border: Border.all(
+                color: Colors.grey.shade800
+              ),
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(height: 5.0,),
                 Image.asset(
                   widget.imgList[index],
-                  width: 50.0,
-                  height: 50.0,
+                  width: 40.0,
+                  height: 40.0,
                 ),
-                Text(widget.txtList[index]),
+                const SizedBox(height: 10.0,),
+                Text(
+                  widget.workoutList[index],
+                  style: const TextStyle(fontSize: 12.0),
+                ),
+                Text(
+                  '${widget.workoutInfoList[index]} kcal',
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                )
               ],
             ),
           ),

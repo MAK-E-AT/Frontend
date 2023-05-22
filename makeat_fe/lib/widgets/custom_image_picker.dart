@@ -6,6 +6,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../views/food_record_screen.dart';
 import '../views/analyzed_image_screen.dart';
 import '../views/anlyzing_screen.dart';
 import '../common/no_animation_page_route.dart';
@@ -33,12 +34,21 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
   //   return pickedFile;
   // }
 
-  Future<Uint8List> onPhoto(ImageSource source) async {
+  Future onPhoto(ImageSource source) async {
     XFile? f = await ImagePicker().pickImage(source: source);
-    mPhoto = File(f!.path); // cache 에 저장되는 이미지 경로
 
+    // 예외 처리(완)
+    if (f == null) {
+      // ignore: use_build_context_synchronously
+      return Navigator.push(
+        context,
+        NoAnimationPageRoute(
+          builder: (context) => FoodRecordScreen(),
+          settings: const RouteSettings(name: 'food_record_screen')),
+      );
+    }
+    mPhoto = File(f.path); // cache 에 저장되는 이미지 경로
     Future<Uint8List> photo = mPhoto!.readAsBytes(); // 이미지를 int 값으로 변환
-
     photo.then((val) {
       // print(' 데이터 크기 = ${val.length}');
       print('get image');
@@ -75,7 +85,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                   color: Colors.white,
                 ),
                 width: 160,
-                height: 32,
+                height: 38,
                 margin: const EdgeInsets.fromLTRB(0, 4, 0, 12),
                 padding: const EdgeInsets.all(8),
                 child: Center(
@@ -134,18 +144,20 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                       textColor: Colors.grey.shade800,
                       onPressed: () async {
                         final pickedPhoto = await onPhoto(ImageSource.gallery);
-                        setState(() {
-                          photo = Future.value(pickedPhoto);
-                          Navigator.push(
-                            context,
-                            NoAnimationPageRoute(
-                              builder: (context) => AnalyzingScreen( 
-                                photo: photo,
-                                selectedDate: widget.selectedDate,
-                              ),
-                              settings: const RouteSettings(name: 'image_screen')),
-                          );
-                        });
+                        if (pickedPhoto != null) {
+                          setState(() {
+                            photo = Future.value(pickedPhoto);
+                            Navigator.push(
+                              context,
+                              NoAnimationPageRoute(
+                                builder: (context) => AnalyzingScreen( 
+                                  photo: photo,
+                                  selectedDate: widget.selectedDate,
+                                ),
+                                settings: const RouteSettings(name: 'image_screen')),
+                            );
+                          });
+                        }
                       },
                     ),
                   ],

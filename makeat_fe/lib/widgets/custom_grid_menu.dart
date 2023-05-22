@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomGridMenu extends StatelessWidget {
   final List<String> menuTitles;
   final List<String> menuImages;
+  final List<String>? subTexts;
   final List<Future<void> Function()>? onTap;
   final double imgWidth;
   final double imgHeight;
@@ -15,9 +16,10 @@ class CustomGridMenu extends StatelessWidget {
     Key? key,
     required this.menuTitles,
     required this.menuImages,
+    this.subTexts,
     required this.onTap,
-    this.imgWidth = 56.0,
-    this.imgHeight = 56.0,
+    this.imgWidth = 54.0,
+    this.imgHeight = 54.0,
     this.crossAxisCount = 3,
     this.mainAxisSpacing = 0.0,
     this.crossAxisSpacing = 0.0,
@@ -31,6 +33,7 @@ class CustomGridMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      physics: const BouncingScrollPhysics(),
       crossAxisCount: crossAxisCount,
       mainAxisSpacing: mainAxisSpacing,
       crossAxisSpacing: crossAxisSpacing,
@@ -53,6 +56,14 @@ class CustomGridMenu extends StatelessWidget {
                 ),
                 const SizedBox(height: 8.0),
                 Text(menuTitles[index]),
+                if (subTexts != null) ... [
+                  const SizedBox(height: 2.0,),
+                  Text(
+                    '${subTexts![index]}분',
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  )
+                ]
+                
               ],
             ),
           ),

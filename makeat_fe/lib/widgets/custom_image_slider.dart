@@ -50,7 +50,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
           child: indicator(),
         ),
         const SizedBox(
-          height: 20.0,
+          height: 12.0,
         ),
       ],
     );

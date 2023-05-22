@@ -25,20 +25,10 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    //주간 칼로리 섭취량 <- 일별 총 섭취 칼로리 텍스트 넣기
-                    const CustomTitleText(
-                      title: '주간 칼로리 섭취량 [kcal]',
-                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
-                      child: CustomBarChart(),
-                    ), 
-
                     // 내 신체 정보
                     const CustomTitleText(
                       title: '내 신체 정보',
-                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
+                      paddingLTRB: [24.0, 18.0, 0.0, 0.0],
                     ),
                     Container(
                       margin: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 8.0),
@@ -53,7 +43,9 @@ class HomeScreen extends StatelessWidget {
                       child: const CustomInfoBox(
                         text1: '키', text2: '180 cm', 
                         text3: '체중', text4: '80 kg', 
-                        text5: 'BMI', text6: '24.7'
+                        text5: '성별', text6: '남',
+                        text7: 'BMI', text8: '24.7',
+                        text9: '목표 칼로리', text10: '2240 kcal',
                       )
                     ),
 
@@ -116,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                       paddingLTRB: [24.0, 24.0, 0.0, 0.0],
                     ),
                     const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      padding: EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 8.0),
                       child: CustomGridMenu(
                         menuTitles: [
                           '감자', '바나나', '귀리'
@@ -126,8 +118,8 @@ class HomeScreen extends StatelessWidget {
                           'assets/images/sample_food/f10.jpg',
                           'assets/images/sample_food/f11.jpeg',
                         ], 
-                        imgWidth: 92.0,
-                        imgHeight: 92.0,
+                        imgWidth: 84.0,
+                        imgHeight: 84.0,
                         padding: EdgeInsets.symmetric(vertical: 8.0),
                         onTap: null
                       )
@@ -161,6 +153,20 @@ class HomeScreen extends StatelessWidget {
                       //   ],
                       // ),
                     ),
+
+                    
+
+                    //주간 칼로리 섭취량 <- 일별 총 섭취 칼로리 텍스트 넣기
+                    const CustomTitleText(
+                      title: '주간 칼로리 섭취량 [kcal]',
+                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
+                      child: CustomBarChart(),
+                    ), 
+
+                    
                   ],
                 ),
               ),

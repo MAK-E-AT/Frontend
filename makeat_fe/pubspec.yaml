@@ -129,6 +129,17 @@ flutter:
     - assets/images/exercise_select/hiking.png
     - assets/images/exercise_select/jogging.png
     - assets/images/exercise_select/yoga.png
+    - assets/images/exercise_select/walking.png
+    - assets/images/exercise_select/soccer.png
+    - assets/images/exercise_select/pilates.png
+    - assets/images/exercise_select/climbing.png
+    - assets/images/exercise_select/climbing_stairs.png
+    - assets/images/exercise_select/swimming.png
+    - assets/images/exercise_select/jumping_rope.png
+    - assets/images/exercise_select/badminton.png
+    - assets/images/exercise_select/dancing.png
+    - assets/images/exercise_select/lunges.png
+    - assets/images/exercise_select/cycle.png
 
     - assets/images/meal_select/text.png
     - assets/images/meal_select/camera.png
