@@ -3,5 +3,6 @@
     // "cmake.sourceDirectory": "${workspaceFolder}/makeat_fe/linux"
     "terminal.integrated.env.osx": {
         "JAVA_HOME": "/Library/Java/JavaVirtualMachines/azul-20/Contents/Home"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Users/82102/Desktop/Github/Frontend/makeat_fe/windows/flutter"
 }

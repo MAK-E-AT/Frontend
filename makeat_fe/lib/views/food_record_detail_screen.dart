@@ -8,16 +8,14 @@ import 'package:makeat_fe/widgets/custom_pie_chart.dart';
 import '../common/no_animation_page_route.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
 
-
 class FoodRecordDetailScreen extends StatefulWidget {
   final String selectedDate;
   final List<String> selectedTime;
   final List<String> selectedMeal;
   final List<Map<String, double>> selectedNutrition;
 
-
   const FoodRecordDetailScreen({
-    Key? key, 
+    Key? key,
     required this.selectedDate,
     required this.selectedTime,
     required this.selectedMeal,
@@ -29,7 +27,6 @@ class FoodRecordDetailScreen extends StatefulWidget {
 }
 
 class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
-
   // Future<Uint8List>? photo;
   // File? mPhoto;
 
@@ -114,9 +111,11 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                   ],
                                 ),
                                 TextSpan(
-                                  text: '${widget.selectedDate}  ${widget.selectedTime[index]}',
+                                  text:
+                                      '${widget.selectedDate}  ${widget.selectedTime[index]}',
                                   style: const TextStyle(
-                                    fontSize: 12.0,                                  ),
+                                    fontSize: 12.0,
+                                  ),
                                 ),
                               ],
                             ),
@@ -143,22 +142,27 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                         Navigator.push(
                                           context,
                                           NoAnimationPageRoute(
-                                            builder: (context) =>
-                                                AnalyzedNutritionScreen(
-                                                  selectedDate: widget.selectedDate,
-                                                  dataMap: widget.selectedNutrition[index],
-                                                ),
-                                            settings: const RouteSettings(
-                                                name: 'analyzed_nutrition_screen')),
+                                              builder: (context) =>
+                                                  AnalyzedNutritionScreen(
+                                                    selectedDate:
+                                                        widget.selectedDate,
+                                                    dataMap: widget
+                                                            .selectedNutrition[
+                                                        index],
+                                                  ),
+                                              settings: const RouteSettings(
+                                                  name:
+                                                      'analyzed_nutrition_screen')),
                                         );
                                       },
                                       child: Image.asset(
                                         widget.selectedMeal[index],
-                                        width: MediaQuery.of(context).size.width *
-                                            0.38,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.38,
                                         height:
-                                          MediaQuery.of(context).size.width *
-                                              0.4,
+                                            MediaQuery.of(context).size.width *
+                                                0.4,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -176,17 +180,22 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                         Navigator.push(
                                           context,
                                           NoAnimationPageRoute(
-                                            builder: (context) =>
-                                              AnalyzedNutritionScreen(
-                                                selectedDate: widget.selectedDate,
-                                                dataMap: widget.selectedNutrition[index],
-                                              ),
-                                            settings: const RouteSettings(
-                                                name: 'analyzed_nutrition_screen')),
+                                              builder: (context) =>
+                                                  AnalyzedNutritionScreen(
+                                                    selectedDate:
+                                                        widget.selectedDate,
+                                                    dataMap: widget
+                                                            .selectedNutrition[
+                                                        index],
+                                                  ),
+                                              settings: const RouteSettings(
+                                                  name:
+                                                      'analyzed_nutrition_screen')),
                                         );
                                       },
                                       child: CustomPieChart(
-                                        dataMap: widget.selectedNutrition[index],
+                                        dataMap:
+                                            widget.selectedNutrition[index],
                                         isLegends: false,
                                       ),
                                     ),

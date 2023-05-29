@@ -1,16 +1,17 @@
 // ignore_for_file: library_private_types_in_public_api, avoid_print
 
+import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
 
 import '../views/food_record_screen.dart';
 import '../views/analyzed_image_screen.dart';
 import '../views/anlyzing_screen.dart';
 import '../common/no_animation_page_route.dart';
-
 
 class CustomImagePicker extends StatefulWidget {
   final String selectedDate;
@@ -34,6 +35,73 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
   //   return pickedFile;
   // }
 
+  void sendRequest(File image) async {
+    var request = http.MultipartRequest(
+      'POST',
+      Uri.parse('http://3.34.110.7:8080/analized-nutrient-info'),
+    );
+
+    request.files.add(
+      await http.MultipartFile.fromPath(
+        'image',
+        image.path,
+        filename: '화면 캡처 2023-05-09 164154.png',
+      ),
+    );
+
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      print('Request sent successfully');
+    } else {
+      print('Error sending request. Status code: ${response.statusCode}');
+    }
+  }
+
+  void printResponseBody(http.StreamedResponse response) async {
+    // Response의 body를 문자열로 변환
+    var responseBody = await response.stream.bytesToString();
+
+    // JSON 형식인 경우 디코딩하여 출력
+    try {
+      var jsonBody = json.decode(responseBody);
+      print(jsonBody);
+    } catch (e) {
+      // JSON 형식이 아닌 경우 그대로 출력
+      print(responseBody);
+    }
+  }
+
+  void sendSpring(File image) async {
+    List<int> imageBytes = await image.readAsBytes();
+
+    // HTTP POST 요청 보내기
+    String url = 'http://3.34.110.7:8080/upload'; // 업로드할 서버 URL
+
+    var request = http.MultipartRequest('POST', Uri.parse(url));
+
+    // Content-Type 헤더 설정
+    request.headers['Content-Type'] = 'image/png'; // 전송할 이미지 파일 형식에 맞게 설정
+
+    // 파일 데이터를 추가
+    request.files.add(
+      http.MultipartFile.fromBytes('image', imageBytes, filename: 'image.jpg'),
+    );
+    // 추가적인 필드나 헤더를 설정할 수도 있음
+    // request.headers['Authorization'] = 'Bearer your-token';
+
+    // 요청 보내고 응답 받기
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      print('사진 업로드 성공');
+      print(response.stream);
+      printResponseBody(response);
+    } else {
+      print('사진 업로드 실패: ${response.reasonPhrase}');
+    }
+  }
+
   Future onPhoto(ImageSource source) async {
     XFile? f = await ImagePicker().pickImage(source: source);
 
@@ -43,16 +111,23 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
       return Navigator.push(
         context,
         NoAnimationPageRoute(
-          builder: (context) => FoodRecordScreen(),
-          settings: const RouteSettings(name: 'food_record_screen')),
+            builder: (context) => FoodRecordScreen(),
+            settings: const RouteSettings(name: 'food_record_screen')),
       );
     }
+
     mPhoto = File(f.path); // cache 에 저장되는 이미지 경로
     Future<Uint8List> photo = mPhoto!.readAsBytes(); // 이미지를 int 값으로 변환
     photo.then((val) {
       // print(' 데이터 크기 = ${val.length}');
+      //SendImageToFlask().sendToImageToFlask(val);
+      sendSpring(File(f.path));
+      //sendRequest(File(f.path));
+
       print('get image');
-    }).catchError((error) {});
+    }).catchError((error) {
+      print('error');
+    });
 
     return photo;
   }
@@ -68,7 +143,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
           width: MediaQuery.of(context).size.width * 0.81,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.grey.shade700, 
+              color: Colors.grey.shade700,
               width: 1.2,
             ),
           ),
@@ -77,10 +152,7 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey.shade700,
-                    width: 1.2
-                  ),
+                  border: Border.all(color: Colors.grey.shade700, width: 1.2),
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.white,
                 ),
@@ -111,10 +183,11 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                         Navigator.push(
                           context,
                           NoAnimationPageRoute(
-                            builder: (context) => AnalyzedImageScreen(
-                              selectedDate: widget.selectedDate,
-                            ),
-                            settings: const RouteSettings(name: 'image_screen')),
+                              builder: (context) => AnalyzedImageScreen(
+                                    selectedDate: widget.selectedDate,
+                                  ),
+                              settings:
+                                  const RouteSettings(name: 'image_screen')),
                         );
                       },
                     ),
@@ -129,11 +202,12 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                           Navigator.push(
                             context,
                             NoAnimationPageRoute(
-                              builder: (context) => AnalyzingScreen( 
-                                photo: photo,
-                                selectedDate: widget.selectedDate,
-                              ),
-                              settings: const RouteSettings(name: 'analyzed_image_screen')),
+                                builder: (context) => AnalyzingScreen(
+                                      photo: photo,
+                                      selectedDate: widget.selectedDate,
+                                    ),
+                                settings: const RouteSettings(
+                                    name: 'analyzed_image_screen')),
                           );
                         });
                       },
@@ -150,11 +224,12 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                             Navigator.push(
                               context,
                               NoAnimationPageRoute(
-                                builder: (context) => AnalyzingScreen( 
-                                  photo: photo,
-                                  selectedDate: widget.selectedDate,
-                                ),
-                                settings: const RouteSettings(name: 'image_screen')),
+                                  builder: (context) => AnalyzingScreen(
+                                        photo: photo,
+                                        selectedDate: widget.selectedDate,
+                                      ),
+                                  settings: const RouteSettings(
+                                      name: 'image_screen')),
                             );
                           });
                         }
@@ -184,7 +259,7 @@ class CustomIconButton extends StatelessWidget {
   final Color textColor;
 
   const CustomIconButton({
-    super.key, 
+    super.key,
     required this.imagePath,
     required this.buttonText,
     required this.onPressed,
@@ -206,10 +281,7 @@ class CustomIconButton extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           buttonText,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 12
-          ),
+          style: TextStyle(color: textColor, fontSize: 12),
         ),
       ],
     );
