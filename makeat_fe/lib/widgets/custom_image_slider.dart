@@ -1,12 +1,19 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CustomImageSlider extends StatefulWidget {
   final List<String> imagePathList;
   final int initialIndex;
+  double sliderHeight;
 
-  const CustomImageSlider(
-      {super.key, required this.imagePathList, this.initialIndex = 0});
+  CustomImageSlider({
+    super.key, 
+    required this.imagePathList, 
+    this.initialIndex = 0,
+    this.sliderHeight = 0.0,
+  });
 
   @override
   // ignore: library_private_types_in_public_api
@@ -30,7 +37,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: widget.sliderHeight==0.0 ? MediaQuery.of(context).size.height * 0.5 : widget.sliderHeight,
           child: PageView.builder(
             controller: _pageController,
             itemCount: widget.imagePathList.length,

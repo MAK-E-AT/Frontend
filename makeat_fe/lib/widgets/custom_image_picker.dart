@@ -14,10 +14,14 @@ import '../common/no_animation_page_route.dart';
 
 class CustomImagePicker extends StatefulWidget {
   final String selectedDate;
+  final bool isLabel;
+  final double spaceBetween;
 
   const CustomImagePicker({
     super.key,
     required this.selectedDate,
+    this.isLabel = true,
+    this.spaceBetween = 20.0,
   });
 
   @override
@@ -61,8 +65,8 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 20.0,
+        SizedBox(
+          height: widget.spaceBetween,
         ),
         Container(
           width: MediaQuery.of(context).size.width * 0.81,
@@ -75,30 +79,32 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey.shade700,
-                    width: 1.2
+              (widget.isLabel == true) 
+              ? Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey.shade700,
+                      width: 1.2
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.white,
                   ),
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.white,
-                ),
-                width: 160,
-                height: 38,
-                margin: const EdgeInsets.fromLTRB(0, 4, 0, 12),
-                padding: const EdgeInsets.all(8),
-                child: Center(
-                  child: Text(
-                    '식단을 추가해주세요',
-                    style: TextStyle(
-                      color: Colors.grey.shade800,
-                      fontSize: 14,
-                      // fontWeight: FontWeight.bold,
+                  width: 160,
+                  height: 38,
+                  margin: const EdgeInsets.fromLTRB(0, 4, 0, 12),
+                  padding: const EdgeInsets.all(8),
+                  child: Center(
+                    child: Text(
+                      '식단을 추가해주세요',
+                      style: TextStyle(
+                        color: Colors.grey.shade800,
+                        fontSize: 14,
+                        // fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ),
+                )
+              : const SizedBox(height: 8.0,),
               SizedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -169,8 +175,8 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
             ],
           ),
         ),
-        const SizedBox(
-          height: 20.0,
+        SizedBox(
+          height: widget.spaceBetween,
         ),
       ],
     );

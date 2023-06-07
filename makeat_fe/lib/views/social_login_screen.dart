@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:makeat_fe/views/additional_user_info_screen.dart';
-import 'package:makeat_fe/views/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../common/no_animation_page_route.dart';

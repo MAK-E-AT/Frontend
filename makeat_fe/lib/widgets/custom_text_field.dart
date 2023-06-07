@@ -50,7 +50,7 @@ class CustomTextField extends StatelessWidget {
               textAlign: TextAlign.center,
               controller: textEditingController,
               cursorColor: Colors.black54,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              // keyboardType: const TextInputType.numberWithOptions(decimal: true),
               inputFormatters: [
                 FilteringTextInputFormatter.allow(RegExp(regExp)),
               ],

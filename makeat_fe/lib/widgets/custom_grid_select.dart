@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 
-class CustomGridSelection extends StatefulWidget {
+class CustomGridSelect extends StatefulWidget {
   final List<String> imgList;
+  final List<String>? imgList2;
+  final double imgWidth;
+  final double imgHeight;
   final List<String> workoutList;
-  final List<String> workoutInfoList;
+  final List<String>? workoutInfoList;
+  final int maxSelect;
+  final bool isBackground;
+  final bool isBorder;
 
-  const CustomGridSelection({
+  const CustomGridSelect({
     Key? key, 
     required this.imgList,
+    this.imgList2,
+    this.imgWidth = 40.0,
+    this.imgHeight = 40.0,
     required this.workoutList,
-    required this.workoutInfoList,
+    this.workoutInfoList,
+    required this.maxSelect,
+    this.isBackground = true,
+    this.isBorder = true,
   }) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _CustomGridSelectionState createState() => _CustomGridSelectionState();
+  _CustomGridSelectState createState() => _CustomGridSelectState();
 }
 
-class _CustomGridSelectionState extends State<CustomGridSelection> {
+class _CustomGridSelectState extends State<CustomGridSelect> {
   List<bool> _isSelected = [];
 
   @override
@@ -45,13 +57,13 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
             setState(() {
               if (_isSelected[index]) {
                 _isSelected[index] = false;
-              } else if (_isSelected.where((element) => element).length < 3) {
+              } else if (_isSelected.where((element) => element).length < widget.maxSelect) {
                 _isSelected[index] = true;
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('최대 3개의 운동만 선택할 수 있습니다.'),
-                    duration: Duration(seconds: 1),
+                  SnackBar(
+                    content: Text('최대 ${widget.maxSelect}개만 선택할 수 있습니다.'),
+                    duration: const Duration(seconds: 1),
                   ),
                 );
               }
@@ -59,9 +71,9 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: _isSelected[index] ? Colors.green.shade50 : Colors.white,
+              color: (widget.isBackground && _isSelected[index]) ? Colors.green.shade50 : Colors.grey.shade50,
               border: Border.all(
-                color: Colors.grey.shade800
+                color: widget.isBorder? Colors.grey.shade800 : Colors.grey.shade50,
               ),
               borderRadius: BorderRadius.circular(10.0),
             ),
@@ -70,19 +82,21 @@ class _CustomGridSelectionState extends State<CustomGridSelection> {
               children: [
                 const SizedBox(height: 5.0,),
                 Image.asset(
-                  widget.imgList[index],
-                  width: 40.0,
-                  height: 40.0,
+                  (widget.imgList2 != null && _isSelected[index]) ? widget.imgList2![index] : widget.imgList[index],
+                  width: widget.imgWidth,
+                  height: widget.imgHeight,
                 ),
                 const SizedBox(height: 10.0,),
                 Text(
                   widget.workoutList[index],
                   style: const TextStyle(fontSize: 12.0),
                 ),
-                Text(
-                  '${widget.workoutInfoList[index]} kcal',
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                )
+                if (widget.workoutInfoList != null) ... {
+                  Text(
+                    '${widget.workoutInfoList![index]} kcal',
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  )
+                }       
               ],
             ),
           ),

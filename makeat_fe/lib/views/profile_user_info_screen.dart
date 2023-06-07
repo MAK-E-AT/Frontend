@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 import '../common/no_animation_page_route.dart';
@@ -20,7 +22,7 @@ class ProfileUserInfoScreen extends StatefulWidget {
 
 class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
 
-  final TextEditingController _ageController = TextEditingController();
+  // final TextEditingController _ageController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _kcalController = TextEditingController();
@@ -188,10 +190,11 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
                   style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 5.0,),
-                CustomGridSelection(
+                CustomGridSelect(
                   imgList: _imgList,
                   workoutList: _workoutList,
                   workoutInfoList: _workoutInfoList,
+                  maxSelect: 3,
                 ),
                 const SizedBox(height: 20.0,)
               ],

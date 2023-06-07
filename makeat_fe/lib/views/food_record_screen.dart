@@ -3,23 +3,24 @@ import 'package:flutter/material.dart';
 import '../common/no_animation_page_route.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
+import '../widgets/custom_image_picker.dart';
 import 'food_record_detail_screen.dart';
 
 
 class FoodRecordScreen extends StatelessWidget {
   final List<String> dateList = [
-    '5월 12일',
-    '5월 11일',
-    '5월 10일',
-    '5월 09일',
-    '5월 08일',
-    '5월 07일',
+    '6월 07일',
+    '6월 06일',
+    '6월 05일',
+    '6월 04일',
+    '6월 03일',
+    '6월 02일',
   ];
 
   final List<List<String>> timeList= [
     [
-      '08시 53분',
-      '12시 36분',
+      // '08시 53분',
+      // '12시 36분',
     ],
     [
       '08시 57분',
@@ -27,8 +28,8 @@ class FoodRecordScreen extends StatelessWidget {
       '19시 42분',
     ],
     [
-      '08시 51분',
-      '15시 59분',
+      // '08시 51분',
+      // '15시 59분',
     ],
     [
       '07시 43분',
@@ -47,8 +48,8 @@ class FoodRecordScreen extends StatelessWidget {
 
   final List<List<String>> mealList = [
     [
-      'assets/images/sample_food/f4.png',
-      'assets/images/sample_food/f2.png',
+      // 'assets/images/sample_food/f4.png',
+      // 'assets/images/sample_food/f2.png',
     ],
     [
       'assets/images/sample_food/f1.png',
@@ -56,8 +57,8 @@ class FoodRecordScreen extends StatelessWidget {
       'assets/images/sample_food/f5.png',
     ],
     [
-      'assets/images/sample_food/f5.png',
-      'assets/images/sample_food/f4.png',
+      // 'assets/images/sample_food/f5.png',
+      // 'assets/images/sample_food/f4.png',
     ],
     [
       'assets/images/sample_food/f4.png',
@@ -76,18 +77,18 @@ class FoodRecordScreen extends StatelessWidget {
 
   final List<List<Map<String, double>>> nutritionList = [
     [
-      {
-        "탄수화물": 77.0,
-        "단백질": 13.0,
-        "지방": 12.0,
-        "나트륨": 6.0,
-      },
-      {
-        "탄수화물": 84.0,
-        "단백질": 21.0,
-        "지방": 18.0,
-        "나트륨": 15.0,
-      },
+      // {
+      //   "탄수화물": 77.0,
+      //   "단백질": 13.0,
+      //   "지방": 12.0,
+      //   "나트륨": 6.0,
+      // },
+      // {
+      //   "탄수화물": 84.0,
+      //   "단백질": 21.0,
+      //   "지방": 18.0,
+      //   "나트륨": 15.0,
+      // },
     ],
     [
       {
@@ -110,18 +111,18 @@ class FoodRecordScreen extends StatelessWidget {
       },
     ],
     [
-      {
-        "탄수화물": 66.0,
-        "단백질": 27.0,
-        "지방": 10.0,
-        "나트륨": 8.0,
-      },
-      {
-        "탄수화물": 94.0,
-        "단백질": 11.0,
-        "지방": 18.0,
-        "나트륨": 15.0,
-      },
+      // {
+      //   "탄수화물": 66.0,
+      //   "단백질": 27.0,
+      //   "지방": 10.0,
+      //   "나트륨": 8.0,
+      // },
+      // {
+      //   "탄수화물": 94.0,
+      //   "단백질": 11.0,
+      //   "지방": 18.0,
+      //   "나트륨": 15.0,
+      // },
     ],
     [
       {
@@ -203,44 +204,46 @@ class FoodRecordScreen extends StatelessWidget {
                   Center(
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: 100.0,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: mealList[index].length,
-                        itemBuilder: (BuildContext context, int index2) {
-                          return Container(
-                            // decoration: BoxDecoration(
-                            //   border: Border.all(
-                            //     color: Colors.grey, // 윤곽선 색상
-                            //     width: 1.0, // 윤곽선 너비
-                            //   ),
-                            // ),
-                            margin: const EdgeInsets.all(0.2),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  NoAnimationPageRoute(
-                                    builder: (context) => FoodRecordDetailScreen(
-                                      selectedDate: dateList[index],
-                                      selectedTime: timeList[index],
-                                      selectedMeal: mealList[index],
-                                      selectedNutrition: nutritionList[index],
-                                    ), 
-                                    settings: const RouteSettings(name: 'image_picker_screen')
-                                  ),
-                                );
-                              },
-                              child: Image.asset(
-                                mealList[index][index2],
-                                width: 100.0,
-                                height: 100.0,
-                                fit: BoxFit.cover,
+                      height: mealList[index].isNotEmpty ? 100.0 : 112.0,
+                      child: mealList[index].isNotEmpty 
+                      ? ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: mealList[index].length,
+                          itemBuilder: (BuildContext context, int index2) {
+                            return Container(
+                              // decoration: BoxDecoration(
+                              //   border: Border.all(
+                              //     color: Colors.grey, // 윤곽선 색상
+                              //     width: 1.0, // 윤곽선 너비
+                              //   ),
+                              // ),
+                              margin: const EdgeInsets.all(0.2),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    NoAnimationPageRoute(
+                                      builder: (context) => FoodRecordDetailScreen(
+                                        selectedDate: dateList[index],
+                                        selectedTime: timeList[index],
+                                        selectedMeal: mealList[index],
+                                        selectedNutrition: nutritionList[index],
+                                      ), 
+                                      settings: const RouteSettings(name: 'image_picker_screen')
+                                    ),
+                                  );
+                                },
+                                child: Image.asset(
+                                  mealList[index][index2],
+                                  width: 100.0,
+                                  height: 100.0,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
+                            );
+                          },
+                        )
+                      : CustomImagePicker( selectedDate: dateList[index], isLabel: false, spaceBetween: 0.0,)
                     ),
                   ),
                   const SizedBox(height: 10,)
