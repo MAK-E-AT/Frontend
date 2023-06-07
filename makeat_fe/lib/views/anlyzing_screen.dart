@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-
 import 'analyzed_image_screen.dart';
 import '../common/no_animation_page_route.dart';
 
@@ -30,9 +29,9 @@ class _AnalyzingScreenState extends State<AnalyzingScreen> {
         context,
         NoAnimationPageRoute(
             builder: (context) => AnalyzedImageScreen(
-              selectedDate: widget.selectedDate,
-              photo: widget.photo,
-            ),
+                  selectedDate: widget.selectedDate,
+                  photo: widget.photo,
+                ),
             settings: const RouteSettings(name: 'analyzed_image_screen')),
       );
     });
@@ -49,9 +48,9 @@ class _AnalyzingScreenState extends State<AnalyzingScreen> {
           children: [
             /* MAK-E-AT 로고(대) */
             Image.asset(
-              width: 100.0,
-              height: 100.0,
-              'assets/images/sample_icons/analyze_icon.gif',
+              width: 250.0,
+              height: 250.0,
+              'assets/images/sample_icons/analyze_Icon2.gif',
             ),
             const SizedBox(
               height: 50.0,
