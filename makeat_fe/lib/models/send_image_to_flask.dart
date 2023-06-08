@@ -4,14 +4,13 @@ import 'dart:typed_data';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
-
 class SendImageToFlask {
   // ignore: unused_field
   final _flutterSecureStorage = const FlutterSecureStorage();
 
   Future<bool> sendToImageToFlask(Uint8List image) async {
     // ignore: no_leading_underscores_for_local_identifiers
-    const String _flask = 'http://localhost:8080/test';
+    const String _flask = 'http://3.35.9.94:5000/upload';
     final response = await http.post(
       Uri.parse(_flask),
       headers: {
@@ -19,6 +18,7 @@ class SendImageToFlask {
       },
       body: jsonEncode(
         <String, dynamic>{
+          "key": "image",
           "image": image,
         },
       ),
@@ -42,12 +42,10 @@ class SendImageToFlask {
 
       return true;
     } else {
-
       // ignore: avoid_print
-      print('error');
+      print('데이터를 제대로 못받음 error');
       // 예외(에러) 처리
       return false;
     }
   }
 }
-

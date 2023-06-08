@@ -165,10 +165,17 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
       bottomNavigationBar: CustomElevatedButton(
         buttonText: '이 사진으로 식단 분석하러 가기',
         onPressed: () {
+          //SendImageToFlask.sendToImageToFlask(photo);
+          // 여기 해야 함
+          print('test');
+
           return Navigator.push(
               context,
               NoAnimationPageRoute(
-                  builder: (context) => const AnalyzingScreen(),
+                  builder: (context) => AnalyzingScreen(
+                        selectedDate: widget.selectedDate,
+                        photo: photo,
+                      ),
                   settings: const RouteSettings(name: 'analyzing_screen')));
         },
       ),

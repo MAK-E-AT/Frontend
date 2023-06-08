@@ -27,18 +27,18 @@ class CustomCheckBox extends HookWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 80.0,),
+        const SizedBox(height: 60.0,),
         InkWell(
           onTap: () => isChecked.value = !isChecked.value,
           child: Container(
-            width: 18.0,
-            height: 18.0,
+            width: 16.0,
+            height: 16.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: checkBoxColor),
             ),
             child: isChecked.value
-                ? Icon(checkBoxIcon, color: checkBoxColor, size: 16.0)
+                ? Icon(checkBoxIcon, color: checkBoxColor, size: 14.0)
                 : null,
           ),
         ),
@@ -49,14 +49,20 @@ class CustomCheckBox extends HookWidget {
             children: [
               TextSpan(
                 text: checkBoxText1,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
               ),
-              TextSpan(text: checkBoxText2),
+              TextSpan(
+                text: checkBoxText2,
+                style: const TextStyle(fontSize: 12.0)
+              ),
               TextSpan(
                 text: checkBoxText3,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
               ),
-              TextSpan(text: checkBoxText4),
+              TextSpan(
+                text: checkBoxText4,
+                style: const TextStyle(fontSize: 12.0)
+              ),
             ],
           ),
         ),

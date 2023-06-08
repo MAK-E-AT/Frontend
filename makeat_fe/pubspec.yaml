@@ -48,10 +48,11 @@ dependencies:
   http: ^0.13.5
   intl: ^0.17.0
   kakao_flutter_sdk: ^1.4.2
+  charts_common: ^0.12.0
   flutter_webview_plugin:
     git:
       url: https://github.com/hardy716/flutter_webview_plugin.git 
-  charts_common: ^0.12.0
+  
   
       
 dev_dependencies:
@@ -93,6 +94,13 @@ flutter:
     - assets/images/bottom_navigation_bar/user_off.png
     - assets/images/bottom_navigation_bar/user_on.png
 
+    - assets/images/score_select/green_on.png
+    - assets/images/score_select/green_off.png
+    - assets/images/score_select/red_on.png
+    - assets/images/score_select/red_off.png
+    - assets/images/score_select/yellow_on.png
+    - assets/images/score_select/yellow_off.png
+
     - assets/images/social_login/apple_login.png
     - assets/images/social_login/kakao_login.png
     - assets/images/social_login/naver_login.png
@@ -104,11 +112,18 @@ flutter:
     - assets/images/sample_manual/sample_manual_5.png
 
     - assets/images/sample_food/sample_food.png
+    - assets/images/sample_food/empty_image.png
     - assets/images/sample_food/f1.png
     - assets/images/sample_food/f2.png
     - assets/images/sample_food/f3.png
     - assets/images/sample_food/f4.png
     - assets/images/sample_food/f5.png
+    - assets/images/sample_food/f6.png
+    - assets/images/sample_food/f7.png
+    - assets/images/sample_food/f8.png
+    - assets/images/sample_food/f9.jpeg
+    - assets/images/sample_food/f10.jpg
+    - assets/images/sample_food/f11.jpeg
 
     - assets/images/sample_diagram/d1.png
 
@@ -119,15 +134,27 @@ flutter:
     - assets/images/profile_menu/notice.png
     - assets/images/profile_menu/settings.png
 
-    - assets/images/exercise_select/shoulder_press.png
+    - assets/images/exercise_select/hiking.png
     - assets/images/exercise_select/jogging.png
     - assets/images/exercise_select/yoga.png
+    - assets/images/exercise_select/walking.png
+    - assets/images/exercise_select/soccer.png
+    - assets/images/exercise_select/pilates.png
+    - assets/images/exercise_select/climbing.png
+    - assets/images/exercise_select/climbing_stairs.png
+    - assets/images/exercise_select/swimming.png
+    - assets/images/exercise_select/jumping_rope.png
+    - assets/images/exercise_select/badminton.png
+    - assets/images/exercise_select/dancing.png
+    - assets/images/exercise_select/lunges.png
+    - assets/images/exercise_select/cycle.png
 
     - assets/images/meal_select/text.png
     - assets/images/meal_select/camera.png
     - assets/images/meal_select/gallery.png
 
     - assets/images/sample_icons/analyze_icon.gif
+    - assets/images/sample_icons/analyze_Icon2.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

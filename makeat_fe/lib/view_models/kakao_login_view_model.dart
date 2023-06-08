@@ -47,7 +47,7 @@ class KakaoLoginViewModel extends ChangeNotifier {
     if (authCode != '') {
       debugPrint('인증 타입은 $kakaoType 입니다. \n KAKAO 인증코드는 $authCode 입니다.');
       // // 백엔드에 인증코드 전달
-      kakaoLoginModel.sendAuthCodeToBackend('kakao', authCode);
+      // kakaoLoginModel.sendAuthCodeToBackend('kakao', authCode);
     } else {
       debugPrint('KAKAO/인증코드가 반환되지 않았습니다.');
     }
