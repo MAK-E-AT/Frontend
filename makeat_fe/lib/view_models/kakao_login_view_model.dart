@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
@@ -7,7 +9,7 @@ class KakaoLoginViewModel extends ChangeNotifier {
   String authCode = '';
   String kakaoType = '';
 
-  Future<void> loginWithKakao() async {
+  Future<bool> loginWithKakao() async {
     final kakaoLoginModel = SocialLoginModel();
 
     // 카카오톡이 설치되어 있는 경우
@@ -21,7 +23,7 @@ class KakaoLoginViewModel extends ChangeNotifier {
         // 사용자가 로그인을 취소한 경우
         if (error is PlatformException && error.code == 'CANCELED') {
           debugPrint('ERR/CANCELED');
-          return;
+          return false;
         }
         // 카카오톡에 연결된 카카오계정이 없는 경우
         try {
@@ -47,9 +49,11 @@ class KakaoLoginViewModel extends ChangeNotifier {
     if (authCode != '') {
       debugPrint('인증 타입은 $kakaoType 입니다. \n KAKAO 인증코드는 $authCode 입니다.');
       // // 백엔드에 인증코드 전달
-      kakaoLoginModel.sendAuthCodeToBackend('kakao', authCode);
+      if (kakaoLoginModel.sendAuthCodeToBackend('kakao', authCode)==true) return true;
+      return false;
     } else {
       debugPrint('KAKAO/인증코드가 반환되지 않았습니다.');
+      return false;
     }
   }
 }

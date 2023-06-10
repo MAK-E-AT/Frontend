@@ -12,13 +12,13 @@ class SocialLoginModel {
 
     // ignore: no_leading_underscores_for_local_identifiers
     
-    // final String _backend = 'http://13.124.218.39/v1/user/$socialType?code=$authCode';
-    final String _backend = 'http://3.34.110.7:8080/v1/user/$socialType?code=$authCode';
-    print(_backend);
+    // final String backendUrl = 'http://13.124.218.39/v1/user/$socialType?code=$authCode';
+    final String backendUrl = 'http://3.34.110.7:8080/v1/user/$socialType?code=$authCode';
+    print(backendUrl);
 
-    // final String _backendEnd = 'http://localhost:8080/user/$socialType';
+    // final String backendUrl = 'http://localhost:8080/user/$socialType';
     var response = await http.get(
-      Uri.parse(_backend),
+      Uri.parse(backendUrl),
       headers: {
         'Content-Type': 'application/json', 
         // 'Authorization': authCode
@@ -49,24 +49,25 @@ class SocialLoginModel {
     } else {
       print('응답 실패');
       // 예외(에러) 처리
-      // return false;
+
       return true;
+      // return false;
     }
   }
 
   /* (신규) 회원 정보를 백엔드로 전달 */
   Future<bool> sendNewUserInfoToBackend() async {
     // ignore: no_leading_underscores_for_local_identifiers
-    const String _backendEnd = 'http://localhost:8080/';
-    final response = await http.post( Uri.parse(_backendEnd) );
+    const String backendUrl = 'http://3.34.110.7:8080/';
+    final response = await http.post( Uri.parse(backendUrl) );
     if (response.statusCode == 200) { return true; } else { return false; }
   }
 
   /* 수정된 회원 정보를 백엔드로 전달 */
   Future<bool> sendModifyUserInfoToBackend() async {
     // ignore: no_leading_underscores_for_local_identifiers
-    const String _backendEnd = 'http://localhost:8080/';
-    final response = await http.post( Uri.parse(_backendEnd) );
+    const String backendUrl = 'http://3.34.110.7:8080/';
+    final response = await http.post( Uri.parse(backendUrl) );
     if (response.statusCode == 200) { return true; } else { return false; }
   }
 }

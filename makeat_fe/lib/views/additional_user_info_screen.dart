@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:makeat_fe/views/home_screen.dart';
+import 'package:makeat_fe/views/social_login_screen.dart';
 
 import '../common/no_animation_page_route.dart';
 
+import '../view_models/authentication_status.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_check_box.dart';
 import '../widgets/custom_elevated_button.dart';
@@ -22,9 +24,30 @@ class AdditionalUserInfoScreen extends StatefulWidget {
 
 class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
 
+  late AuthProvider authProvider;
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    authProvider = AuthProvider();
+    authProvider.login();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (authProvider.isLoggedIn) {
+      return _buildLoggedInWidget();
+    } else {
+      return _buildLoggedOutWidget();
+    }
+  }
+
+  Widget _buildLoggedOutWidget() {
+    return const SocialLoginScreen();
+  }
 
   List<String> imagePaths = [
     'assets/images/sample_manual/sample_manual_1.png',
@@ -34,8 +57,8 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
     'assets/images/sample_manual/sample_manual_5.png',
   ];
 
-  @override
-  Widget build(BuildContext context) {
+  // Widget build(BuildContext context) {
+  Widget _buildLoggedInWidget() {
     return MaterialApp(
       home: Scaffold(
         appBar: const CustomAppBar(),
