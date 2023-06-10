@@ -19,8 +19,7 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
       ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
-      ChangeNotifierProvider(
-          create: (context) => CustomBottomNavigationBarModel()),
+      ChangeNotifierProvider(create: (context) => CustomBottomNavigationBarModel()),
     ],
     child: MAKEAT(),
   ));

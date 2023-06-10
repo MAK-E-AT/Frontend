@@ -233,12 +233,12 @@ class _CustomImagePickerState extends State<CustomImagePicker> {
                             Navigator.push(
                               context,
                               NoAnimationPageRoute(
-                                  builder: (context) => AnalyzingScreen(
-                                        photo: photo,
-                                        selectedDate: widget.selectedDate,
-                                      ),
-                                  settings: const RouteSettings(
-                                      name: 'image_screen')),
+                                builder: (context) => AnalyzingScreen(
+                                  photo: photo,
+                                  selectedDate: widget.selectedDate,
+                                ),
+                                settings: const RouteSettings(
+                                  name: 'image_screen')),
                             );
                           });
                         }

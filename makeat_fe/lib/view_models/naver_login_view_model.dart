@@ -61,7 +61,7 @@ class NaverLoginViewModel extends ChangeNotifier {
 
         final authCode = url.split('code=')[1].replaceFirst('&state=flutter_naver_login', '');
         debugPrint('NAVER 인증 코드는 $authCode 입니다.');
-        // naverLoginModel.sendAuthCodeToBackend('naver', authCode);
+        naverLoginModel.sendAuthCodeToBackend('naver', authCode);
         
       } else {
         debugPrint('NAVER/인증 코드가 반환되지 않았습니다.');
