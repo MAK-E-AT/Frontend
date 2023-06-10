@@ -11,7 +11,9 @@ class SocialLoginModel {
   Future<bool> sendAuthCodeToBackend(String socialType, String authCode) async {
 
     // ignore: no_leading_underscores_for_local_identifiers
-    final String _backend = 'http://13.124.218.39/v1/user/$socialType?code=$authCode';
+    
+    // final String _backend = 'http://13.124.218.39/v1/user/$socialType?code=$authCode';
+    final String _backend = 'http://3.34.110.7:8080/v1/user/$socialType?code=$authCode';
     print(_backend);
 
     // final String _backendEnd = 'http://localhost:8080/user/$socialType';

@@ -41,14 +41,14 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '', 
                   onTap: () async { 
-                    // kakaoLoginViewModel.loginWithKakao();
-                    Navigator.push(
-                      context,
-                      NoAnimationPageRoute(
-                        builder: (context) => const AdditionalUserInfoScreen(),
-                        settings: const RouteSettings(name: 'additional_user_info_screen')
-                      ),
-                    );
+                    kakaoLoginViewModel.loginWithKakao();
+                    // Navigator.push(
+                    //   context,
+                    //   NoAnimationPageRoute(
+                    //     builder: (context) => const AdditionalUserInfoScreen(),
+                    //     settings: const RouteSettings(name: 'additional_user_info_screen')
+                    //   ),
+                    // );
                   }, 
                   imageURL: 'assets/images/social_login/kakao_login.png', 
                   buttonColor: const Color(0xfffee500),
@@ -60,14 +60,14 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
                   onTap: () async { 
-                    // naverLoginViewModel.loginWithNaver();
-                    Navigator.push(
-                      context,
-                      NoAnimationPageRoute(
-                        builder: (context) => const AdditionalUserInfoScreen(),
-                        settings: const RouteSettings(name: 'additional_user_info_screen')
-                      ),
-                    );
+                    naverLoginViewModel.loginWithNaver();
+                    // Navigator.push(
+                    //   context,
+                    //   NoAnimationPageRoute(
+                    //     builder: (context) => const AdditionalUserInfoScreen(),
+                    //     settings: const RouteSettings(name: 'additional_user_info_screen')
+                    //   ),
+                    // );
                   }, 
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: const Color(0xff03c75a),
