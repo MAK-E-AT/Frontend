@@ -5,9 +5,11 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:makeat_fe/views/manual_screen.dart';
 import 'package:makeat_fe/views/profile_text_content_screen.dart';
 import 'package:makeat_fe/views/social_login_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../common/no_animation_page_route.dart';
 
+import '../view_models/authentication_status.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_grid_menu.dart';
 import '../widgets/custom_list_view.dart';
@@ -172,13 +174,17 @@ class ProfileUserScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 6.0),
                   child: GestureDetector(
                     onTap: () async {
-                      Navigator.push(
-                        context, 
-                        NoAnimationPageRoute(
-                          builder: (context) => const SocialLoginScreen(), 
-                          settings: const RouteSettings(name: 'social_login_screen')
+                      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+                      [
+                        authProvider.logout(),
+                        Navigator.push(
+                          context, 
+                          NoAnimationPageRoute(
+                            builder: (context) => const SocialLoginScreen(), 
+                            settings: const RouteSettings(name: 'social_login_screen')
+                          )
                         )
-                      ); 
+                      ];
                     },  // 로그아웃
                     child: const Text(
                       '로그아웃',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:makeat_fe/view_models/authentication_status.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
@@ -19,6 +20,7 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
       ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
+      ChangeNotifierProvider(create: (context) => AuthProvider()),
       ChangeNotifierProvider(create: (context) => CustomBottomNavigationBarModel()),
     ],
     child: MAKEAT(),

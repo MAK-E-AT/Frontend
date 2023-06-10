@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks, use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:makeat_fe/views/additional_user_info_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../common/no_animation_page_route.dart';
+import '../view_models/authentication_status.dart';
 import '../widgets/custom_login_button.dart';
 import '../view_models/kakao_login_view_model.dart';
 import '../view_models/naver_login_view_model.dart';
@@ -15,7 +18,6 @@ class SocialLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final viewModel = Provider.of<SocialLoginViewModel>(context);
     final kakaoLoginViewModel = Provider.of<KakaoLoginViewModel>(context, listen: false);
     final naverLoginViewModel = Provider.of<NaverLoginViewModel>(context, listen: false);
 
@@ -41,14 +43,14 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '', 
                   onTap: () async { 
-                    kakaoLoginViewModel.loginWithKakao();
-                    // Navigator.push(
-                    //   context,
-                    //   NoAnimationPageRoute(
-                    //     builder: (context) => const AdditionalUserInfoScreen(),
-                    //     settings: const RouteSettings(name: 'additional_user_info_screen')
-                    //   ),
-                    // );
+                    await kakaoLoginViewModel.loginWithKakao();
+                    Navigator.push(
+                      context,
+                      NoAnimationPageRoute(
+                        builder: (context) => const AdditionalUserInfoScreen(),
+                        settings: const RouteSettings(name: 'additional_user_info_screen')
+                      ),
+                    );
                   }, 
                   imageURL: 'assets/images/social_login/kakao_login.png', 
                   buttonColor: const Color(0xfffee500),
@@ -61,13 +63,13 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText2: '  네이버로 시작하기       ', 
                   onTap: () async { 
                     naverLoginViewModel.loginWithNaver();
-                    // Navigator.push(
-                    //   context,
-                    //   NoAnimationPageRoute(
-                    //     builder: (context) => const AdditionalUserInfoScreen(),
-                    //     settings: const RouteSettings(name: 'additional_user_info_screen')
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      NoAnimationPageRoute(
+                        builder: (context) => const AdditionalUserInfoScreen(),
+                        settings: const RouteSettings(name: 'additional_user_info_screen')
+                      ),
+                    );
                   }, 
                   imageURL: 'assets/images/social_login/naver_login.png', 
                   buttonColor: const Color(0xff03c75a),
@@ -80,8 +82,14 @@ class SocialLoginScreen extends StatelessWidget {
                     buttonText1: '  Apple', 
                     buttonText2: '로 시작하기      ', 
                     onTap: () async { 
-                      kakaoLoginViewModel.loginWithKakao();
-                      naverLoginViewModel.loginWithNaver();
+                      // 애플 소셜 로그인 미완
+                      Navigator.push(
+                      context,
+                      NoAnimationPageRoute(
+                        builder: (context) => const AdditionalUserInfoScreen(),
+                        settings: const RouteSettings(name: 'additional_user_info_screen')
+                      ),
+                    );
                     }, 
                     imageURL: 'assets/images/social_login/apple_login.png', 
                     buttonColor: const Color(0xff000000),
