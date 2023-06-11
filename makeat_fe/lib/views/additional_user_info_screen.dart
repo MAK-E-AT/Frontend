@@ -1,6 +1,5 @@
-// ignore_for_file: unnecessary_null_comparison
-
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:makeat_fe/views/home_screen.dart';
 import 'package:makeat_fe/views/social_login_screen.dart';
 
@@ -25,9 +24,10 @@ class AdditionalUserInfoScreen extends StatefulWidget {
 class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
 
   late AuthProvider authProvider;
-  final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _heightController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController(text: '');
+  final TextEditingController _heightController = TextEditingController(text: '');
+  final TextEditingController _weightController = TextEditingController(text: '');
+  bool isChecked = false;
 
   @override
   void initState() {
@@ -74,6 +74,8 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   CustomImageSlider(
                     imagePathList: imagePaths,
                   ),
+
+                  const SizedBox(height: 10.0,),
                   
                   /* 나이
                     1. 숫자 타입
@@ -124,14 +126,14 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   ),
 
                   /* 이용약관 및 개인정보처리방침 확인 */
-                  const CustomCheckBox(
-                    checkBoxText1: '이용약관',
-                    checkBoxText2: ' 및 ',
-                    checkBoxText3: '개인정보처리방침',
-                    checkBoxText4: '에 동의합니다.',
-                    checkBoxColor: Colors.black,
-                    checkBoxIcon: Icons.check_circle,
-                  ),
+                  // CustomCheckBox(
+                  //   checkBoxText1: '이용약관',
+                  //   checkBoxText2: ' 및 ',
+                  //   checkBoxText3: '개인정보처리방침',
+                  //   checkBoxText4: '에 동의합니다.',
+                  //   checkBoxColor: Colors.black,
+                  //   checkBoxIcon: Icons.check_circle,
+                  // )
                 ],
               ),
             ),
@@ -140,26 +142,70 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
         bottomNavigationBar: CustomElevatedButton(
           buttonText: '시  작  하  기',
           onPressed: () {
-            if (
-              _ageController == null 
-              || _heightController == null 
-              || _weightController == null
-            ) {
+            if (_ageController.text == '') {  // 나이 정보를 입력하지 않은 경우
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('사용자님의 나이 정보를 입력해주세요.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else if (_heightController.text == '') {  // 키 정보를 입력하지 않은 경우
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('사용자님의 키 정보를 입력해주세요.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else if (_weightController.text == '') {  // 무게 정보를 입력하지 않은 경우
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('사용자님의 무게 정보를 입력해주세요'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else {
               return Navigator.push(
                 context, 
                 NoAnimationPageRoute(
-                  builder: (context) => const AdditionalUserInfoScreen(), 
+                  builder: (context) => const HomeScreen(), 
                   settings: const RouteSettings(name: 'home_screen')
                 )
               );
             }
-            return Navigator.push(
-              context, 
-              NoAnimationPageRoute(
-                builder: (context) => const HomeScreen(), 
-                settings: const RouteSettings(name: 'home_screen')
-              )
-            );
+            
           },
         )
       )
