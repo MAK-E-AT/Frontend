@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makeat_fe/widgets/custom_square_container.dart';
 
 import '../common/no_animation_page_route.dart';
 import '../widgets/custom_app_bar.dart';
@@ -53,7 +54,7 @@ class FoodRecordScreen extends StatelessWidget {
     ],
     [
       'assets/images/sample_food/f1.png',
-      'assets/images/sample_food/f3.png',
+      'text/망고 샐러드',
       'assets/images/sample_food/f5.png',
     ],
     [
@@ -204,8 +205,8 @@ class FoodRecordScreen extends StatelessWidget {
                   Center(
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: mealList[index].isNotEmpty ? 100.0 : 112.0,
-                      child: mealList[index].isNotEmpty 
+                      height: nutritionList[index].isNotEmpty ? 100.0 : 112.0,
+                      child: nutritionList[index].isNotEmpty 
                       ? ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: mealList[index].length,
@@ -233,17 +234,19 @@ class FoodRecordScreen extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                child: Image.asset(
-                                  mealList[index][index2],
-                                  width: 100.0,
-                                  height: 100.0,
-                                  fit: BoxFit.cover,
-                                ),
+                                child: mealList[index][index2].toLowerCase().startsWith('text/')
+                                  ? CustomSquareContainer(text: mealList[index][index2].replaceFirst('text/', ''))
+                                  : Image.asset(
+                                      mealList[index][index2],
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
+                                    )
                               ),
                             );
                           },
                         )
-                      : CustomImagePicker( selectedDate: dateList[index], isLabel: false, spaceBetween: 0.0,)
+                      : CustomImagePicker(selectedDate: dateList[index], isLabel: false, spaceBetween: 0.0,)
                     ),
                   ),
                   const SizedBox(height: 10,)

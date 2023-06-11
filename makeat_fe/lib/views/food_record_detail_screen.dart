@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:makeat_fe/views/analyzed_nutrition_screen.dart';
 import 'package:makeat_fe/widgets/custom_image_picker.dart';
 import 'package:makeat_fe/widgets/custom_pie_chart.dart';
+import 'package:makeat_fe/widgets/custom_square_container.dart';
 
 import '../common/no_animation_page_route.dart';
 import '../widgets/custom_bottom_navigation_bar.dart';
@@ -155,16 +156,28 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                                       'analyzed_nutrition_screen')),
                                         );
                                       },
-                                      child: Image.asset(
-                                        widget.selectedMeal[index],
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.38,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.4,
-                                        fit: BoxFit.cover,
-                                      ),
+                                      child: widget.selectedMeal[index].toLowerCase().startsWith('text/')
+                                        ? CustomSquareContainer(
+                                            text: widget.selectedMeal[index].replaceFirst('text/', ''),
+                                            textSize: 16.0,
+                                            interval: 5.0,
+                                            containerWidth:
+                                                MediaQuery.of(context).size.width *
+                                                    0.38,
+                                            containerHeight:
+                                                MediaQuery.of(context).size.width *
+                                                    0.4,
+                                          )
+                                        : Image.asset(
+                                            widget.selectedMeal[index],
+                                            width:
+                                                MediaQuery.of(context).size.width *
+                                                    0.38,
+                                            height:
+                                                MediaQuery.of(context).size.width *
+                                                    0.4,
+                                            fit: BoxFit.cover,
+                                          )
                                     ),
                                   );
                                 } else {
@@ -189,8 +202,7 @@ class _FoodRecordDetailScreenState extends State<FoodRecordDetailScreen> {
                                                         index],
                                                   ),
                                               settings: const RouteSettings(
-                                                  name:
-                                                      'analyzed_nutrition_screen')),
+                                                  name: 'analyzed_nutrition_screen')),
                                         );
                                       },
                                       child: CustomPieChart(
