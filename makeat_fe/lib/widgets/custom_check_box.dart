@@ -37,6 +37,7 @@ class CustomCheckBox extends HookWidget {
               shape: BoxShape.circle,
               border: Border.all(color: checkBoxColor),
             ),
+            // child: Icon(checkBoxIcon, color: checkBoxColor, size: 14.0),
             child: isChecked.value
                 ? Icon(checkBoxIcon, color: checkBoxColor, size: 14.0)
                 : null,

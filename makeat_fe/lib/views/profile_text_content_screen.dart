@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'profile_user_screen.dart';
 
@@ -45,7 +46,7 @@ class TextContentScreen extends StatelessWidget {
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     /* 이용약관 및 개인정보처리방침 확인 */
-                    isCheck == true ? const CustomCheckBox(
+                    isCheck == true ? CustomCheckBox(
                       checkBoxText1: '이용약관',
                       checkBoxText2: ' 및 ',
                       checkBoxText3: '개인정보처리방침',

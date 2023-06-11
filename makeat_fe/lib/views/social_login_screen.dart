@@ -43,7 +43,7 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '', 
                   onTap: () async { 
-                    await kakaoLoginViewModel.loginWithKakao();
+                    // await kakaoLoginViewModel.loginWithKakao();
                     Navigator.push(
                       context,
                       NoAnimationPageRoute(
@@ -62,7 +62,7 @@ class SocialLoginScreen extends StatelessWidget {
                   buttonText1: '', 
                   buttonText2: '  네이버로 시작하기       ', 
                   onTap: () async { 
-                    naverLoginViewModel.loginWithNaver();
+                    // naverLoginViewModel.loginWithNaver();
                     Navigator.push(
                       context,
                       NoAnimationPageRoute(
