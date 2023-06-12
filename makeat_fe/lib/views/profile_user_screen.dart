@@ -99,7 +99,6 @@ class ProfileUserScreen extends StatelessWidget {
                         );
                       },
                       () async {
-
                         // mailto:iabc716@icloud.com 
                         const url = 'https://mail.google.com/mail/u/0/?fs=1&to=iabc716@icloud.com&tf=cm';
                         final flutterWebviewPlugin = FlutterWebviewPlugin();
@@ -163,8 +162,31 @@ class ProfileUserScreen extends StatelessWidget {
                           )
                         ); 
                       },
-                      () async { },  // 리뷰 남기기
-                      () async { },  // 현재 버전
+                      
+                      () async {  // 리뷰 남기기
+                        const url = 'https://www.apple.com/kr/app-store/';
+                        final flutterWebviewPlugin = FlutterWebviewPlugin();
+
+                        // 플러터 웹뷰 실행
+                        flutterWebviewPlugin.launch(
+                          url,
+                          clearCache: true,
+                          clearCookies: true,
+                          withJavascript: true,
+                        );
+                      },  
+                      () async {  // 현재 버전
+                        const url = 'https://www.apple.com/kr/app-store/';
+                        final flutterWebviewPlugin = FlutterWebviewPlugin();
+
+                        // 플러터 웹뷰 실행
+                        flutterWebviewPlugin.launch(
+                          url,
+                          clearCache: true,
+                          clearCookies: true,
+                          withJavascript: true,
+                        );
+                      },
                     ],
                     itemSpacing: 0.0,
                   )

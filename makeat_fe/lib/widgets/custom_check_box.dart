@@ -9,6 +9,7 @@ class CustomCheckBox extends HookWidget {
   final String checkBoxText4;
   final Color checkBoxColor;
   final IconData checkBoxIcon;
+  final bool checkState;
 
   const CustomCheckBox({
     super.key,
@@ -18,11 +19,12 @@ class CustomCheckBox extends HookWidget {
     required this.checkBoxText4,
     required this.checkBoxColor,
     required this.checkBoxIcon,
+    this.checkState = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    final isChecked = useState(false);
+    final isChecked = useState(checkState);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

@@ -205,7 +205,7 @@ class FoodRecordScreen extends StatelessWidget {
                   Center(
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: nutritionList[index].isNotEmpty ? 100.0 : 112.0,
+                      height: nutritionList[index].isNotEmpty ? 100.0 : 120.0,
                       child: nutritionList[index].isNotEmpty 
                       ? ListView.builder(
                           scrollDirection: Axis.horizontal,

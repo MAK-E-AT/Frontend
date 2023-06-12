@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../common/no_animation_page_route.dart';
 
+import '../view_models/exercise_select.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_grid_select.dart';
@@ -23,9 +25,9 @@ class ProfileUserInfoScreen extends StatefulWidget {
 class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
 
   // final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _heightController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
-  final TextEditingController _kcalController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController(text: '');
+  final TextEditingController _weightController = TextEditingController(text: '');
+  final TextEditingController _kcalController = TextEditingController(text: '');
   
   final List<String> _imgList = [
     'assets/images/exercise_select/hiking.png',
@@ -204,13 +206,152 @@ class _ProfileUserInfoScreenState extends State<ProfileUserInfoScreen> {
       bottomNavigationBar: CustomElevatedButton(
         buttonText: '내   정 보   수 정 하 기',
         onPressed: () {
-          return Navigator.push(
-            context, 
-            NoAnimationPageRoute(
-              builder: (context) => const ProfileUserScreen(), 
-              settings: const RouteSettings(name: 'profile_user_screen')
-            )
-          );
+          if (_heightController.text == '') {  // 키 정보를 입력하지 않은 경우
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('사용자님의 키 정보를 입력해주세요.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else if (int.parse(_heightController.text) < 100) {  // 키가 100 미만인 경우 
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('키(cm)는 100 이상의 값만 입력 가능합니다.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else if (_weightController.text == '') {  // 체중 정보를 입력하지 않은 경우
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('사용자님의 체중 정보를 입력해주세요.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else if (int.parse(_weightController.text) < 30) {  // 체중이 30 미만인 경우
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('체중(kg)은 30 이상의 값만 입력 가능합니다.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else if (_kcalController.text == '') {  // 목표 정보를 입력하지 않은 경우
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('사용자님의 목표 정보를 입력해주세요.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else if (int.parse(_kcalController.text) < 500) {  // 목표 칼로리가 500미만인 경우
+            return showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('서비스 안내'),
+                  content: const Text('목표(kcal)는 500 이상의 값만 입력 가능합니다.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text('확인'),
+                    ),
+                  ],
+                );
+              },
+            );
+          } else {
+            ExerciseSelectProvider exerciseProvider = Provider.of<ExerciseSelectProvider>(context, listen: false);
+            List<List<String>> selectedExercise = exerciseProvider.selectedExercise;
+            
+            return selectedExercise.length != 3
+            ? showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('선호하는 운동을 3개 선택해주세요.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              )
+            : Navigator.push(
+                context, 
+                NoAnimationPageRoute(
+                  builder: (context) => const ProfileUserScreen(), 
+                  settings: const RouteSettings(name: 'profile_user_screen')
+                )
+              );
+
+            // return Navigator.push(
+            //   context, 
+            //   NoAnimationPageRoute(
+            //     builder: (context) => const ProfileUserScreen(), 
+            //     settings: const RouteSettings(name: 'profile_user_screen')
+            //   )
+            // );
+          }
         },
       ),
     );

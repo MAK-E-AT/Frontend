@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:makeat_fe/views/home_screen.dart';
 import 'package:makeat_fe/views/social_login_screen.dart';
 
@@ -7,7 +6,6 @@ import '../common/no_animation_page_route.dart';
 
 import '../view_models/authentication_status.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/custom_check_box.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/custom_image_slider.dart';
@@ -160,6 +158,24 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   );
                 },
               );
+            } else if (int.parse(_ageController.text) < 8) {  // 나이가 8 미만인 경우 
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('나이(세)는 8 이상의 값만 입력 가능합니다.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
             } else if (_heightController.text == '') {  // 키 정보를 입력하지 않은 경우
               return showDialog(
                 context: context,
@@ -178,13 +194,49 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   );
                 },
               );
+            } else if (int.parse(_heightController.text) < 100) {  // 키가 100 미만인 경우 
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('키(cm)는 100 이상의 값만 입력 가능합니다.'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
             } else if (_weightController.text == '') {  // 무게 정보를 입력하지 않은 경우
               return showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('서비스 안내'),
-                    content: const Text('사용자님의 무게 정보를 입력해주세요'),
+                    content: const Text('사용자님의 체중 정보를 입력해주세요'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('확인'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            } else if (int.parse(_weightController.text) < 30) {  // 체중이 30 미만인 경우
+              return showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('서비스 안내'),
+                    content: const Text('체중(kg)은 30 이상의 값만 입력 가능합니다.'),
                     actions: [
                       TextButton(
                         onPressed: () {
@@ -204,8 +256,7 @@ class _AdditionalUserInfoScreenState extends State<AdditionalUserInfoScreen> {
                   settings: const RouteSettings(name: 'home_screen')
                 )
               );
-            }
-            
+            }   
           },
         )
       )
