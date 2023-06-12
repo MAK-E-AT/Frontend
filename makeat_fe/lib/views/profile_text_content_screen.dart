@@ -46,13 +46,14 @@ class TextContentScreen extends StatelessWidget {
                       style: const TextStyle(fontSize: 16.0),
                     ),
                     /* 이용약관 및 개인정보처리방침 확인 */
-                    isCheck == true ? CustomCheckBox(
+                    isCheck == true ? const CustomCheckBox(
                       checkBoxText1: '이용약관',
                       checkBoxText2: ' 및 ',
                       checkBoxText3: '개인정보처리방침',
                       checkBoxText4: '에 동의합니다.',
                       checkBoxColor: Colors.black,
                       checkBoxIcon: Icons.check_circle,
+                      checkState: true,
                     )
                     : const SizedBox(height: 5.0,)
                   ],

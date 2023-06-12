@@ -4,8 +4,9 @@ import 'package:makeat_fe/view_models/authentication_status.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
+import 'view_models/exercise_select.dart';
 import 'views/social_login_screen.dart';
-import 'models/bottom_navigation_index.dart';
+import 'view_models/bottom_navigation_index.dart';
 import 'view_models/kakao_login_view_model.dart';
 import 'view_models/naver_login_view_model.dart';
 
@@ -21,7 +22,8 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (context) => KakaoLoginViewModel()),
       ChangeNotifierProvider(create: (context) => NaverLoginViewModel()),
       ChangeNotifierProvider(create: (context) => AuthProvider()),
-      ChangeNotifierProvider(create: (context) => CustomBottomNavigationBarModel()),
+      ChangeNotifierProvider(create: (context) => BottomNavigatoinBarProvider()),
+      ChangeNotifierProvider(create: (context) => ExerciseSelectProvider()),
     ],
     child: MAKEAT(),
   ));
