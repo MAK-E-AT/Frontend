@@ -123,50 +123,17 @@ class HomeScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 8.0),
                         onTap: null
                       )
-                      // Row(
-                      //   children: [
-
-                      //     ClipOval(
-                      //       child: Image.asset(
-                      //         'assets/images/sample_food/f9.jpeg',
-                      //         width: 120,
-                      //         height: 120,
-                      //         fit: BoxFit.cover,
-                      //       ),
-                      //     ),
-                      //     ClipOval(
-                      //       child: Image.asset(
-                      //         'assets/images/sample_food/f10.jpg',
-                      //         width: 120,
-                      //         height: 120,
-                      //         fit: BoxFit.cover,
-                      //       ),
-                      //     ),
-                      //     ClipOval(
-                      //       child: Image.asset(
-                      //         'assets/images/sample_food/f11.jpeg',
-                      //         width: 120,
-                      //         height: 120,
-                      //         fit: BoxFit.cover,
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
                     ),
-
-                    
 
                     //주간 칼로리 섭취량 <- 일별 총 섭취 칼로리 텍스트 넣기
                     const CustomTitleText(
-                      title: '주간 칼로리 섭취량 [kcal]',
-                      paddingLTRB: [24.0, 24.0, 0.0, 0.0],
+                      title: '주간 칼로리 누적 섭취량 [kcal]',
+                      paddingLTRB: [24.0, 24.0, 0.0, 8.0],
                     ),
                     const Padding(
                       padding: EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
                       child: CustomBarChart(),
                     ), 
-
-                    
                   ],
                 ),
               ),

@@ -16,7 +16,7 @@ class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProvid
   final carbohydrateColor = Colors.red.shade300;
   final fatColor = Colors.yellow.shade400;
   final proteinColor = Colors.orange.shade300;
-  final betweenSpace = 0.2;
+  final betweenSpace = 0.0;
 
   BarChartGroupData generateGroupData(
     int x,
@@ -36,13 +36,13 @@ class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProvid
         ),
         BarChartRodData(
           fromY: carbohydrates + betweenSpace,
-          toY: carbohydrates + betweenSpace + protein,
+          toY: carbohydrates + protein,
           color: proteinColor,
           width: 10,
         ),
         BarChartRodData(
           fromY: carbohydrates + betweenSpace + protein + betweenSpace,
-          toY: carbohydrates + betweenSpace + protein + betweenSpace + fat,
+          toY: carbohydrates + protein + fat,
           color: fatColor,
           width: 10,
         ),
@@ -87,19 +87,11 @@ class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProvid
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, 24.0),
+      padding: const EdgeInsets.fromLTRB(24.0, 4.0, 24.0, 24.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          LegendsListWidget(
-            legends: [
-              Legend('탄수화물', carbohydrateColor),
-              Legend('단백질', proteinColor),
-              Legend('지방', fatColor),
-            ],
-          ),
-          const SizedBox(height: 5),
           AspectRatio(
             aspectRatio: 2,
             child: BarChart(
@@ -120,32 +112,33 @@ class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProvid
                 barTouchData: BarTouchData(enabled: true),
                 borderData: FlBorderData(show: false),
                 gridData: FlGridData(show: false),
-                barGroups: [
-                  generateGroupData(0, 2.0, 3.0, 2.0),
-                  generateGroupData(1, 1.0, 2.0, 3.0),
-                  generateGroupData(2, 1.3, 3.1, 2.8),
-                  generateGroupData(3, 3.1, 4.2, 3.1),
-                  generateGroupData(4, 0.8, 3.3, 3.4),
-                  generateGroupData(5, 2.0, 5.6, 1.8),
-                  generateGroupData(6, 1.3, 3.2, 2.0),
+                barGroups: [  // 단위 : kcal
+                  generateGroupData(0, 400, 600, 400),
+                  generateGroupData(1, 300, 600, 900),
+                  generateGroupData(2, 360, 640, 840),
+                  generateGroupData(3, 640, 840, 310),
+                  generateGroupData(4, 360, 770, 680),
+                  generateGroupData(5, 400, 1120, 360),
+                  generateGroupData(6, 390, 960, 500),
                 ],
-                maxY: 11 + (betweenSpace * 3),
+                maxY: 2200,  // 단위 : kcal
                 extraLinesData: ExtraLinesData(
                   horizontalLines: [
+                    // 6.6 : 9.4 : 6 비율, 단위 : kcal
                     HorizontalLine(
-                      y: 3.3,
+                      y: 660,
                       color: carbohydrateColor,
                       strokeWidth: 1,
                       dashArray: [20, 4],
                     ),
                     HorizontalLine(
-                      y: 8,
+                      y: 1600,
                       color: proteinColor,
                       strokeWidth: 1,
                       dashArray: [20, 4],
                     ),
                     HorizontalLine(
-                      y: 11,
+                      y: 2200,
                       color: fatColor,
                       strokeWidth: 1,
                       dashArray: [20, 4],
@@ -153,6 +146,17 @@ class _CustomBarChartState extends State<CustomBarChart> with SingleTickerProvid
                   ],
                 ),
               ),
+            ),
+          ),
+          const SizedBox(height: 18.0,),
+          Align(
+            alignment: Alignment.centerRight,
+            child: LegendsListWidget(
+              legends: [
+                Legend('탄수화물', carbohydrateColor),
+                Legend('단백질', proteinColor),
+                Legend('지방', fatColor),
+              ],
             ),
           ),
         ],

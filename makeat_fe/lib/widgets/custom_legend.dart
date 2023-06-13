@@ -45,7 +45,7 @@ class LegendsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      spacing: 16,
+      spacing: 12,
       children: legends
           .map(
             (e) => LegendWidget(
